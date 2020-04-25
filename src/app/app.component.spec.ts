@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'soundbase-front'`, () => {
+  it(`should have as title 'soundhive-front'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('soundbase-front');
+    expect(app.title).toEqual('soundhive-front');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('soundbase-front app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('soundhive-front app is running!');
   });
 });
