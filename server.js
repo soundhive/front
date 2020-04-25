@@ -1,3 +1,4 @@
+// This express app is used to serve the built static files on Heroku
 const express = require('express');
 
 const app = express();
