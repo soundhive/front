@@ -6,7 +6,7 @@ const app = express();
 app.use(express.static('./dist/soundhive-front'));
 
 app.get('/*', function (req, res) {
-  res.sendFile('index.html', { root: 'dist/soundhive-front.json>' }
+  res.sendFile('index.html', { root: 'dist/soundhive-front' }
   );
 });
 
