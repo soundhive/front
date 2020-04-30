@@ -8,8 +8,7 @@
     "build": "ng build --configuration=${ENV}",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "heroku-prebuild": "npm install --dev"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
