@@ -1,5 +1,135 @@
 /* You can add global styles to this file, and also import other style files */
 
+/* START: Additional Additional Boostrap Specific CSS for materialdesignicons */
+
+.mdi {
+    &::before {
+        font-size: 24px;
+        line-height: 14px;
+    }
+}
+
+.btn {
+    .mdi {
+        &::before {
+            position: relative;
+            top: 4px;
+        }
+    }
+}
+
+.btn-xs {
+    .mdi {
+        &::before {
+            font-size: 18px;
+            top: 3px;
+        }
+    }
+}
+
+.btn-sm {
+    .mdi {
+        &::before {
+            font-size: 18px;
+            top: 3px;
+        }
+    }
+}
+
+.dropdown-menu {
+    .mdi {
+        width: 18px;
+
+        &::before {
+            position: relative;
+            top: 4px;
+            left: -8px;
+        }
+    }
+}
+
+.nav {
+    .mdi {
+        &::before {
+            position: relative;
+            top: 4px;
+        }
+    }
+}
+
+.navbar {
+    .navbar-toggle {
+        .mdi {
+            &::before {
+                position: relative;
+                top: 4px;
+                color: #FFF;
+            }
+        }
+    }
+}
+
+.breadcrumb {
+    .mdi {
+        &::before {
+            position: relative;
+            top: 4px;
+        }
+    }
+
+    a {
+        &:hover {
+            text-decoration: none;
+
+            span {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.alert {
+    .mdi {
+        &::before {
+            position: relative;
+            top: 4px;
+            margin-right: 2px;
+        }
+    }
+}
+
+.input-group-addon {
+    .mdi {
+        &::before {
+            position: relative;
+            top: 3px;
+        }
+    }
+}
+
+.navbar-brand {
+    .mdi {
+        &::before {
+            position: relative;
+            top: 2px;
+            margin-right: 2px;
+        }
+    }
+}
+
+.list-group-item {
+    .mdi {
+        &::before {
+            position: relative;
+            top: 3px;
+            left: -3px;
+        }
+    }
+}
+
+/* END: Additional Additional Boostrap Specific CSS for materialdesignicons */
+
+
 /* Importing Bootstrap SCSS file. */
 @import "~bootswatch/dist/lux/variables";
 @import "~bootstrap/scss/bootstrap";
