@@ -1,5 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 
+/* Importing Font Awesome v4.7 SCSS file */
+$fa-font-path: "~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome";
+
+/* Importing Material Design Icons SCSS file */
+$mdi-font-path: "~@mdi/font/fonts";
+@import "~@mdi/font/scss/materialdesignicons";
+
+/* Importing Bootstrap SCSS file. */
+@import "~bootswatch/dist/lux/variables";
+@import "~bootstrap/scss/bootstrap";
+@import "~bootswatch/dist/lux/bootswatch";
+
 /* START: Additional Additional Boostrap Specific CSS for materialdesignicons */
 
 .mdi {
@@ -128,9 +141,3 @@
 }
 
 /* END: Additional Additional Boostrap Specific CSS for materialdesignicons */
-
-
-/* Importing Bootstrap SCSS file. */
-@import "~bootswatch/dist/lux/variables";
-@import "~bootstrap/scss/bootstrap";
-@import "~bootswatch/dist/lux/bootswatch";
