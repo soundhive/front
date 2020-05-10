@@ -1,18 +1,21 @@
 <div class="auth-wrapper container">
-  <form class="form-signin" [formGroup]="signupForm" (ngSubmit)="registerUser()">
-      <h3 class="h3 mb-3 font-weight-normal text-center">Please sign up</h3>
-      <div class="form-group">
-          <label>Name</label>
-          <input type="text" class="form-control" formControlName="name" placeholder="Enter name" required>
-      </div>
-      <div class="form-group">
-          <label>Username</label>
-          <input type="username" class="form-control" formControlName="username" placeholder="Enter username" required>
-      </div>
-      <div class="form-group">
-          <label>Password</label>
-          <input type="password" class="form-control" formControlName="password" placeholder="Password" required>
-      </div>
-      <button type="submit" class="btn btn-block btn-primary">Sign up</button>
-  </form>
+    <form class="form-signin" [formGroup]="signupForm" (ngSubmit)="registerUser()">
+        <h3 class="h3 mb-3 font-weight-normal text-center">Please sign up</h3>
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" formControlName="name" placeholder="Enter name"
+                   required>
+        </div>
+        <div class="form-group">
+            <label>Username</label>
+            <input type="username" class="form-control" formControlName="username"
+                   placeholder="Enter username" required>
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" formControlName="password"
+                   placeholder="Password" required>
+        </div>
+        <button type="submit" class="btn btn-block btn-primary">Sign up</button>
+    </form>
 </div>
