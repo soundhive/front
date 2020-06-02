@@ -1,25 +1,36 @@
 <nav *ngIf="!this.authService.isLoggedIn" class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-    <a class="navbar-brand">Soundhive</a>
+    <div class="container">
+        <a class="navbar-brand">Soundhive</a>
 
-    <a class="p-2 text-dark"
-       routerLinkActive="active"
-       routerLink="/log-in"
-    >Sign in</a>
+        <a class="p-2 text-dark"
+           routerLinkActive="active"
+           routerLink="/log-in"
+        >Sign in</a>
 
-    <a class="btn btn-outline-primary"
-       routerLinkActive="active"
-       routerLink="/sign-up"
-    >Sign up</a>
-  </div>
+        <a class="btn btn-outline-primary"
+           routerLinkActive="active"
+           routerLink="/sign-up"
+        >Sign up</a>
+    </div>
 </nav>
 
-<a *ngIf="this.authService.isLoggedIn" class="p-2 text-dark">User Profile</a>
+<div *ngIf="this.authService.isLoggedIn" class="main-layout container-fluid">
+    <div class="row">
+        <!-- LEFT SIDE -->
+        <app-sidebar></app-sidebar>
 
-<button (click)="logout()"
-        *ngIf="this.authService.isLoggedIn"
-        type="button"
-        class="btn btn-danger"
->Logout</button>
+        <!-- RIGHT SIDE -->
+        <div class="right-side col-md">
+            <app-navbar></app-navbar>
+            <!--<app-header></app-header>-->
+            <div class="container pt-5">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>
 
-<router-outlet></router-outlet>
+<div *ngIf="!this.authService.isLoggedIn">
+    <router-outlet></router-outlet>
+</div>
+

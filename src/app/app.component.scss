@@ -1,0 +1,72 @@
+button {
+    &:focus {
+        outline: none;
+    }
+}
+
+input {
+    &:focus {
+        outline: none;
+    }
+}
+
+textarea {
+    &:focus {
+        outline: none;
+    }
+}
+
+select {
+    &:focus {
+        outline: none;
+    }
+}
+
+ul {
+    list-style-type: none;
+}
+
+.right-side {
+    background-color: #d3d3d3;
+    padding: 0;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.main-content {
+    padding: 4rem;
+
+    section {
+        margin-bottom: 3em;
+    }
+}
+
+.section-title {
+    margin-bottom: 1em;
+}
+
+.track-list {
+    .track-container {
+        padding: 10px;
+        background-color: #e8e8e8;
+        margin-bottom: 7px;
+        box-shadow: 0 3px 2px rgba(0, 0, 0, 0.034);
+
+        .track-cover {
+            height: 45px;
+            width: 45px;
+        }
+    }
+
+    .track-title {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .track-dots-options {
+        span {
+            cursor: pointer;
+        }
+    }
+}

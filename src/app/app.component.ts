@@ -10,8 +10,4 @@ export class AppComponent {
   title = 'soundhive-front';
 
   constructor(public authService: AuthService) { }
-
-  logout() {
-    this.authService.doLogout();
-  }
 }
