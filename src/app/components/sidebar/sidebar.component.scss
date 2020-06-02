@@ -1,0 +1,69 @@
+.left-side {
+    background-color: #242424;
+    min-width: 213px;
+    max-width: 213px;
+    padding: 20px 0 0 20px;
+    color: #f1f1f1;
+    height: 100vh;
+
+    ul {
+        padding: 0 0 0 10px;
+        list-style-type: none;
+
+        &:last-child {
+            margin-bottom: 40px;
+        }
+    }
+
+    a {
+        text-decoration: none;
+        color: #f1f1f1;
+
+        &:hover {
+            color: #a3a3a3;
+        }
+
+        &:active {
+            color: #a3a3a3;
+        }
+    }
+
+    h5 {
+        color: #f1f1f1;
+        margin-bottom: 20px;
+    }
+
+    li {
+        margin-bottom: 20px;
+    }
+
+    i {
+        font-size: 22px;
+    }
+
+    span {
+        font-size: 22px;
+    }
+}
+
+.playlists-section-title {
+    margin-right: 50px;
+
+    &:nth-of-type(i) {
+        font-size: 18px;
+    }
+}
+
+.browse-music-section {
+    margin-top: 40px;
+
+    i {
+        margin-right: 10px;
+    }
+}
+
+.your-music-section {
+    i {
+        margin-right: 10px;
+    }
+}
