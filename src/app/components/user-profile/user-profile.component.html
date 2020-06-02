@@ -1,9 +1,11 @@
 <div class="container">
     <div class="row">
-        <div class="inner-main" *ngIf="this.currentUser">
-            <h2 class="mb-4">User Profile</h2>
+        <div class="inner-main w-100" *ngIf="this.currentUser">
+            <h1 class="mb-4">User Profile</h1>
             <p><strong>Name:</strong> {{this.currentUser.name}}</p>
             <p><strong>Username:</strong> {{this.currentUser.username}}</p>
+
+            <app-track></app-track>
         </div>
     </div>
 </div>

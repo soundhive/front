@@ -15,6 +15,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HomeComponent } from './components/home/home.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HeaderComponent } from './components/header/header.component';
+import { TrackComponent } from './components/track/track.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { HeaderComponent } from './components/header/header.component';
     HomeComponent,
     PageNotFoundComponent,
     HeaderComponent,
+    TrackComponent,
   ],
   imports: [
     BrowserModule,
