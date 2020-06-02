@@ -46,7 +46,7 @@ export class AuthService {
 
   get isLoggedIn(): boolean {
     const authToken = localStorage.getItem('access_token');
-    return (authToken !== null) ? true : false;
+    return (authToken !== null);
   }
 
   doLogout() {
@@ -58,8 +58,16 @@ export class AuthService {
 
   // User profile
   getUserProfile(username): Observable<any> {
-    const api = `${this.endpoint}/users/${username}`;
-    return this.http.get(api, { headers: this.headers }).pipe(
+    if (!username) {
+      return this.http.get(`${this.endpoint}/profile`, { headers: this.headers }).pipe(
+        map((res: Response) => {
+          return res || {};
+        }),
+        catchError(this.handleError)
+      );
+    }
+
+    return this.http.get(`${this.endpoint}/users/${username}`, { headers: this.headers }).pipe(
       map((res: Response) => {
         return res || {};
       }),
