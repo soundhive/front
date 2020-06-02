@@ -11,6 +11,10 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { AuthInterceptor } from './shared/authconfig.interceptor';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { HomeComponent } from './components/home/home.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     SigninComponent,
     SignupComponent,
     UserProfileComponent,
-    NavbarComponent
+    NavbarComponent,
+    SidebarComponent,
+    HomeComponent,
+    PageNotFoundComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
