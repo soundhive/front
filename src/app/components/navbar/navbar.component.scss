@@ -1,6 +1,8 @@
+@import "../../../variables";
+
 nav {
     display: flex;
-    background-color: #1a1a1a;
+    background-color: $black;
     height: 50px;
 }
 
@@ -9,7 +11,7 @@ nav {
 }
 
 input {
-    background-color: #1a1a1a;
+    background-color: $black;
     color: #f1f1f1;
     padding-left: 20px;
     border: none;
@@ -18,7 +20,7 @@ input {
 
 .nav-notification-button {
     button {
-        background-color: #1a1a1a;
+        background-color: $black;
         font-size: 18px;
         color: #f1f1f1;
         border: none;
@@ -26,7 +28,7 @@ input {
         width: 50px;
 
         &:hover {
-            background-color: #242424;
+            background-color: $sidebar;
         }
     }
 }
@@ -39,7 +41,7 @@ input {
     justify-content: center;
 
     &:hover {
-        background-color: #242424;
+        background-color: $sidebar;
     }
 }
 

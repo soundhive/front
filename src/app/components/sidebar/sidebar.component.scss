@@ -1,5 +1,7 @@
+@import "../../../variables";
+
 .left-side {
-    background-color: #242424;
+    background-color: $sidebar;
     min-width: 213px;
     max-width: 213px;
     padding: 20px 0 0 20px;
