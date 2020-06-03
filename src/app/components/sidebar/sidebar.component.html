@@ -1,28 +1,30 @@
 <div class="left-side col-md-2">
-    <img src="/assets/logo/svg/logo-white.svg" class="text-center" style="max-width: 150px;" alt="Soundhive logo">
+    <a [routerLink]="homeLink">
+        <img src="/assets/logo/svg/logo-white.svg" class="text-center" style="max-width: 150px;" alt="Soundhive logo">
+    </a>
     <div class="browse-music-section">
         <p class="lead browse-music-section-title">BROWSE MUSIC</p>
         <ul>
             <li>
-                <a href="#">
+                <a [routerLink]="homeLink">
                     <span class="mdi mdi-music-note"></span>
                     Home
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a [routerLink]="subscriptionsLink">
                     <i class="fa fa-headphones" aria-hidden="true"></i>
                     Subscriptions
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a [routerLink]="chartsLink">
                     <i class="fa fa-music" aria-hidden="true"></i>
                     Charts
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a [routerLink]="discoverLink">
                     <i class="fa fa-podcast" aria-hidden="true"></i>
                     Discover
                 </a>
@@ -34,19 +36,19 @@
         <p class="lead your-music-section-title">YOUR MUSIC</p>
         <ul>
             <li>
-                <a href="#">
+                <a [routerLink]="mySongsLink">
                     <i class="fa fa-music" aria-hidden="true"></i>
                     Songs
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a [routerLink]="myAlbumsLink">
                     <i class="fa fa-music" aria-hidden="true"></i>
                     Albums
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a [routerLink]="myActivityLink">
                     <i class="fa fa-music" aria-hidden="true"></i>
                     Activity
                 </a>
