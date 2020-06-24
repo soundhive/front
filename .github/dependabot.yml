@@ -3,8 +3,16 @@ updates:
 - package-ecosystem: npm
   directory: "/"
   schedule:
-    interval: weekly
-    day: saturday
-    time: "06:00"
-    timezone: Europe/Paris
-  open-pull-requests-limit: 99
+    interval: daily
+  assignees:
+    - "angristan"
+  reviewers:
+    - "angristan"
+- package-ecosystem: "github-actions"
+  directory: "/"
+  schedule:
+    interval: "daily"
+  assignees:
+    - "angristan"
+  reviewers:
+    - "angristan"
