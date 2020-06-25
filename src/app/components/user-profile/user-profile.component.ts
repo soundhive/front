@@ -11,10 +11,30 @@ import { User } from '../../shared/user';
 
 export class UserProfileComponent implements OnInit {
   currentUser: User;
+  userTracks: any[] = [
+    {
+      id: 'd71ee1e0-9185-4f0b-8153-b2a6cb10da56',
+      title: 'TT',
+      description: 'lolz',
+      genre: 'lolz',
+      filename: 'tracks/aaa91e0d14587daec7b2b1f8cbaa7c1e.mp3',
+      createdAt: '2020-06-21T17:53:50.546Z',
+      updatedAt: '2020-06-21T17:53:50.546Z'
+    },
+    {
+      id: 'd71ee1e0-9185-4f0b-8153-b2a6cb10da56',
+      title: 'FANCY YOU',
+      description: 'lolz',
+      genre: 'lolz',
+      filename: 'tracks/aaa91e0d14587daec7b2b1f8cbaa7c1e.mp3',
+      createdAt: '2020-06-21T17:53:50.546Z',
+      updatedAt: '2020-06-21T17:53:50.546Z'
+    }
+  ];
 
   constructor(
     public authService: AuthService,
-    private actRoute: ActivatedRoute
+    private actRoute: ActivatedRoute,
   ) {
     const username = this.actRoute.snapshot.paramMap.get('username');
     this.authService.getUserProfile(username).subscribe(res => {
