@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../shared/auth.service';
 import { User } from '../../models/user';
 import { Track } from 'src/app/models/track';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -34,11 +35,11 @@ export class UserProfileComponent implements OnInit {
   ];
 
   constructor(
-    public authService: AuthService,
+    public userService: UserService,
     private actRoute: ActivatedRoute,
   ) {
     const username = this.actRoute.snapshot.paramMap.get('username');
-    this.authService.getUserProfile(username).subscribe(res => {
+    this.userService.getUser(username).subscribe(res => {
       this.currentUser = res;
     });
   }

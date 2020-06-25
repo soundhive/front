@@ -37,7 +37,7 @@ export class AuthService {
       });
   }
 
-  getToken() {
+  getToken(): string | null {
     return localStorage.getItem('access_token');
   }
 
@@ -53,24 +53,24 @@ export class AuthService {
     }
   }
 
-  // User profile
-  getUserProfile(username): Observable<any> {
-    if (!username) {
-      return this.http.get(`${this.endpoint}/profile`, { headers: this.headers }).pipe(
-        map((res: Response) => {
-          return res || {};
-        }),
-        catchError(this.handleError)
-      );
-    }
+  // // User profile
+  // getUserProfile(username): Observable<any> {
+  //   if (!username) {
+  //     return this.http.get(`${this.endpoint}/profile`, { headers: this.headers }).pipe(
+  //       map((res: Response) => {
+  //         return res || {};
+  //       }),
+  //       catchError(this.handleError)
+  //     );
+  //   }
 
-    return this.http.get(`${this.endpoint}/users/${username}`, { headers: this.headers }).pipe(
-      map((res: Response) => {
-        return res || {};
-      }),
-      catchError(this.handleError)
-    );
-  }
+  //   return this.http.get(`${this.endpoint}/users/${username}`, { headers: this.headers }).pipe(
+  //     map((res: Response) => {
+  //       return res || {};
+  //     }),
+  //     catchError(this.handleError)
+  //   );
+  // }
 
   // Error
   handleError(error: HttpErrorResponse) {
