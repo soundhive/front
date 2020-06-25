@@ -1,14 +1,23 @@
 <div class="container-fluid">
     <section class="description-section">
         <h1 class="mb-4">User Profile</h1>
-        <p><strong>Name:</strong> {{this.currentUser.name}}</p>
-        <p><strong>Username:</strong> {{this.currentUser.username}}</p>
+        <p><strong>Name:</strong> {{ this.currentUser.name }}</p>
+        <p><strong>Username:</strong> {{ this.currentUser.username }}</p>
     </section>
 
     <div class="row">
         <div class="col-12 col-lg-6">
             <div class="w-100" *ngIf="this.currentUser">
-                <app-track [tracks]="userTracks" ></app-track>
+                <section>
+                    <h3 class="section-title mb-4">All Tracks</h3>
+
+                    <div class="track-list">
+                        <app-track
+                            *ngFor="let track of tracks"
+                            [track]="track"
+                        ></app-track>
+                    </div>
+                </section>
             </div>
         </div>
         <div class="col-12 col-lg-6">

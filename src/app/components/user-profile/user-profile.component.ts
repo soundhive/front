@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../shared/auth.service';
-import { User } from '../../shared/user';
+import { User } from '../../models/user';
+import { Track } from 'src/app/models/track';
 
 @Component({
   selector: 'app-user-profile',
@@ -11,15 +12,15 @@ import { User } from '../../shared/user';
 
 export class UserProfileComponent implements OnInit {
   currentUser: User;
-  userTracks: any[] = [
+  tracks: Track[] = [
     {
       id: 'd71ee1e0-9185-4f0b-8153-b2a6cb10da56',
       title: 'TT',
       description: 'lolz',
       genre: 'lolz',
       filename: 'tracks/aaa91e0d14587daec7b2b1f8cbaa7c1e.mp3',
-      createdAt: '2020-06-21T17:53:50.546Z',
-      updatedAt: '2020-06-21T17:53:50.546Z'
+      createdAt: new Date('2020-06-21T17:53:50.546Z'),
+      updatedAt: new Date('2020-06-21T17:53:50.546Z'),
     },
     {
       id: 'd71ee1e0-9185-4f0b-8153-b2a6cb10da56',
@@ -27,8 +28,8 @@ export class UserProfileComponent implements OnInit {
       description: 'lolz',
       genre: 'lolz',
       filename: 'tracks/aaa91e0d14587daec7b2b1f8cbaa7c1e.mp3',
-      createdAt: '2020-06-21T17:53:50.546Z',
-      updatedAt: '2020-06-21T17:53:50.546Z'
+      createdAt: new Date('2020-06-21T17:53:50.546Z'),
+      updatedAt: new Date('2020-06-21T17:53:50.546Z'),
     }
   ];
 
