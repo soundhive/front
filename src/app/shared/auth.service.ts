@@ -33,6 +33,7 @@ export class AuthService {
     return this.http.post<any>(`${this.endpoint}/auth/login`, user)
       .subscribe((res: any) => {
         localStorage.setItem('access_token', res.access_token);
+        localStorage.setItem('username', user.username);
         this.router.navigate(['user/' + user.username]);
       });
   }
