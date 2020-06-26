@@ -1,11 +1,11 @@
 import { Injectable, Inject } from '@angular/core';
 import { environment } from '../../environments/environment';
 
-
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/internal/operators/catchError';
 import { User } from '../models/user';
+import { Track } from '../models/track';
 
 
 @Injectable({
@@ -41,6 +41,13 @@ export class ApiService {
     const url = `${this.endpoint}/users/${username}`;
     return this.http.get<User>(url).pipe(
       catchError(this.handleError<User>(`getUser username=${username}`))
+    );
+  }
+
+  getUserTracks(username: string): Observable<Track[]> {
+    const url = `${this.endpoint}/users/${username}/tracks`;
+    return this.http.get<Track[]>(url).pipe(
+      catchError(this.handleError<Track[]>(`getUserTracks username=${username}`))
     );
   }
 }
