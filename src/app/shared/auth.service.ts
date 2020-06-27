@@ -38,12 +38,12 @@ export class AuthService {
       });
   }
 
-  getToken(): string | null {
+  get token(): string | null {
     return localStorage.getItem('access_token');
   }
 
-    // Get token form local storage, convert base64 to JSON and extract username from payload
-  getUsername(): string | null {
+  // Get token form local storage, convert base64 to JSON and extract username from payload
+  get username(): string | null {
     const token = localStorage.getItem('access_token');
     const payload: { username: string } = JSON.parse(atob(token.split('.')[1]));
 
