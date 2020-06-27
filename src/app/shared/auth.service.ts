@@ -42,6 +42,14 @@ export class AuthService {
     return localStorage.getItem('access_token');
   }
 
+    // Get token form local storage, convert base64 to JSON and extract username from payload
+  getUsername(): string | null {
+    const token = localStorage.getItem('access_token');
+    const payload: { username: string } = JSON.parse(atob(token.split('.')[1]));
+
+    return payload.username;
+  }
+
   get isLoggedIn(): boolean {
     const authToken = localStorage.getItem('access_token');
     return (authToken !== null);
@@ -53,25 +61,6 @@ export class AuthService {
       this.router.navigate(['login']);
     }
   }
-
-  // // User profile
-  // getUserProfile(username): Observable<any> {
-  //   if (!username) {
-  //     return this.http.get(`${this.endpoint}/profile`, { headers: this.headers }).pipe(
-  //       map((res: Response) => {
-  //         return res || {};
-  //       }),
-  //       catchError(this.handleError)
-  //     );
-  //   }
-
-  //   return this.http.get(`${this.endpoint}/users/${username}`, { headers: this.headers }).pipe(
-  //     map((res: Response) => {
-  //       return res || {};
-  //     }),
-  //     catchError(this.handleError)
-  //   );
-  // }
 
   // Error
   handleError(error: HttpErrorResponse) {

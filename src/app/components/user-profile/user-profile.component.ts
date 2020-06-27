@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../shared/auth.service';
 import { User } from '../../models/user';
 import { Track } from 'src/app/models/track';
@@ -17,20 +16,13 @@ export class UserProfileComponent implements OnInit {
 
   constructor(
     public userService: UserService,
-    private actRoute: ActivatedRoute,
+    public authService: AuthService,
   ) {
-    let username: string;
-    if (this.actRoute.snapshot.paramMap.get('username')) {
-      username = this.actRoute.snapshot.paramMap.get('username');
-    } else {
-      username = localStorage.getItem('username');
-    }
-
-    this.userService.getUser(username).subscribe(res => {
+    this.userService.getUser(authService.getUsername()).subscribe(res => {
       this.currentUser = res;
     });
 
-    this.userService.getUserTracks(username).subscribe(res => {
+    this.userService.getUserTracks(authService.getUsername()).subscribe(res => {
       this.tracks = res;
     });
   }
