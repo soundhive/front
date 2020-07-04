@@ -26,7 +26,20 @@
         </div>
         <div class="col-12 col-lg-6">
             <div class="w-100" *ngIf="this.currentUser">
-                <app-album></app-album>
+                <section>
+                    <h3 class="section-title mb-4">All Albums</h3>
+
+                    <div class="container-fluid album-list-container">
+                        <div class="row">
+                            <div
+                                class="col-sm-12 col-md-4"
+                                *ngFor="let album of albums"
+                            >
+                                <app-album [album]="album"></app-album>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
     </div>

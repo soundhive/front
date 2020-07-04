@@ -6,6 +6,7 @@ import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/internal/operators/catchError';
 import { User } from '../models/user';
 import { Track } from '../models/track';
+import { Album } from '../models/album';
 
 
 @Injectable({
@@ -48,6 +49,13 @@ export class ApiService {
     const url = `${this.endpoint}/users/${username}/tracks`;
     return this.http.get<Track[]>(url).pipe(
       catchError(this.handleError<Track[]>(`getUserTracks username=${username}`))
+    );
+  }
+
+  getUserAlbums(username: string): Observable<Album[]> {
+    const url = `${this.endpoint}/users/${username}/albums`;
+    return this.http.get<Album[]>(url).pipe(
+      catchError(this.handleError<Album[]>(`getUserAlbums username=${username}`))
     );
   }
 }
