@@ -11,11 +11,15 @@
                 <section>
                     <h3 class="section-title mb-4">All Tracks</h3>
 
-                    <div class="track-list">
+                    <div class="track-list" *ngIf="tracks.length > 0">
                         <app-track
                             *ngFor="let track of tracks"
                             [track]="track"
                         ></app-track>
+                    </div>
+
+                    <div class="track-list" *ngIf="tracks.length == 0">
+                        No tracks to display.
                     </div>
                 </section>
             </div>
