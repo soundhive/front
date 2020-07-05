@@ -1,62 +1,12 @@
-<section>
-    <h3 class="section-title mb-4">All Albums</h3>
-
-    <div class="container-fluid album-list-container">
-        <div class="row">
-            <div class="col-sm-12 col-md-4">
-                <a href="#">
-                    <div class="card album-card" style="display: inline-block">
-                        <img src="https://via.placeholder.com/1000x1000" class="card-img-top album-cover"  alt="album cover card">
-                        <div class="card-body album-card-body">
-                            <p class="text-center">Random name</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-sm-12 col-md-4">
-                <a href="#">
-                    <div class="card album-card" style="display: inline-block">
-                        <img src="https://via.placeholder.com/1000x1000" class="card-img-top album-cover"  alt="album cover card">
-                        <div class="card-body album-card-body">
-                            <p class="text-center">Random name</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-sm-12 col-md-4">
-                <a href="#">
-                    <div class="card album-card" style="display: inline-block">
-                        <img src="https://via.placeholder.com/1000x1000" class="card-img-top album-cover"  alt="album cover card">
-                        <div class="card-body album-card-body">
-                            <p class="text-center">Random name</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-sm-12 col-md-4">
-                <a href="#">
-                    <div class="card album-card" style="display: inline-block">
-                        <img src="https://via.placeholder.com/1000x1000" class="card-img-top album-cover"  alt="album cover card">
-                        <div class="card-body album-card-body">
-                            <p class="text-center">Random name</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
+<a href="#">
+    <div class="card album-card" style="display: inline-block;">
+        <img
+            src="{{ s3Endpoint }}/{{ s3Bucket }}/{{ album.coverFilename }}"
+            class="card-img-top album-cover"
+            alt="album cover card"
+        />
+        <div class="card-body album-card-body">
+            <p class="text-center">{{ album.title }}</p>
         </div>
     </div>
-
-<!--    <div class="container">-->
-<!--        <div class="row">-->
-<!--            -->
-<!--        </div>-->
-<!--    </div>-->
-
-<!--    <ul>-->
-<!--        <li>Album 1</li>-->
-<!--        <li>Album 2</li>-->
-<!--        <li>Album 3</li>-->
-<!--        <li>Album 4</li>-->
-<!--    </ul>-->
-
-</section>
+</a>

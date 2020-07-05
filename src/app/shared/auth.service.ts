@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User } from './user';
+import { User } from '../models/user';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
@@ -33,12 +33,21 @@ export class AuthService {
     return this.http.post<any>(`${this.endpoint}/auth/login`, user)
       .subscribe((res: any) => {
         localStorage.setItem('access_token', res.access_token);
+        localStorage.setItem('username', user.username);
         this.router.navigate(['user/' + user.username]);
       });
   }
 
-  getToken() {
+  get token(): string | null {
     return localStorage.getItem('access_token');
+  }
+
+  // Get token form local storage, convert base64 to JSON and extract username from payload
+  get username(): string | null {
+    const token = localStorage.getItem('access_token');
+    const payload: { username: string } = JSON.parse(atob(token.split('.')[1]));
+
+    return payload.username;
   }
 
   get isLoggedIn(): boolean {
@@ -51,25 +60,6 @@ export class AuthService {
     if (removeToken == null) {
       this.router.navigate(['login']);
     }
-  }
-
-  // User profile
-  getUserProfile(username): Observable<any> {
-    if (!username) {
-      return this.http.get(`${this.endpoint}/profile`, { headers: this.headers }).pipe(
-        map((res: Response) => {
-          return res || {};
-        }),
-        catchError(this.handleError)
-      );
-    }
-
-    return this.http.get(`${this.endpoint}/users/${username}`, { headers: this.headers }).pipe(
-      map((res: Response) => {
-        return res || {};
-      }),
-      catchError(this.handleError)
-    );
   }
 
   // Error
