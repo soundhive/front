@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  api_endpoint: 'http://localhost:3000'
+  api_endpoint: 'http://localhost:3000',
+  s3_bucket: 'soundhive',
+  s3_endpoint: 'http://localhost:9000'
 };
 
 /*
