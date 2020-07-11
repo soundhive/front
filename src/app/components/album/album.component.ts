@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-album',
   templateUrl: './album.component.html',
-  styleUrls: ['./album.component.scss']
+  styleUrls: ['./album.component.scss'],
 })
 export class AlbumComponent implements OnInit {
   @Input() album: Album;
@@ -17,7 +17,5 @@ export class AlbumComponent implements OnInit {
     this.s3Endpoint = environment.s3_endpoint;
   }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

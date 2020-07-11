@@ -6,11 +6,10 @@ import { Track } from '../models/track';
 import { Album } from '../models/album';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
-
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService) {}
 
   getUser(username: string | null): Observable<User> {
     if (!username) {

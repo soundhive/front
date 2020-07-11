@@ -4,14 +4,12 @@ import { AuthService } from '../../shared/auth.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
+  constructor(public authService: AuthService) {}
 
-  constructor(public authService: AuthService) { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   logout() {
     this.authService.doLogout();

@@ -8,22 +8,18 @@ import { User } from '../models/user';
 import { Track } from '../models/track';
 import { Album } from '../models/album';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiService {
   endpoint: string;
 
-  constructor(
-    private http: HttpClient,
-  ) {
+  constructor(private http: HttpClient) {
     this.endpoint = environment.api_endpoint;
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-
       console.error(error); // log to console instead
 
       // Let the app keep running by returning an empty result.
@@ -33,29 +29,37 @@ export class ApiService {
 
   getSelfProfile(): Observable<User> {
     const url = `${this.endpoint}/profile`;
-    return this.http.get<User>(url).pipe(
-      catchError(this.handleError<User>(`getSelfProfile`))
-    );
+    return this.http
+      .get<User>(url)
+      .pipe(catchError(this.handleError<User>(`getSelfProfile`)));
   }
 
   getUser(username: string): Observable<User> {
     const url = `${this.endpoint}/users/${username}`;
-    return this.http.get<User>(url).pipe(
-      catchError(this.handleError<User>(`getUser username=${username}`))
-    );
+    return this.http
+      .get<User>(url)
+      .pipe(catchError(this.handleError<User>(`getUser username=${username}`)));
   }
 
   getUserTracks(username: string): Observable<Track[]> {
     const url = `${this.endpoint}/users/${username}/tracks`;
-    return this.http.get<Track[]>(url).pipe(
-      catchError(this.handleError<Track[]>(`getUserTracks username=${username}`))
-    );
+    return this.http
+      .get<Track[]>(url)
+      .pipe(
+        catchError(
+          this.handleError<Track[]>(`getUserTracks username=${username}`),
+        ),
+      );
   }
 
   getUserAlbums(username: string): Observable<Album[]> {
     const url = `${this.endpoint}/users/${username}/albums`;
-    return this.http.get<Album[]>(url).pipe(
-      catchError(this.handleError<Album[]>(`getUserAlbums username=${username}`))
-    );
+    return this.http
+      .get<Album[]>(url)
+      .pipe(
+        catchError(
+          this.handleError<Album[]>(`getUserAlbums username=${username}`),
+        ),
+      );
   }
 }
