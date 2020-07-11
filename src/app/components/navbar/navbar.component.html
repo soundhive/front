@@ -11,7 +11,9 @@
     <a routerLink="/profile">
         <div class="nav-profile">
             <img
-                src="https://www.esgi.fr/ecole-informatique/Frederic_Sananes.jpg"
+                src="{{ s3Endpoint }}/{{ s3Bucket }}/{{
+                    currentUser.profilePicture
+                }}"
                 alt="profile picture"
                 class="nav-profile-picture-icon"
             />

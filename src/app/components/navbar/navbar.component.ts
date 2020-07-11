@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../shared/auth.service';
+import { User } from 'src/app/models/user';
+import { UserService } from 'src/app/services/user.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-navbar',
@@ -7,7 +10,20 @@ import { AuthService } from '../../shared/auth.service';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-  constructor(public authService: AuthService) {}
+  currentUser: User;
+  s3Bucket: string;
+  s3Endpoint: string;
+
+  constructor(
+    public userService: UserService,
+    public authService: AuthService,
+  ) {
+    this.s3Bucket = environment.s3_bucket;
+    this.s3Endpoint = environment.s3_endpoint;
+    this.userService.getUser(authService.username).subscribe((res) => {
+      this.currentUser = res;
+    });
+  }
 
   ngOnInit(): void {}
 
