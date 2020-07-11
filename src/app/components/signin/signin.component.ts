@@ -2,30 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { AuthService } from './../../shared/auth.service';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.scss']
+  styleUrls: ['./signin.component.scss'],
 })
-
 export class SigninComponent implements OnInit {
-  signinForm: FormGroup;
+  user: User = new User();
 
-  constructor(
-    public fb: FormBuilder,
-    public authService: AuthService,
-    public router: Router
-  ) {
-    this.signinForm = this.fb.group({
-      username: [''],
-      password: ['']
-    });
-  }
+  constructor(public authService: AuthService) {}
 
-  ngOnInit() { }
+  ngOnInit() {}
 
-  loginUser() {
-    this.authService.signIn(this.signinForm.value);
+  login() {
+    console.log(this.user);
+    this.authService.signIn(this.user);
   }
 }
