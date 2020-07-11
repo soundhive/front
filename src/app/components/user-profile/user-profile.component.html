@@ -11,16 +11,19 @@
                 <section>
                     <h3 class="section-title mb-4">All Tracks</h3>
 
-                    <div class="track-list" *ngIf="tracks.length > 0">
+                    <div
+                        class="track-list"
+                        *ngIf="tracks.length > 0; else elseBlock"
+                    >
                         <app-track
                             *ngFor="let track of tracks"
                             [track]="track"
                         ></app-track>
                     </div>
 
-                    <div class="track-list" *ngIf="tracks.length == 0">
-                        No tracks to display.
-                    </div>
+                    <ng-template #elseBlock>
+                        No track to display.
+                    </ng-template>
                 </section>
             </div>
         </div>
@@ -30,7 +33,10 @@
                     <h3 class="section-title mb-4">All Albums</h3>
 
                     <div class="container-fluid album-list-container">
-                        <div class="row" *ngIf="albums.length > 0">
+                        <div
+                            class="row"
+                            *ngIf="albums.length > 0; else elseBlock"
+                        >
                             <div
                                 class="col-sm-12 col-md-4"
                                 *ngFor="let album of albums"
@@ -38,9 +44,9 @@
                                 <app-album [album]="album"></app-album>
                             </div>
                         </div>
-                        <div class="row" *ngIf="albums.length == 0">
-                            No albums to display.
-                        </div>
+                        <ng-template #elseBlock>
+                            No album to display.
+                        </ng-template>
                     </div>
                 </section>
             </div>
