@@ -1,13 +1,14 @@
 <div class="auth-wrapper container">
-    <form class="form-signin" [formGroup]="signinForm" (ngSubmit)="loginUser()">
+    <form #form="ngForm" class="form-signin" (ngSubmit)="login()">
         <h3 class="h3 mb-3 font-weight-normal text-center">Please sign in</h3>
         <div class="form-group">
             <label>Username</label>
             <input
-                type="username"
+                type="text"
                 class="form-control"
-                formControlName="username"
                 placeholder="Enter username"
+                [(ngModel)]="user.username"
+                name="username"
                 required
             />
         </div>
@@ -16,10 +17,18 @@
             <input
                 type="password"
                 class="form-control"
-                formControlName="password"
                 placeholder="Password"
+                [(ngModel)]="user.password"
+                name="password"
+                required
             />
         </div>
-        <button type="submit" class="btn btn-block btn-primary">Sign in</button>
+        <button
+            [disabled]="form.invalid"
+            type="submit"
+            class="btn btn-block btn-primary"
+        >
+            Sign in
+        </button>
     </form>
 </div>
