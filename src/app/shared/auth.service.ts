@@ -2,35 +2,32 @@ import { Injectable } from '@angular/core';
 import { User } from '../models/user';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpHeaders,
+  HttpErrorResponse,
+} from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class AuthService {
   endpoint = environment.api_endpoint;
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   currentUser = {};
 
-  constructor(
-    private http: HttpClient,
-    public router: Router
-  ) {
-  }
+  constructor(private http: HttpClient, public router: Router) {}
 
   signUp(user: User): Observable<any> {
     const api = `${this.endpoint}/users`;
-    return this.http.post(api, user)
-      .pipe(
-        catchError(this.handleError)
-      );
+    return this.http.post(api, user).pipe(catchError(this.handleError));
   }
 
   signIn(user: User) {
-    return this.http.post<any>(`${this.endpoint}/auth/login`, user)
+    return this.http
+      .post<any>(`${this.endpoint}/auth/login`, user)
       .subscribe((res: any) => {
         localStorage.setItem('access_token', res.access_token);
         localStorage.setItem('username', user.username);
@@ -52,7 +49,7 @@ export class AuthService {
 
   get isLoggedIn(): boolean {
     const authToken = localStorage.getItem('access_token');
-    return (authToken !== null);
+    return authToken !== null;
   }
 
   doLogout() {

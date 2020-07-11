@@ -1,44 +1,44 @@
-@import "../variables";
+@import '../variables';
 
 button {
-    &:focus {
-        outline: none;
-    }
+  &:focus {
+    outline: none;
+  }
 }
 
 input {
-    &:focus {
-        outline: none;
-    }
+  &:focus {
+    outline: none;
+  }
 }
 
 textarea {
-    &:focus {
-        outline: none;
-    }
+  &:focus {
+    outline: none;
+  }
 }
 
 select {
-    &:focus {
-        outline: none;
-    }
+  &:focus {
+    outline: none;
+  }
 }
 
 ul {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 .right-side {
-    background-color: $gray-dark;
-    padding: 0;
-    height: 100vh;
-    overflow-y: auto;
+  background-color: $gray-dark;
+  padding: 0;
+  height: 100vh;
+  overflow-y: auto;
 }
 
 .main-content {
-    padding: 4rem;
+  padding: 4rem;
 
-    section {
-        margin-bottom: 3em;
-    }
+  section {
+    margin-bottom: 3em;
+  }
 }

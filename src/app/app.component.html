@@ -1,16 +1,20 @@
-<nav *ngIf="!this.authService.isLoggedIn" class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav
+    *ngIf="!this.authService.isLoggedIn"
+    class="navbar navbar-expand-lg navbar-dark bg-dark"
+>
     <div class="container">
         <a class="navbar-brand">Soundhive</a>
 
-        <a class="p-2 text-dark"
-           routerLinkActive="active"
-           routerLink="/login"
-        >Sign in</a>
+        <a class="p-2 text-dark" routerLinkActive="active" routerLink="/login"
+            >Sign in</a
+        >
 
-        <a class="btn btn-outline-primary"
-           routerLinkActive="active"
-           routerLink="/register"
-        >Register</a>
+        <a
+            class="btn btn-outline-primary"
+            routerLinkActive="active"
+            routerLink="/register"
+            >Register</a
+        >
     </div>
 </nav>
 
@@ -33,4 +37,3 @@
 <div *ngIf="!this.authService.isLoggedIn">
     <router-outlet></router-outlet>
 </div>
-

@@ -1,52 +1,52 @@
-@import "../../../variables";
+@import '../../../variables';
 
 nav {
-    display: flex;
-    background-color: $black;
-    height: 50px;
+  display: flex;
+  background-color: $black;
+  height: 50px;
 }
 
 .nav-search-form {
-    flex-grow: 4;
+  flex-grow: 4;
 }
 
 input {
-    background-color: $black;
-    color: #f1f1f1;
-    padding-left: 20px;
-    border: none;
-    height: 50px;
+  background-color: $black;
+  color: #f1f1f1;
+  padding-left: 20px;
+  border: none;
+  height: 50px;
 }
 
 .nav-notification-button {
-    button {
-        background-color: $black;
-        font-size: 18px;
-        color: #f1f1f1;
-        border: none;
-        height: 50px;
-        width: 50px;
+  button {
+    background-color: $black;
+    font-size: 18px;
+    color: #f1f1f1;
+    border: none;
+    height: 50px;
+    width: 50px;
 
-        &:hover {
-            background-color: $sidebar;
-        }
+    &:hover {
+      background-color: $sidebar;
     }
+  }
 }
 
 .nav-profile {
-    height: 50px;
-    width: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    &:hover {
-        background-color: $sidebar;
-    }
+  &:hover {
+    background-color: $sidebar;
+  }
 }
 
 .nav-profile-picture-icon {
-    border-radius: 50%;
-    height: 70%;
-    width: 70%;
+  border-radius: 50%;
+  height: 70%;
+  width: 70%;
 }

@@ -8,9 +8,8 @@ import { Album } from 'src/app/models/album';
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
-  styleUrls: ['./user-profile.component.scss']
+  styleUrls: ['./user-profile.component.scss'],
 })
-
 export class UserProfileComponent implements OnInit {
   currentUser: User;
   tracks: Track[];
@@ -20,18 +19,18 @@ export class UserProfileComponent implements OnInit {
     public userService: UserService,
     public authService: AuthService,
   ) {
-    this.userService.getUser(authService.username).subscribe(res => {
+    this.userService.getUser(authService.username).subscribe((res) => {
       this.currentUser = res;
     });
 
-    this.userService.getUserTracks(authService.username).subscribe(res => {
+    this.userService.getUserTracks(authService.username).subscribe((res) => {
       this.tracks = res;
     });
 
-    this.userService.getUserAlbums(authService.username).subscribe(res => {
+    this.userService.getUserAlbums(authService.username).subscribe((res) => {
       this.albums = res;
     });
   }
 
-  ngOnInit() { }
+  ngOnInit() {}
 }

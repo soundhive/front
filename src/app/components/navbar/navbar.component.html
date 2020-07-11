@@ -2,7 +2,7 @@
     <form class="nav-search-form">
         <label>
             <i class="fa fa-search" aria-hidden="true"></i>
-            <input type="text" placeholder="Search...">
+            <input type="text" placeholder="Search..." />
         </label>
     </form>
     <div class="nav-notification-button">
@@ -10,13 +10,20 @@
     </div>
     <a routerLink="/profile">
         <div class="nav-profile">
-            <img src="https://www.esgi.fr/ecole-informatique/Frederic_Sananes.jpg"
-                 alt="profile picture" class="nav-profile-picture-icon">
+            <img
+                src="https://www.esgi.fr/ecole-informatique/Frederic_Sananes.jpg"
+                alt="profile picture"
+                class="nav-profile-picture-icon"
+            />
         </div>
     </a>
-    <button (click)="logout()"
-            *ngIf="this.authService.isLoggedIn"
-            type="button"
-            class="btn btn-danger" style="font-size: 1.5em"><i class="fa fa-power-off"></i>
+    <button
+        (click)="logout()"
+        *ngIf="this.authService.isLoggedIn"
+        type="button"
+        class="btn btn-danger"
+        style="font-size: 1.5em;"
+    >
+        <i class="fa fa-power-off"></i>
     </button>
 </nav>
