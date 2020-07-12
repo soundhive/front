@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Playlist } from '../playlist';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PlaylistService {
   playlist: Playlist[] = [];
