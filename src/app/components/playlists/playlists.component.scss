@@ -1,21 +1,21 @@
 ul {
-    padding: 0 0 0 10px;
-    list-style-type: none;
+  padding: 0 0 0 10px;
+  list-style-type: none;
 
-    &:last-child {
-        margin-bottom: 40px;
-    }
+  &:last-child {
+    margin-bottom: 40px;
+  }
 }
 
 a {
-    text-decoration: none;
-    color: #f1f1f1;
+  text-decoration: none;
+  color: #f1f1f1;
 
-    &:hover {
-        color: #a3a3a3;
-    }
+  &:hover {
+    color: #a3a3a3;
+  }
 
-    &:active {
-        color: #a3a3a3;
-    }
+  &:active {
+    color: #a3a3a3;
+  }
 }

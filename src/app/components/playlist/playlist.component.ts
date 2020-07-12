@@ -6,7 +6,7 @@ import { Playlist } from '../../playlist';
 @Component({
   selector: 'app-playlist',
   templateUrl: './playlist.component.html',
-  styleUrls: ['./playlist.component.scss']
+  styleUrls: ['./playlist.component.scss'],
 })
 export class PlaylistComponent implements OnInit {
   id: number;
@@ -22,9 +22,7 @@ export class PlaylistComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
-  onDelete(playlist: Playlist) {
-
-  }
+  onDelete(playlist: Playlist) {}
 }

@@ -8,6 +8,8 @@
 
 <ul *ngFor="let playlist of playlists">
     <li>
-        <a [routerLink]="playlistLink" [queryParams]="{id: playlist.id}">{{ playlist.title }}</a>
+        <a [routerLink]="playlistLink" [queryParams]="{ id: playlist.id }">{{
+            playlist.title
+        }}</a>
     </li>
 </ul>
