@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PlaylistService } from './playlist.service';
+import { PlaylistsService } from './playlists.service';
 
-describe('PlaylistService', () => {
-  let service: PlaylistService;
+describe('PlaylistsService', () => {
+  let service: PlaylistsService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(PlaylistService);
+    service = TestBed.inject(PlaylistsService);
   });
 
   it('should be created', () => {

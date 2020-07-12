@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PlaylistService } from '../../services/playlist.service';
+import { PlaylistsService } from '../../services/playlists.service';
 import { Playlist } from '../../playlist';
 
 @Component({
@@ -14,15 +14,8 @@ export class PlaylistComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private playlistService: PlaylistService,
-  ) {
-    this.route.queryParams.subscribe((params) => {
-      this.id = Number.parseInt(params.id, 10);
-      this.playlist = this.playlistService.getPlaylist(this.id);
-    });
-  }
+    private playlistsService: PlaylistsService,
+  ) {}
 
   ngOnInit(): void {}
-
-  onDelete(playlist: Playlist) {}
 }

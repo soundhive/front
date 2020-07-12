@@ -1,27 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Playlist } from '../../playlist';
-import { PlaylistService } from '../../services/playlist.service';
+import { PlaylistsService } from '../../services/playlists.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-playlists',
   templateUrl: './playlists.component.html',
   styleUrls: ['./playlists.component.scss'],
 })
-export class PlaylistsComponent implements OnInit {
+export class PlaylistsComponent implements OnInit, OnDestroy {
   playlists: Playlist[];
   playlistLink = '/playlist';
+  playlistsSubscription: Subscription;
 
-  constructor(private playlistService: PlaylistService) {}
+  constructor(private playlistsService: PlaylistsService) {}
 
   ngOnInit(): void {
-    this.playlists = this.playlistService.getPlaylists();
+    this.playlistsSubscription = this.playlistsService.playlistsSubject.subscribe(
+      (data: any) => {
+        this.playlists = data;
+      },
+    );
+    this.playlistsService.emitPlaylists();
   }
 
-  onCreate() {}
-
-  deletePlaylist(playlist: Playlist) {
-    console.log('delete me!');
-    // this.playlists = this.playlists.filter((p) => p.id !== playlist.id);
-    // this.playlistService.deletePlaylist(playlist);
+  ngOnDestroy() {
+    this.playlistsSubscription.unsubscribe();
   }
 }
