@@ -27,8 +27,13 @@ export class NewPlaylistComponent implements OnInit {
     });
   }
 
+  resetForm() {
+    this.playlistsForm.reset();
+  }
+
   onSubmitPlaylistsForm() {
     const newPlaylist = this.playlistsForm.value;
     this.playlistsService.create(newPlaylist);
+    this.resetForm();
   }
 }
