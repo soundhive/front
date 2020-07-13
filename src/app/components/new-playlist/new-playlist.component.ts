@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PlaylistsService } from '../../services/playlists.service';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-new-playlist',
