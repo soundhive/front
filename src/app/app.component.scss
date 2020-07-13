@@ -42,3 +42,15 @@ ul {
     margin-bottom: 3em;
   }
 }
+
+.navbar {
+  margin-bottom: 3em;
+}
+
+a {
+  color: white;
+  border-color: white;
+  &:focus {
+    border-color: inherit;
+  }
+}

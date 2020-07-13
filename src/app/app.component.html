@@ -10,10 +10,19 @@
         >
 
         <a
+            *ngIf="this.router.url === '/login'"
             class="btn btn-outline-primary"
             routerLinkActive="active"
             routerLink="/register"
             >Register</a
+        >
+
+        <a
+            *ngIf="this.router.url === '/register'"
+            class="btn btn-outline-primary"
+            routerLinkActive="active"
+            routerLink="/login"
+            >Login</a
         >
     </div>
 </nav>
