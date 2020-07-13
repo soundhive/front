@@ -7,6 +7,7 @@ import { HistoryComponent } from './components/history/history.component';
 import { HomeComponent } from './components/home/home.component';
 import { MyAlbumsComponent } from './components/my-albums/my-albums.component';
 import { MyTracksComponent } from './components/my-tracks/my-tracks.component';
+import { NewPlaylistComponent } from './components/new-playlist/new-playlist.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
@@ -91,6 +92,11 @@ const routes: Routes = [
       tracks: HomeTracksResolve,
       albums: HomeAlbumsResolve,
     },
+  },
+  {
+    path: 'playlists/new',
+    component: NewPlaylistComponent,
+    canActivate: [AuthGuard],
   },
   { path: 'login', component: SigninComponent },
   { path: 'register', component: SignupComponent },

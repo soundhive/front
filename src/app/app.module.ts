@@ -18,6 +18,7 @@ import { HomeComponent } from './components/home/home.component';
 import { MyAlbumsComponent } from './components/my-albums/my-albums.component';
 import { MyTracksComponent } from './components/my-tracks/my-tracks.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { NewPlaylistComponent } from './components/new-playlist/new-playlist.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { PlayerComponent } from './components/player/player.component';
 import { PlaylistComponent } from './components/playlist/playlist.component';
@@ -59,6 +60,7 @@ import { AuthInterceptor } from './shared/authconfig.interceptor';
     SubscriptionsComponent,
     PlaylistComponent,
     PlaylistsComponent,
+    NewPlaylistComponent,
   ],
   imports: [
     BrowserModule,

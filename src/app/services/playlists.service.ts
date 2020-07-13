@@ -37,4 +37,8 @@ export class PlaylistsService {
   }
 
   getPlaylists() {}
+
+  create(playlist) {
+    this.playlists.push(playlist);
+  }
 }

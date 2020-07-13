@@ -13,6 +13,7 @@ export class SidebarComponent implements OnInit {
   myTracksLink = '/my-tracks';
   myAlbumsLink = '/my-albums';
   myActivityLink = '/my-activity';
+  playlistsLink = '/playlists/new';
 
   constructor() {}
 
