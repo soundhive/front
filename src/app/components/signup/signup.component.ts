@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
+  errors: string[];
 
   constructor(
     public fb: FormBuilder,
@@ -27,11 +28,28 @@ export class SignupComponent implements OnInit {
   ngOnInit() {}
 
   registerUser() {
-    this.authService.signUp(this.signupForm.value).subscribe((res) => {
-      if (res) {
-        this.signupForm.reset();
-        this.router.navigate(['login']);
-      }
-    });
+    const selectedFileList = (document.getElementById(
+      'profile_picture',
+    ) as HTMLInputElement).files;
+    const profilePicture = selectedFileList.item(0);
+
+    const formData = new FormData();
+    formData.append('name', this.signupForm.value.name);
+    formData.append('username', this.signupForm.value.username);
+    formData.append('email', this.signupForm.value.email);
+    formData.append('password', this.signupForm.value.password);
+    formData.append('profile_picture', profilePicture);
+
+    this.authService.signUp(formData).subscribe(
+      (res) => {
+        if (res) {
+          this.signupForm.reset();
+          this.router.navigate(['login']);
+        }
+      },
+      (err) => {
+        this.errors = err.message;
+      },
+    );
   }
 }

@@ -2,6 +2,7 @@
     <form
         class="form-signin"
         [formGroup]="signupForm"
+        #form="ngForm"
         (ngSubmit)="registerUser()"
     >
         <h3 class="h3 mb-3 font-weight-normal text-center">
@@ -47,7 +48,27 @@
                 required
             />
         </div>
-        <button type="submit" class="btn btn-block btn-primary">
+        <div class="form-group">
+            <label>Profile picture</label>
+            <input
+                type="file"
+                class="form-control-file"
+                id="profile_picture"
+                required
+            />
+        </div>
+
+        <ul class="error-list">
+            <li *ngFor="let error of this.errors">
+                {{ error }}
+            </li>
+        </ul>
+
+        <button
+            [disabled]="form.invalid"
+            type="submit"
+            class="btn btn-block btn-primary"
+        >
             Register
         </button>
     </form>

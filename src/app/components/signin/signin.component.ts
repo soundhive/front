@@ -17,7 +17,6 @@ export class SigninComponent implements OnInit {
   ngOnInit() {}
 
   login() {
-    console.log(this.user);
     this.authService.signIn(this.user);
   }
 }
