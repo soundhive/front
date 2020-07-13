@@ -5,28 +5,36 @@
         <fieldset>
             <div class="form-group">
                 <label for="playlistTitleInput">Title</label>
-                <input type="text"
-                       class="form-control"
-                       id="playlistTitleInput"
-                       placeholder="Give it a title!"
-                       formControlName="title"
-                >
+                <input
+                    type="text"
+                    class="form-control"
+                    id="playlistTitleInput"
+                    placeholder="Give it a title!"
+                    formControlName="title"
+                />
             </div>
             <div class="form-group">
                 <label for="playlistDescriptionInput">Description</label>
-                <textarea class="form-control"
-                          id="playlistDescriptionInput"
-                          rows="3"
-                          placeholder="Give it a description! (optional)"
-                          formControlName="description"
+                <textarea
+                    class="form-control"
+                    id="playlistDescriptionInput"
+                    rows="3"
+                    placeholder="Give it a description! (optional)"
+                    formControlName="description"
                 ></textarea>
             </div>
-<!--            <div class="form-group">-->
-<!--                <label for="playlistCoverImageFileInput">Cover image file</label>-->
-<!--                <input type="file" class="form-control-file" id="playlistCoverImageFileInput" formControlName="coverImageFile">-->
-<!--                <small id="fileHelp" class="form-text text-muted">File size can not exceed (value)</small>-->
-<!--            </div>-->
-            <button type="submit" class="btn btn-primary mt-4" [disabled]="playlistsForm.invalid">Create playlist</button>
+            <!--            <div class="form-group">-->
+            <!--                <label for="playlistCoverImageFileInput">Cover image file</label>-->
+            <!--                <input type="file" class="form-control-file" id="playlistCoverImageFileInput" formControlName="coverImageFile">-->
+            <!--                <small id="fileHelp" class="form-text text-muted">File size can not exceed (value)</small>-->
+            <!--            </div>-->
+            <button
+                type="submit"
+                class="btn btn-primary mt-4"
+                [disabled]="playlistsForm.invalid"
+            >
+                Create playlist
+            </button>
         </fieldset>
     </form>
 </div>
