@@ -58,7 +58,7 @@
             />
         </div>
 
-        <ul class="error-list">
+        <ul *ngIf="this.errors" class="alert alert-danger" role="alert">
             <li *ngFor="let error of this.errors">
                 {{ error }}
             </li>
