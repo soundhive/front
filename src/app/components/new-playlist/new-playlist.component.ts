@@ -10,7 +10,6 @@ import { Subscription } from 'rxjs';
 })
 export class NewPlaylistComponent implements OnInit {
   playlistsForm: FormGroup;
-  playlistsSubscription: Subscription;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -24,7 +23,7 @@ export class NewPlaylistComponent implements OnInit {
   initPlaylistsForm() {
     this.playlistsForm = this.formBuilder.group({
       title: ['', Validators.required],
-      description: '',
+      description: ['', Validators.maxLength(500)],
     });
   }
 
