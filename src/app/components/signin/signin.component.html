@@ -23,6 +23,11 @@
                 required
             />
         </div>
+
+        <div *ngIf="error" class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+
         <button
             [disabled]="form.invalid"
             type="submit"

@@ -11,12 +11,22 @@ import { User } from 'src/app/models/user';
 })
 export class SigninComponent implements OnInit {
   user: User = new User();
+  error: string;
 
-  constructor(public authService: AuthService) {}
+  constructor(public authService: AuthService, public router: Router) {}
 
   ngOnInit() {}
 
   login() {
-    this.authService.signIn(this.user);
+    this.authService.signIn(this.user).subscribe(
+      (res: any) => {
+        localStorage.setItem('access_token', res.access_token);
+        localStorage.setItem('username', this.user.username);
+        this.router.navigate(['user/' + this.user.username]);
+      },
+      (err) => {
+        this.error = err.message;
+      },
+    );
   }
 }
