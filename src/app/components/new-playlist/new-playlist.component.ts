@@ -9,6 +9,7 @@ import { PlaylistsService } from '../../services/playlists.service';
 })
 export class NewPlaylistComponent implements OnInit {
   playlistsForm: FormGroup;
+  requiredFieldAlert = 'This field is required';
 
   constructor(
     private formBuilder: FormBuilder,
