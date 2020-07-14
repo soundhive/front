@@ -20,19 +20,17 @@ export class AuthService {
 
   constructor(private http: HttpClient, public router: Router) {}
 
-  signUp(user: User): Observable<any> {
+  signUp(user: FormData): Observable<any> {
     const api = `${this.endpoint}/users`;
-    return this.http.post(api, user).pipe(catchError(this.handleError));
+    return this.http
+      .post(api, user, { observe: 'response' })
+      .pipe(catchError(this.handleError));
   }
 
   signIn(user: User) {
     return this.http
       .post<any>(`${this.endpoint}/auth/login`, user)
-      .subscribe((res: any) => {
-        localStorage.setItem('access_token', res.access_token);
-        localStorage.setItem('username', user.username);
-        this.router.navigate(['user/' + user.username]);
-      });
+      .pipe(catchError(this.handleError));
   }
 
   get token(): string | null {
@@ -59,16 +57,16 @@ export class AuthService {
     }
   }
 
-  // Error
-  handleError(error: HttpErrorResponse) {
-    let msg = '';
+  // Error handling
+  private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
-      // client-side error
-      msg = error.error.message;
+      // A client-side or network error occurred. Handle it accordingly.
+      console.error('An error occurred:', error.error.message);
     } else {
-      // server-side error
-      msg = `Error Code: ${error.status}\nMessage: ${error.message}`;
+      // The backend returned an unsuccessful response code.
+      console.error(error.error);
     }
-    return throwError(msg);
+    // return an observable with a user-facing error message
+    return throwError(error.error);
   }
 }
