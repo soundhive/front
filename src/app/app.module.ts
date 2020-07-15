@@ -7,6 +7,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxAudioPlayerModule } from 'ngx-audio-player';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { AppRoutingModule } from './app-routing.module';
+import { AlertModule } from './components/_alert';
+
 import { AppComponent } from './app.component';
 import { AlbumPreviewComponent } from './components/album-preview/album-preview.component';
 import { AlbumComponent } from './components/album/album.component';
@@ -30,6 +32,7 @@ import { SubscriptionsComponent } from './components/subscriptions/subscriptions
 import { TrackComponent } from './components/track/track.component';
 import { UserEditComponent } from './components/user-profile/user-edit/user-edit.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+
 import { DateAgoPipe } from './pipes/date-ago.pipe';
 import { SecondsToMinutesPipe } from './pipes/seconds-to-minutes.pipe';
 import { AuthInterceptor } from './shared/authconfig.interceptor';
@@ -70,6 +73,7 @@ import { AuthInterceptor } from './shared/authconfig.interceptor';
     FormsModule,
     NgbModule,
     CommonModule,
+    AlertModule,
     NgxAudioPlayerModule,
     PaginationModule.forRoot(),
   ],
