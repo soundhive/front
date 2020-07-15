@@ -20,25 +20,17 @@ export class PlayerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.playerService.aClickedEvent.subscribe(async (track: Track) => {
-      // If not initial load (otherwise track is null)
-      if (this.track) {
-        // Get player <audio> DOM element
-        const player = document.getElementsByTagName(
-          'audio',
-        )[0] as HTMLAudioElement;
-
-        const isCurrentlyPlaying: boolean = !player.paused;
-
-        // Once the track has been loaded
-        player.onloadeddata = () => {
-          // If player was playing music, let's start the new track
-          if (isCurrentlyPlaying) {
-            player.play();
-          }
-        };
-      }
+    this.playerService.aClickedEvent.subscribe((track: Track) => {
       this.track = track;
+
+      const player = document.getElementsByTagName(
+        'audio',
+      )[0] as HTMLAudioElement;
+
+      // Once the track has been loaded, play it
+      player.onloadeddata = () => {
+        player.play();
+      };
     });
   }
 }

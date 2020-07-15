@@ -1,5 +1,5 @@
 <div class="navbar footer fixed-bottom">
-    <div *ngIf="track; else elseBlock">
+    <div [hidden]="!track">
         <div class="float-left now-playing col-xs-2 col-sm-2 col-md-2">
             <i class="fa fa-music" aria-hidden="true"></i>
             {{ track.user.name }} - {{ track.title }}
@@ -13,9 +13,7 @@
             ></mat-basic-audio-player>
         </div>
     </div>
-    <ng-template #elseBlock>
-        <span class="nothing-playing">
-            Nothing is playing. Select a track!
-        </span>
-    </ng-template>
+    <span [hidden]="track" class="nothing-playing">
+        Nothing is playing. Select a track!
+    </span>
 </div>
