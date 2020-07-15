@@ -8,19 +8,20 @@
             alt="track cover"
         />
         <div
-            class="track-title font-weight-bold align-self-center text-left col-sm-8"
-            (click)="onClick(track)"
+            class="track-title font-weight-bold align-self-center text-left col-sm-5"
         >
             {{ track.title }}
         </div>
-        <div class="track-duration align-self-center text-center col-sm-1">
+        <div class="track-duration align-self-center col-sm-2">
             {{ track.duration | secondsToMinutes }}
         </div>
-        <div class="track-listen-count align-self-center text-center col-sm-1">
-            240,780
+        <div class="track-listen-count align-self-center col-sm-2">
+            <i class="fa fa-bar-chart" aria-hidden="true"></i>
+            {{ listenings }}
         </div>
-        <div class="track-dots-options align-self-center text-center col-sm-1">
+        <!-- <div class="track-dots-options align-self-center  col-sm-1">
             <span class="mdi mdi-dots-horizontal col-sm-1"></span>
+        </div> -->
         <div
             class="font-weight-bold align-self-center text-left col-sm-1 track-play-button"
             (click)="onClick(track)"
