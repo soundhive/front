@@ -20,7 +20,7 @@ export class PlayerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.playerService.aClickedEvent.subscribe((track: Track) => {
+    this.playerService.playTrackEvent.subscribe((track: Track) => {
       this.track = track;
 
       const player = document.getElementsByTagName(

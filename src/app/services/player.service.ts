@@ -5,11 +5,11 @@ import { Track } from '../models/track';
   providedIn: 'root',
 })
 export class PlayerService {
-  @Output() aClickedEvent = new EventEmitter<Track>();
+  @Output() playTrackEvent = new EventEmitter<Track>();
 
   constructor() {}
 
-  AClicked(track: Track) {
-    this.aClickedEvent.emit(track);
+  PlayTrack(track: Track) {
+    this.playTrackEvent.emit(track);
   }
 }

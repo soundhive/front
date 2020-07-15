@@ -31,6 +31,6 @@ export class TrackComponent implements OnInit {
   }
 
   onClick(track: Track) {
-    this.playerService.AClicked(track);
+    this.playerService.PlayTrack(track);
   }
 }
