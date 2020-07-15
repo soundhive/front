@@ -354,4 +354,14 @@ export class ApiService {
         ),
       );
   }
+
+  getPlaylists(): Observable<any> {
+    const url = `${this.endpoint}/playlists`;
+    return this.http.get(url);
+  }
+
+  getPlaylist(id: string) {
+    const url = `${this.endpoint}/playlists/${id}`;
+    return this.http.get(url);
+  }
 }

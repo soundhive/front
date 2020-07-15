@@ -1,42 +1,33 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { Playlist } from '../models/playlist';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
+import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PlaylistsService {
-  playlists = [
-    {
-      id: 1,
-      title: 'Summer playlist',
-    },
-    {
-      id: 2,
-      title: 'Workout',
-    },
-    {
-      id: 3,
-      title: 'All times favorites',
-    },
-    {
-      id: 4,
-      title: 'Road trip',
-    },
-    {
-      id: 5,
-      title: 'Post Rock',
-    },
-  ];
+  endpoint: string;
+  playlists = [];
 
   playlistsSubject = new Subject<any[]>();
 
-  constructor() {}
+  constructor(public router: Router, private apiService: ApiService) {}
 
   emitPlaylists() {
     this.playlistsSubject.next(this.playlists);
   }
 
-  getPlaylists() {}
+  getPlaylists() {
+    return this.apiService.getPlaylists();
+  }
+
+  getPlaylist(id: string) {
+    return this.apiService.getPlaylist(id);
+  }
 
   create(playlist) {
     this.playlists.push(playlist);

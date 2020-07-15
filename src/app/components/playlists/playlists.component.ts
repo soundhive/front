@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Playlist } from '../../playlist';
+import { Playlist } from '../../models/playlist';
 import { PlaylistsService } from '../../services/playlists.service';
 import { Subscription } from 'rxjs';
 
@@ -10,17 +10,17 @@ import { Subscription } from 'rxjs';
 })
 export class PlaylistsComponent implements OnInit, OnDestroy {
   playlists: Playlist[];
-  playlistLink = '/playlist';
+  playlistLink = '/playlists';
   playlistsSubscription: Subscription;
 
   constructor(private playlistsService: PlaylistsService) {}
 
   ngOnInit(): void {
-    this.playlistsSubscription = this.playlistsService.playlistsSubject.subscribe(
-      (data: any) => {
-        this.playlists = data;
-      },
-    );
+    this.playlistsSubscription = this.playlistsService
+      .getPlaylists()
+      .subscribe((data: any) => {
+        this.playlists = data.items;
+      });
     this.playlistsService.emitPlaylists();
   }
 
