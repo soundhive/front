@@ -24,7 +24,7 @@ export class UserProfileComponent implements OnInit {
     });
 
     this.userService.getUserTracks(authService.username).subscribe((res) => {
-      this.tracks = res;
+      this.tracks = res.items;
     });
 
     this.userService.getUserAlbums(authService.username).subscribe((res) => {

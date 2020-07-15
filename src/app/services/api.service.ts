@@ -41,13 +41,15 @@ export class ApiService {
       .pipe(catchError(this.handleError<User>(`getUser username=${username}`)));
   }
 
-  getUserTracks(username: string): Observable<Track[]> {
+  getUserTracks(username: string): Observable<{ items: Track[] }> {
     const url = `${this.endpoint}/users/${username}/tracks`;
     return this.http
-      .get<Track[]>(url)
+      .get<{ items: Track[] }>(url)
       .pipe(
         catchError(
-          this.handleError<Track[]>(`getUserTracks username=${username}`),
+          this.handleError<{ items: Track[] }>(
+            `getUserTracks username=${username}`,
+          ),
         ),
       );
   }
