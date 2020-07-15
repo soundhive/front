@@ -10,11 +10,6 @@ import { PlayerService } from 'src/app/services/player.service';
 })
 export class TrackComponent implements OnInit {
   @Input() track: Track;
-  msbapTitle = 'Audio Title';
-  msbapAudioUrl = 'Link to audio URL';
-  msaapDisplayVolumeControls = true;
-
-  msbapDisplayTitle = false;
 
   s3Bucket: string;
   s3Endpoint: string;
@@ -27,7 +22,6 @@ export class TrackComponent implements OnInit {
   ngOnInit(): void {}
 
   onClick(track: Track) {
-    console.log(track);
     this.playerService.AClicked(track);
   }
 }
