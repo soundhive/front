@@ -1,5 +1,7 @@
 // import { User } from './user';
 
+import { User } from './user';
+
 export class Track {
   id: string;
   title: string;
@@ -10,5 +12,5 @@ export class Track {
   createdAt: Date;
   updatedAt: Date;
   // album: Album;
-  // user: User;
+  user: User;
 }
