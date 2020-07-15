@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SigninComponent } from './components/signin/signin.component';
@@ -18,6 +17,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { TrackComponent } from './components/track/track.component';
 import { AlbumComponent } from './components/album/album.component';
 import { CommonModule } from '@angular/common';
+import { NgxAudioPlayerModule } from 'ngx-audio-player';
+import { PlayerComponent } from './components/player/player.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { CommonModule } from '@angular/common';
     HeaderComponent,
     TrackComponent,
     AlbumComponent,
+    PlayerComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +43,7 @@ import { CommonModule } from '@angular/common';
     FormsModule,
     NgbModule,
     CommonModule,
+    NgxAudioPlayerModule,
   ],
   providers: [
     {

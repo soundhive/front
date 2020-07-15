@@ -1,0 +1,42 @@
+.navbar {
+  background-color: #242424;
+  display: inherit;
+}
+
+.player {
+  display: contents;
+}
+
+.now-playing {
+  color: whitesmoke;
+  margin-top: 1em;
+  i {
+    font-size: 22px;
+    margin-right: 1em;
+  }
+}
+
+:host ::ng-deep mat-basic-audio-player {
+  .mat-slider-thumb,
+  .mat-slider-thumb-label,
+  .mat-slider-track-fill {
+    background-color: whitesmoke;
+  }
+  .mat-slider-horizontal .mat-slider-track-background {
+    background-color: dimgray;
+  }
+  .ngx-basic-audio-player-duration {
+    color: whitesmoke;
+  }
+  .ngx-basic-audio-player {
+    margin-left: 2em;
+    margin-right: 2em;
+  }
+  .mat-slider-wrapper {
+    margin-left: 3em;
+    margin-right: 3em;
+  }
+}
+.nothing-playing {
+  color: whitesmoke;
+}
