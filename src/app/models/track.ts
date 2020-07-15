@@ -11,6 +11,7 @@ export class Track {
   // listenings: Listening[];
   createdAt: Date;
   updatedAt: Date;
+  duration: number;
   // album: Album;
   user: User;
 }

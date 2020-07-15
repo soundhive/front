@@ -19,6 +19,7 @@ import { AlbumComponent } from './components/album/album.component';
 import { CommonModule } from '@angular/common';
 import { NgxAudioPlayerModule } from 'ngx-audio-player';
 import { PlayerComponent } from './components/player/player.component';
+import { SecondsToMinutesPipe } from './pipes/seconds-to-minutes.pipe';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { PlayerComponent } from './components/player/player.component';
     TrackComponent,
     AlbumComponent,
     PlayerComponent,
+    SecondsToMinutesPipe,
   ],
   imports: [
     BrowserModule,

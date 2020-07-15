@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Pipe } from '@angular/core';
 import { Track } from 'src/app/models/track';
 import { environment } from 'src/environments/environment';
 import { PlayerService } from 'src/app/services/player.service';

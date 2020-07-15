@@ -12,7 +12,7 @@
             {{ track.title }}
         </div>
         <div class="track-duration align-self-center text-center col-sm-1">
-            4:35
+            {{ track.duration | secondsToMinutes }}
         </div>
         <div class="track-listen-count align-self-center text-center col-sm-1">
             240,780
