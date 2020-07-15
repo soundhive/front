@@ -1,6 +1,7 @@
 // import { User } from './user';
 
 import { User } from './user';
+import { Album } from './album';
 
 export class Track {
   id: string;
@@ -12,6 +13,6 @@ export class Track {
   createdAt: Date;
   updatedAt: Date;
   duration: number;
-  // album: Album;
+  album: Album;
   user: User;
 }
