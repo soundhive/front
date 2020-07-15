@@ -10,6 +10,7 @@
                 [autoPlay]="false"
                 muted="muted"
                 [displayVolumeControls]="true"
+                (trackEnded)="onEnded()"
             ></mat-basic-audio-player>
         </div>
     </div>

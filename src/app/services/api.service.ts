@@ -77,4 +77,10 @@ export class ApiService {
         ),
       );
   }
+
+  postTrackListening(track: Track): Observable<void> {
+    return this.http
+      .post<any>(`${this.endpoint}/tracks/${track.id}/listen`, null)
+      .pipe(catchError(this.handleError));
+  }
 }
