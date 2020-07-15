@@ -23,6 +23,11 @@
 
   .track-listen-count {
     font-size: 12px;
+  .track-play-button {
+    padding: 0;
+    button {
+      border-radius: 5px;
+    }
   }
 
   .track-dots-options {
@@ -30,4 +35,9 @@
       cursor: pointer;
     }
   }
+}
+
+.pr-3,
+.px-3 {
+  padding-right: 2rem !important;
 }
