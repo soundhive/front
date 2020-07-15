@@ -35,6 +35,7 @@ export class PlayerComponent implements OnInit {
       }
     });
 
+    // User clicks on play button
     this.playerService.playTrackEvent.subscribe((track: Track) => {
       this.track = track;
 
@@ -42,6 +43,21 @@ export class PlayerComponent implements OnInit {
       player.onloadeddata = () => {
         player.play();
       };
+    });
+
+    // User clicks on title
+    this.playerService.loadTrackEvent.subscribe((track: Track) => {
+      const currentlyPlaying = !player.pause;
+
+      this.track = track;
+
+      // If not track was playing, we only load the track into the player
+      if (currentlyPlaying) {
+        // Once the track has been loaded, play it
+        player.onloadeddata = () => {
+          player.play();
+        };
+      }
     });
   }
 

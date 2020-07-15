@@ -9,6 +9,7 @@
         />
         <div
             class="track-title font-weight-bold align-self-center text-left col-sm-5"
+            (click)="onTitleClick(track)"
         >
             {{ track.title }}
         </div>
@@ -24,7 +25,7 @@
         </div> -->
         <div
             class="font-weight-bold align-self-center text-left col-sm-1 track-play-button"
-            (click)="onClick(track)"
+            (click)="onPlayButtonClick(track)"
         >
             <button type="button" class="btn btn-dark">
                 <i class="fa fa-play" aria-hidden="true"></i>
