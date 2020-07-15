@@ -11,6 +11,7 @@
     <a routerLink="/profile">
         <div class="nav-profile">
             <img
+                *ngIf="currentUser"
                 src="{{ s3Endpoint }}/{{ s3Bucket }}/{{
                     currentUser.profilePicture
                 }}"

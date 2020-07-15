@@ -1,12 +1,19 @@
 <div class="navbar footer fixed-bottom">
     <div [hidden]="!track">
-        <div class="float-left now-playing col-xs-2 col-sm-2 col-md-2">
+        <div
+            *ngIf="track"
+            class="float-left now-playing col-xs-2 col-sm-2 col-md-2"
+        >
             <i class="fa fa-music" aria-hidden="true"></i>
             {{ track.user.name }} - {{ track.title }}
         </div>
         <div class="float-right player col-xs-10 col-sm-10 col-md-10">
             <mat-basic-audio-player
-                [audioUrl]="s3Endpoint + '/' + s3Bucket + '/' + track.filename"
+                [audioUrl]="
+                    track
+                        ? s3Endpoint + '/' + s3Bucket + '/' + track.filename
+                        : null
+                "
                 [autoPlay]="false"
                 muted="muted"
                 [displayVolumeControls]="true"
