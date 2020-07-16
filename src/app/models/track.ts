@@ -1,5 +1,3 @@
-// import { User } from './user';
-
 import { User } from './user';
 import { Album } from './album';
 
@@ -16,4 +14,5 @@ export class Track {
   user: User;
   favorited: boolean;
   listeningCount: number;
+  downloadable: boolean;
 }
