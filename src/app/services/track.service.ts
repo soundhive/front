@@ -16,4 +16,8 @@ export class TrackService {
   addListening(track: Track): Observable<void> {
     return this.apiService.postTrackListening(track);
   }
+
+  getTrack(id: string): Observable<Track> {
+    return this.apiService.getTrack(id);
+  }
 }

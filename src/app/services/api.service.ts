@@ -65,6 +65,13 @@ export class ApiService {
       );
   }
 
+  getTrack(id: string): Observable<Track> {
+    const url = `${this.endpoint}/tracks/${id}`;
+    return this.http
+      .get<Track>(url)
+      .pipe(catchError(this.handleError<Track>(`getTrack id=${id}`)));
+  }
+
   getTrackStats(track: Track): Observable<{ listenings: number }> {
     const url = `${this.endpoint}/tracks/${track.id}/stats/last/1/day`;
     return this.http

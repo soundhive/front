@@ -24,6 +24,17 @@ export class PlayerComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const previousTrack = localStorage.getItem('current_track');
+
+    // Load track that the user was playing last
+    if (previousTrack) {
+      this.trackService.getTrack(previousTrack).subscribe((track) => {
+        if (track) {
+          this.track = track;
+        }
+      });
+    }
+
     const player = document.getElementsByTagName(
       'audio',
     )[0] as HTMLAudioElement;
@@ -37,6 +48,8 @@ export class PlayerComponent implements OnInit {
 
     // User clicks on play button
     this.playerService.playTrackEvent.subscribe((track: Track) => {
+      localStorage.setItem('current_track', track.id);
+
       this.track = track;
 
       // Once the track has been loaded, play it
@@ -47,6 +60,8 @@ export class PlayerComponent implements OnInit {
 
     // User clicks on title
     this.playerService.loadTrackEvent.subscribe((track: Track) => {
+      localStorage.setItem('current_track', track.id);
+
       const currentlyPlaying = !player.pause;
 
       this.track = track;
