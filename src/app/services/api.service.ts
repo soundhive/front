@@ -97,19 +97,6 @@ export class ApiService {
       .pipe(catchError(this.handleError));
   }
 
-  getTrackStats(track: Track): Observable<{ listenings: number }> {
-    const url = `${this.endpoint}/tracks/${track.id}/stats/last/1/day`;
-    return this.http
-      .get<{ listenings: number }>(url)
-      .pipe(
-        catchError(
-          this.handleError<{ listenings: number }>(
-            `getTrackStats id=${track.id}`,
-          ),
-        ),
-      );
-  }
-
   postTrackListening(track: Track): Observable<void> {
     return this.http
       .post<any>(`${this.endpoint}/tracks/${track.id}/listen`, null)

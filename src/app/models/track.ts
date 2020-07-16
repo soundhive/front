@@ -9,11 +9,11 @@ export class Track {
   description: string;
   genre: string;
   filename: string;
-  // listenings: Listening[];
   createdAt: Date;
   updatedAt: Date;
   duration: number;
   album: Album;
   user: User;
   favorited: boolean;
+  listeningCount: number;
 }
