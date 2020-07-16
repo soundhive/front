@@ -12,6 +12,7 @@ import { TrackService } from 'src/app/services/track.service';
 export class TrackComponent implements OnInit {
   @Input() track: Track;
   listenings: number;
+  // favorited = false;
 
   s3Bucket: string;
   s3Endpoint: string;
@@ -27,6 +28,9 @@ export class TrackComponent implements OnInit {
   ngOnInit(): void {
     this.trackService.getTrackStats(this.track).subscribe((res) => {
       this.listenings = res.listenings;
+    });
+    this.trackService.isTrackFavorited(this.track).subscribe((res) => {
+      this.track.favorited = res.favorited;
     });
   }
 

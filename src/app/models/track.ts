@@ -15,4 +15,5 @@ export class Track {
   duration: number;
   album: Album;
   user: User;
+  favorited: boolean;
 }

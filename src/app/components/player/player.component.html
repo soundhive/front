@@ -2,12 +2,24 @@
     <div [hidden]="!track">
         <div
             *ngIf="track"
-            class="float-left now-playing col-xs-2 col-sm-2 col-md-2"
+            class="float-left now-playing col-xs-3 col-sm-3 col-md-3"
         >
             <i class="fa fa-music" aria-hidden="true"></i>
             {{ track.user.name }} - {{ track.title }}
+            <i
+                *ngIf="!track.favorited"
+                class="fa fa-heart-o"
+                aria-hidden="true"
+                (click)="favoriteTrack()"
+            ></i>
+            <i
+                *ngIf="track.favorited"
+                class="fa fa-heart"
+                aria-hidden="true"
+                (click)="unfavoriteTrack()"
+            ></i>
         </div>
-        <div class="float-right player col-xs-10 col-sm-10 col-md-10">
+        <div class="float-right player col-xs-9 col-sm-9 col-md-9">
             <mat-basic-audio-player
                 [audioUrl]="
                     track

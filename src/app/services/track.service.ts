@@ -20,4 +20,13 @@ export class TrackService {
   getTrack(id: string): Observable<Track> {
     return this.apiService.getTrack(id);
   }
+  isTrackFavorited(track: Track): Observable<{ favorited: boolean }> {
+    return this.apiService.getIsTrackFavorited(track);
+  }
+  favoriteTrack(track: Track): Observable<any> {
+    return this.apiService.postFavoriteTrack(track);
+  }
+  unFavoriteTrack(track: Track): Observable<any> {
+    return this.apiService.deleteFvoriteTrack(track);
+  }
 }

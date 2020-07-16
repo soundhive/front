@@ -72,6 +72,31 @@ export class ApiService {
       .pipe(catchError(this.handleError<Track>(`getTrack id=${id}`)));
   }
 
+  getIsTrackFavorited(track: Track): Observable<{ favorited: boolean }> {
+    const url = `${this.endpoint}/tracks/${track.id}/isfavorited`;
+    return this.http
+      .get<{ favorited: boolean }>(url)
+      .pipe(
+        catchError(
+          this.handleError<{ favorited: boolean }>(
+            `getIsTrackFavorited track.id=${track.id}`,
+          ),
+        ),
+      );
+  }
+
+  postFavoriteTrack(track: Track): Observable<void> {
+    return this.http
+      .post<any>(`${this.endpoint}/tracks/${track.id}/favorite`, null)
+      .pipe(catchError(this.handleError));
+  }
+
+  deleteFvoriteTrack(track: Track): Observable<any> {
+    return this.http
+      .delete<any>(`${this.endpoint}/tracks/${track.id}/favorite`)
+      .pipe(catchError(this.handleError));
+  }
+
   getTrackStats(track: Track): Observable<{ listenings: number }> {
     const url = `${this.endpoint}/tracks/${track.id}/stats/last/1/day`;
     return this.http
