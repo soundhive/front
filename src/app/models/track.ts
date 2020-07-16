@@ -1,5 +1,8 @@
 // import { User } from './user';
 
+import { User } from './user';
+import { Album } from './album';
+
 export class Track {
   id: string;
   title: string;
@@ -9,6 +12,8 @@ export class Track {
   // listenings: Listening[];
   createdAt: Date;
   updatedAt: Date;
-  // album: Album;
-  // user: User;
+  duration: number;
+  album: Album;
+  user: User;
+  favorited: boolean;
 }

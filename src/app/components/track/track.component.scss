@@ -9,6 +9,7 @@
   .track-cover {
     height: 45px;
     width: 45px;
+    max-width: 75px;
   }
 
   .track-title {
@@ -23,6 +24,16 @@
 
   .track-listen-count {
     font-size: 12px;
+    i {
+      margin-right: 1em;
+    }
+  }
+
+  .track-play-button {
+    padding: 0;
+    button {
+      border-radius: 5px;
+    }
   }
 
   .track-dots-options {
@@ -30,4 +41,9 @@
       cursor: pointer;
     }
   }
+}
+
+.pr-3,
+.px-3 {
+  padding-right: 2rem !important;
 }

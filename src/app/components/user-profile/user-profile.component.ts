@@ -4,6 +4,7 @@ import { User } from '../../models/user';
 import { Track } from 'src/app/models/track';
 import { UserService } from 'src/app/services/user.service';
 import { Album } from 'src/app/models/album';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user-profile',
@@ -18,19 +19,12 @@ export class UserProfileComponent implements OnInit {
   constructor(
     public userService: UserService,
     public authService: AuthService,
-  ) {
-    this.userService.getUser(authService.username).subscribe((res) => {
-      this.currentUser = res;
-    });
+    private route: ActivatedRoute,
+  ) {}
 
-    this.userService.getUserTracks(authService.username).subscribe((res) => {
-      this.tracks = res;
-    });
-
-    this.userService.getUserAlbums(authService.username).subscribe((res) => {
-      this.albums = res;
-    });
+  ngOnInit() {
+    this.currentUser = this.route.snapshot.data.user;
+    this.tracks = this.route.snapshot.data.tracks.items;
+    this.albums = this.route.snapshot.data.albums;
   }
-
-  ngOnInit() {}
 }

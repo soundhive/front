@@ -18,7 +18,7 @@ export class UserService {
     return this.apiService.getUser(username);
   }
 
-  getUserTracks(username: string): Observable<Track[]> {
+  getUserTracks(username: string): Observable<{ items: Track[] }> {
     return this.apiService.getUserTracks(username);
   }
 
