@@ -9,10 +9,6 @@ import { Observable } from 'rxjs';
 export class TrackService {
   constructor(private apiService: ApiService) {}
 
-  getTrackStats(track: Track): Observable<{ listenings: number }> {
-    return this.apiService.getTrackStats(track);
-  }
-
   addListening(track: Track): Observable<void> {
     return this.apiService.postTrackListening(track);
   }
