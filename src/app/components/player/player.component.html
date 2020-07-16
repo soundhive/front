@@ -6,6 +6,8 @@
         >
             <i class="fa fa-music" aria-hidden="true"></i>
             {{ track.user.name }} - {{ track.title }}
+
+            <!-- Like button -->
             <i
                 *ngIf="!track.favorited"
                 class="fa fa-heart-o"
@@ -17,6 +19,19 @@
                 class="fa fa-heart"
                 aria-hidden="true"
                 (click)="unfavoriteTrack()"
+            ></i>
+
+            <!-- Download button -->
+            <a
+                *ngIf="track.downloadable"
+                href="{{ s3Endpoint }}/{{ s3Bucket }}/{{ track.filename }}"
+            >
+                <i class="fa fa-download" aria-hidden="true"></i>
+            </a>
+            <i
+                *ngIf="!track.downloadable"
+                class="fa fa-download fa-disabled"
+                aria-disabled="true"
             ></i>
         </div>
         <div class="float-right player col-xs-9 col-sm-9 col-md-9">
