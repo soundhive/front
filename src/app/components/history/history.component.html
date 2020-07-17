@@ -8,9 +8,22 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let listening of listenings">
-            <th scope="row">{{ listening.listenedAt | date: 'medium' }}</th>
+        <tr *ngFor="let listening of listenings.items">
+            <th scope="row" class="listened-date align-middle">
+                {{ listening.listenedAt | dateAgo }}
+            </th>
             <td><app-track [track]="listening.track"></app-track></td>
         </tr>
     </tbody>
 </table>
+
+<div class="row">
+    <div class="col-md-4 mx-auto pagination">
+        <pagination
+            [(ngModel)]="currentPage"
+            (pageChanged)="onPaginationUpdate($event)"
+            [totalItems]="listenings.meta.totalItems"
+            [itemsPerPage]="listenings.meta.itemsPerPage"
+        ></pagination>
+    </div>
+</div>

@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { User } from '../models/user';
 import { ApiService } from './api.service';
-import { Listening } from '../models/listening';
 import { Observable } from 'rxjs';
+import { ListeningPagination } from '../models/pagination/listening-pagination';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +9,11 @@ import { Observable } from 'rxjs';
 export class HistoryService {
   constructor(private apiService: ApiService) {}
 
-  getForUser(username: string): Observable<{ items: Listening[] }> {
-    return this.apiService.getListeningsForUser(username);
+  getForUser(
+    username: string,
+    page?: number,
+    limit?: number,
+  ): Observable<ListeningPagination> {
+    return this.apiService.getListeningsForUser(username, page, limit);
   }
 }
