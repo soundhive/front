@@ -138,4 +138,11 @@ export class ApiService {
       .delete<any>(`${this.endpoint}/users/${user.username}/follow`)
       .pipe(catchError(this.handleError));
   }
+
+  getChartingTracks(): Observable<Track[]> {
+    const url = `${this.endpoint}/tracks/charts`;
+    return this.http
+      .get<Track[]>(url)
+      .pipe(catchError(this.handleError<Track[]>(`getChartingTracks`)));
+  }
 }
