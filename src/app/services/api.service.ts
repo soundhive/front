@@ -1,14 +1,12 @@
-import { Injectable, Inject } from '@angular/core';
-import { environment } from '../../environments/environment';
-
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/internal/operators/catchError';
-import { User } from '../models/user';
-import { Track } from '../models/track';
+import { environment } from '../../environments/environment';
 import { Album } from '../models/album';
-import { Listening } from '../models/listening';
 import { ListeningPagination } from '../models/pagination/listening-pagination';
+import { Track } from '../models/track';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root',
@@ -127,5 +125,17 @@ export class ApiService {
           ),
         ),
       );
+  }
+
+  postFollowUser(user: User): Observable<void> {
+    return this.http
+      .post<any>(`${this.endpoint}/users/${user.username}/follow`, null)
+      .pipe(catchError(this.handleError));
+  }
+
+  deleteFollowUser(user: User): Observable<void> {
+    return this.http
+      .delete<any>(`${this.endpoint}/users/${user.username}/follow`)
+      .pipe(catchError(this.handleError));
   }
 }
