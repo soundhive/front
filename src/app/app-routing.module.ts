@@ -1,18 +1,16 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-
-import { SigninComponent } from './components/signin/signin.component';
-import { SignupComponent } from './components/signup/signup.component';
+import { RouterModule, Routes } from '@angular/router';
+import { HistoryComponent } from './components/history/history.component';
 import { HomeComponent } from './components/home/home.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-
-import { AuthGuard } from './shared/auth.guard';
-import { UserResolve } from './resolves/user.resolve';
-import { UserTracksResolve } from './resolves/user-tracks.resolve';
-import { UserAlbumsResolve } from './resolves/user-albums.resolve';
+import { SigninComponent } from './components/signin/signin.component';
+import { SignupComponent } from './components/signup/signup.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import { HistoryComponent } from './components/history/history.component';
+import { UserAlbumsResolve } from './resolves/user-albums.resolve';
 import { UserHistoryResolve } from './resolves/user-history.resolve';
+import { UserTracksResolve } from './resolves/user-tracks.resolve';
+import { UserResolve } from './resolves/user.resolve';
+import { AuthGuard } from './shared/auth.guard';
 
 const routes: Routes = [
   {
@@ -23,16 +21,6 @@ const routes: Routes = [
   },
   {
     path: 'user/:username',
-    component: UserProfileComponent,
-    canActivate: [AuthGuard],
-    resolve: {
-      user: UserResolve,
-      tracks: UserTracksResolve,
-      albums: UserAlbumsResolve,
-    },
-  },
-  {
-    path: 'profile',
     component: UserProfileComponent,
     canActivate: [AuthGuard],
     resolve: {
