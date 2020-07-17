@@ -1,6 +1,9 @@
 .navbar {
   background-color: #242424;
   display: inherit;
+  -webkit-box-shadow: 0px -5px 27px -4px rgba(0, 0, 0, 0.52);
+  -moz-box-shadow: 0px -5px 27px -4px rgba(0, 0, 0, 0.52);
+  box-shadow: 0px -5px 27px -4px rgba(0, 0, 0, 0.52);
 }
 
 .player {
@@ -15,6 +18,10 @@
     font-size: 22px;
     margin-right: 10px;
     margin-left: 10px;
+  }
+  .title {
+    font-size: 120%;
+    margin-right: 1em;
   }
 }
 
@@ -33,6 +40,8 @@
   .ngx-basic-audio-player {
     margin-left: 2em;
     margin-right: 2em;
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
   }
   .mat-slider-wrapper {
     margin-left: 3em;
@@ -46,4 +55,9 @@
 .fa-disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+img {
+  margin-top: -1rem;
+  max-width: 22%;
 }
