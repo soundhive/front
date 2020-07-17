@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Album } from 'src/app/models/album';
 import { Track } from 'src/app/models/track';
 import { UserService } from 'src/app/services/user.service';
@@ -21,7 +21,14 @@ export class UserProfileComponent implements OnInit {
     public userService: UserService,
     public authService: AuthService,
     private route: ActivatedRoute,
-  ) {}
+    private router: Router,
+  ) {
+    // call ngOnInit again when router routes to this component
+    // otherwise the resolve data will not be affected to component properties.
+    this.router.routeReuseStrategy.shouldReuseRoute = () => {
+      return false;
+    };
+  }
 
   ngOnInit() {
     this.user = this.route.snapshot.data.user;
