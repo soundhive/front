@@ -1,12 +1,14 @@
 import { Injectable, Inject } from '@angular/core';
 import { environment } from '../../environments/environment';
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/internal/operators/catchError';
 import { User } from '../models/user';
 import { Track } from '../models/track';
 import { Album } from '../models/album';
+import { Listening } from '../models/listening';
+import { ListeningPagination } from '../models/pagination/listening-pagination';
 
 @Injectable({
   providedIn: 'root',
@@ -101,5 +103,29 @@ export class ApiService {
     return this.http
       .post<any>(`${this.endpoint}/tracks/${track.id}/listen`, null)
       .pipe(catchError(this.handleError));
+  }
+
+  getListeningsForUser(
+    username: string,
+    page: number = 1,
+    limit: number = 5,
+  ): Observable<ListeningPagination> {
+    const url = `${this.endpoint}/users/${username}/history`;
+
+    let params = new HttpParams();
+    params = params.append('page', page.toString());
+    params = params.append('limit', limit.toString());
+
+    return this.http
+      .get<ListeningPagination>(url, {
+        params,
+      })
+      .pipe(
+        catchError(
+          this.handleError<ListeningPagination>(
+            `getListeningsForUser username=${username}`,
+          ),
+        ),
+      );
   }
 }

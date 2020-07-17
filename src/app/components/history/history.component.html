@@ -1,0 +1,35 @@
+<h1>Your listening history</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Track</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let listening of listenings.items">
+            <th
+                scope="row"
+                class="listened-date align-middle"
+                *ngIf="listening.track"
+            >
+                {{ listening.listenedAt | dateAgo }}
+            </th>
+            <td *ngIf="listening.track">
+                <app-track [track]="listening.track"></app-track>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="row">
+    <div class="col-md-4 mx-auto pagination">
+        <pagination
+            [(ngModel)]="currentPage"
+            (pageChanged)="onPaginationUpdate($event)"
+            [totalItems]="listenings.meta.totalItems"
+            [itemsPerPage]="listenings.meta.itemsPerPage"
+        ></pagination>
+    </div>
+</div>
