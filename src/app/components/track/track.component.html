@@ -17,8 +17,10 @@
             {{ track.duration | secondsToMinutes }}
         </div>
         <div class="track-listen-count align-self-center col-sm-2">
-            <i class="fa fa-bar-chart" aria-hidden="true"></i>
-            {{ track.listeningCount }}
+            <div *ngIf="track.listeningCount !== undefined">
+                <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                {{ track.listeningCount }}
+            </div>
         </div>
         <!-- <div class="track-dots-options align-self-center  col-sm-1">
             <span class="mdi mdi-dots-horizontal col-sm-1"></span>
@@ -27,7 +29,7 @@
             class="font-weight-bold align-self-center text-left col-sm-1 track-play-button"
             (click)="onPlayButtonClick(track)"
         >
-            <button type="button" class="btn btn-dark">
+            <button type="button" class="btn btn-dark float-right">
                 <i class="fa fa-play" aria-hidden="true"></i>
             </button>
         </div>

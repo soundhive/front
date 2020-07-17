@@ -11,6 +11,8 @@ import { UserResolve } from './resolves/user.resolve';
 import { UserTracksResolve } from './resolves/user-tracks.resolve';
 import { UserAlbumsResolve } from './resolves/user-albums.resolve';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { HistoryComponent } from './components/history/history.component';
+import { UserHistoryResolve } from './resolves/user-history.resolve';
 
 const routes: Routes = [
   {
@@ -42,6 +44,14 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: SigninComponent },
   { path: 'register', component: SignupComponent },
+  {
+    path: 'history',
+    component: HistoryComponent,
+    canActivate: [AuthGuard],
+    resolve: {
+      listenings: UserHistoryResolve,
+    },
+  },
   { path: '404', component: PageNotFoundComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '404' },
 ];

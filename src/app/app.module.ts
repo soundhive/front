@@ -20,6 +20,7 @@ import { NgxAudioPlayerModule } from 'ngx-audio-player';
 import { PlayerComponent } from './components/player/player.component';
 import { SecondsToMinutesPipe } from './pipes/seconds-to-minutes.pipe';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { HistoryComponent } from './components/history/history.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     AlbumComponent,
     PlayerComponent,
     SecondsToMinutesPipe,
+    HistoryComponent,
   ],
   imports: [
     BrowserModule,

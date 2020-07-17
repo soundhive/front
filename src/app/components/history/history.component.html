@@ -1,0 +1,16 @@
+<h1>Your listening history</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Track</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let listening of listenings">
+            <th scope="row">{{ listening.listenedAt | date: 'medium' }}</th>
+            <td><app-track [track]="listening.track"></app-track></td>
+        </tr>
+    </tbody>
+</table>

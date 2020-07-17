@@ -7,6 +7,7 @@ import { catchError } from 'rxjs/internal/operators/catchError';
 import { User } from '../models/user';
 import { Track } from '../models/track';
 import { Album } from '../models/album';
+import { Listening } from '../models/listening';
 
 @Injectable({
   providedIn: 'root',
@@ -101,5 +102,18 @@ export class ApiService {
     return this.http
       .post<any>(`${this.endpoint}/tracks/${track.id}/listen`, null)
       .pipe(catchError(this.handleError));
+  }
+
+  getListeningsForUser(username: string): Observable<{ items: Listening[] }> {
+    const url = `${this.endpoint}/users/${username}/history`;
+    return this.http
+      .get<{ items: Listening[] }>(url)
+      .pipe(
+        catchError(
+          this.handleError<{ items: Listening[] }>(
+            `getListeningsForUser username=${username}`,
+          ),
+        ),
+      );
   }
 }
