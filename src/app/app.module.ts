@@ -21,6 +21,7 @@ import { PlayerComponent } from './components/player/player.component';
 import { SecondsToMinutesPipe } from './pipes/seconds-to-minutes.pipe';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { HistoryComponent } from './components/history/history.component';
+import { DateAgoPipe } from './pipes/date-ago.pipe';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { HistoryComponent } from './components/history/history.component';
     PlayerComponent,
     SecondsToMinutesPipe,
     HistoryComponent,
+    DateAgoPipe,
   ],
   imports: [
     BrowserModule,
