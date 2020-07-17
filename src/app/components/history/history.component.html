@@ -9,10 +9,16 @@
     </thead>
     <tbody>
         <tr *ngFor="let listening of listenings.items">
-            <th scope="row" class="listened-date align-middle">
+            <th
+                scope="row"
+                class="listened-date align-middle"
+                *ngIf="listening.track"
+            >
                 {{ listening.listenedAt | dateAgo }}
             </th>
-            <td><app-track [track]="listening.track"></app-track></td>
+            <td *ngIf="listening.track">
+                <app-track [track]="listening.track"></app-track>
+            </td>
         </tr>
     </tbody>
 </table>
