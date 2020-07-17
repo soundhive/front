@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { ApiService } from './api.service';
 import { Observable } from 'rxjs';
-import { User } from '../models/user';
-import { Track } from '../models/track';
 import { Album } from '../models/album';
+import { Track } from '../models/track';
+import { User } from '../models/user';
+import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root',
@@ -24,5 +24,13 @@ export class UserService {
 
   getUserAlbums(username: string): Observable<Album[]> {
     return this.apiService.getUserAlbums(username);
+  }
+
+  followUser(user: User): Observable<void> {
+    return this.apiService.postFollowUser(user);
+  }
+
+  unfollowUser(user: User): Observable<void> {
+    return this.apiService.deleteFollowUser(user);
   }
 }
