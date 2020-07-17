@@ -1,0 +1,20 @@
+<h1>Top 100 charts</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Track</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let track of tracks; let i = index">
+            <td scope="row" class="ranking align-middle">
+                {{ i + 1 }}
+            </td>
+            <td>
+                <app-track [track]="track"></app-track>
+            </td>
+        </tr>
+    </tbody>
+</table>

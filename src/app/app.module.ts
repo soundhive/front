@@ -23,6 +23,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { HistoryComponent } from './components/history/history.component';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { DateAgoPipe } from './pipes/date-ago.pipe';
+import { ChartsComponent } from './components/charts/charts.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { DateAgoPipe } from './pipes/date-ago.pipe';
     SecondsToMinutesPipe,
     HistoryComponent,
     DateAgoPipe,
+    ChartsComponent,
   ],
   imports: [
     BrowserModule,
