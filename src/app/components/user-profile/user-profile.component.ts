@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../shared/auth.service';
-import { User } from '../../models/user';
+import { ActivatedRoute } from '@angular/router';
+import { Album } from 'src/app/models/album';
 import { Track } from 'src/app/models/track';
 import { UserService } from 'src/app/services/user.service';
-import { Album } from 'src/app/models/album';
-import { ActivatedRoute } from '@angular/router';
+import { User } from '../../models/user';
+import { AuthService } from '../../shared/auth.service';
 
 @Component({
   selector: 'app-user-profile',
