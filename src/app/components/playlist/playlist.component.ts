@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PlaylistsService } from '../../services/playlists.service';
 import { Playlist } from '../../models/playlist';
 import { AlertService } from '../../services/alert.service';
+import { PlaylistsService } from '../../services/playlists.service';
 
 @Component({
   selector: 'app-playlist',
@@ -29,6 +29,11 @@ export class PlaylistComponent implements OnInit {
       console.log(res);
       this.playlist = res;
     });
+
+    // Do not cache component
+    this.router.routeReuseStrategy.shouldReuseRoute = () => {
+      return false;
+    };
   }
 
   ngOnInit(): void {}
