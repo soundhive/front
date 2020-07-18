@@ -1,6 +1,4 @@
-import { Listening } from '../listening';
-
-export class ListeningPagination {
+export class Pagination<T> {
   meta: {
     itemCount: number;
     totalItems: number;
@@ -14,5 +12,5 @@ export class ListeningPagination {
     next: string;
     last: string;
   };
-  items: Listening[];
+  items: T[];
 }
