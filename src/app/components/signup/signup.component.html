@@ -2,12 +2,12 @@
     <form
         class="form-signin"
         [formGroup]="signupForm"
-        #form="ngForm"
         (ngSubmit)="registerUser()"
     >
         <h3 class="h3 mb-3 font-weight-normal text-center">
             Create your account
         </h3>
+
         <div class="form-group">
             <label>Name</label>
             <input
@@ -17,6 +17,18 @@
                 placeholder="Enter name"
                 required
             />
+            <div
+                *ngIf="
+                    signupForm.controls['name'].invalid &&
+                    (signupForm.controls['name'].dirty ||
+                        signupForm.controls['name'].touched)
+                "
+                class="alert alert-danger"
+            >
+                <div *ngIf="signupForm.controls['name'].errors.required">
+                    Name is required.
+                </div>
+            </div>
         </div>
         <div class="form-group">
             <label>Username</label>
@@ -28,6 +40,19 @@
                 required
             />
         </div>
+        <div
+            *ngIf="
+                signupForm.controls['username'].invalid &&
+                (signupForm.controls['username'].dirty ||
+                    signupForm.controls['username'].touched)
+            "
+            class="alert alert-danger"
+        >
+            <div *ngIf="signupForm.controls['username'].errors.required">
+                Username is required.
+            </div>
+        </div>
+
         <div class="form-group">
             <label>Email</label>
             <input
@@ -35,9 +60,30 @@
                 class="form-control"
                 formControlName="email"
                 placeholder="Enter email"
+                email
                 required
             />
         </div>
+        <div
+            *ngIf="
+                signupForm.controls['email'].invalid &&
+                signupForm.controls['email'].touched
+            "
+            class="alert alert-danger"
+        >
+            <div *ngIf="signupForm.controls['email'].errors.required">
+                Email is required.
+            </div>
+            <div
+                *ngIf="
+                    !signupForm.controls['email'].errors.required &&
+                    signupForm.controls['email'].touched
+                "
+            >
+                Invalid email.
+            </div>
+        </div>
+
         <div class="form-group">
             <label>Password</label>
             <input
@@ -48,6 +94,19 @@
                 required
             />
         </div>
+        <div
+            *ngIf="
+                signupForm.controls['password'].invalid &&
+                (signupForm.controls['password'].dirty ||
+                    signupForm.controls['password'].touched)
+            "
+            class="alert alert-danger"
+        >
+            <div *ngIf="signupForm.controls['password'].errors.required">
+                Password is required.
+            </div>
+        </div>
+
         <div class="form-group">
             <label>Profile picture</label>
             <input
@@ -65,7 +124,7 @@
         </ul>
 
         <button
-            [disabled]="form.invalid"
+            [disabled]="signupForm.pristine || signupForm.invalid"
             type="submit"
             class="btn btn-block btn-primary"
         >
