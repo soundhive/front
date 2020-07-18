@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { AuthService } from './../../shared/auth.service';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
+import { AuthService } from './../../shared/auth.service';
 
 @Component({
   selector: 'app-signin',
@@ -22,7 +21,10 @@ export class SigninComponent implements OnInit {
       (res: any) => {
         localStorage.setItem('access_token', res.access_token);
         localStorage.setItem('username', this.user.username);
-        this.router.navigate(['user/' + this.user.username]);
+
+        // this.router.navigate(['user/' + this.user.username]);
+        // force reload otherwise router-outlet isn't update for some reason
+        window.location.href = '/home';
       },
       (err) => {
         this.error = err.message;
