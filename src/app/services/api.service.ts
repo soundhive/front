@@ -4,7 +4,9 @@ import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/internal/operators/catchError';
 import { environment } from '../../environments/environment';
 import { Album } from '../models/album';
-import { ListeningPagination } from '../models/pagination/listening-pagination';
+import { Favorite } from '../models/favorite';
+import { Listening } from '../models/listening';
+import { Pagination } from '../models/pagination/pagination';
 import { Track } from '../models/track';
 import { User } from '../models/user';
 
@@ -41,13 +43,13 @@ export class ApiService {
       .pipe(catchError(this.handleError<User>(`getUser username=${username}`)));
   }
 
-  getUserTracks(username: string): Observable<{ items: Track[] }> {
+  getUserTracks(username: string): Observable<Pagination<Track>> {
     const url = `${this.endpoint}/users/${username}/tracks`;
     return this.http
-      .get<{ items: Track[] }>(url)
+      .get<Pagination<Track>>(url)
       .pipe(
         catchError(
-          this.handleError<{ items: Track[] }>(
+          this.handleError<Pagination<Track>>(
             `getUserTracks username=${username}`,
           ),
         ),
@@ -107,7 +109,7 @@ export class ApiService {
     username: string,
     page: number = 1,
     limit: number = 5,
-  ): Observable<ListeningPagination> {
+  ): Observable<Pagination<Listening>> {
     const url = `${this.endpoint}/users/${username}/history`;
 
     let params = new HttpParams();
@@ -115,12 +117,12 @@ export class ApiService {
     params = params.append('limit', limit.toString());
 
     return this.http
-      .get<ListeningPagination>(url, {
+      .get<Pagination<Listening>>(url, {
         params,
       })
       .pipe(
         catchError(
-          this.handleError<ListeningPagination>(
+          this.handleError<Pagination<Listening>>(
             `getListeningsForUser username=${username}`,
           ),
         ),
@@ -144,5 +146,29 @@ export class ApiService {
     return this.http
       .get<Track[]>(url)
       .pipe(catchError(this.handleError<Track[]>(`getChartingTracks`)));
+  }
+
+  getFavoriteTracksForUser(
+    username: string,
+    page: number = 1,
+    limit: number = 5,
+  ): Observable<Pagination<Favorite>> {
+    const url = `${this.endpoint}/users/${username}/favorites`;
+
+    let params = new HttpParams();
+    params = params.append('page', page.toString());
+    params = params.append('limit', limit.toString());
+
+    return this.http
+      .get<Pagination<Favorite>>(url, {
+        params,
+      })
+      .pipe(
+        catchError(
+          this.handleError<Pagination<Favorite>>(
+            `getFavoriteTracksForUser username=${username}`,
+          ),
+        ),
+      );
   }
 }
