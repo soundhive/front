@@ -1,14 +1,14 @@
-import { Injectable } from '@angular/core';
-import { User } from '../models/user';
-import { Observable, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
 import {
   HttpClient,
-  HttpHeaders,
   HttpErrorResponse,
+  HttpHeaders,
 } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root',
@@ -51,10 +51,10 @@ export class AuthService {
   }
 
   doLogout() {
-    const removeToken = localStorage.removeItem('access_token');
-    if (removeToken == null) {
-      this.router.navigate(['login']);
-    }
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('current_track');
+
+    this.router.navigate(['login']);
   }
 
   // Error handling
