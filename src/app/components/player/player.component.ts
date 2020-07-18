@@ -31,10 +31,6 @@ export class PlayerComponent implements OnInit {
       this.trackService.getTrack(previousTrack).subscribe((track) => {
         if (track) {
           this.track = track;
-
-          this.trackService.isTrackFavorited(this.track).subscribe((res) => {
-            this.track.favorited = res.favorited;
-          });
         }
       });
     }

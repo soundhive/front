@@ -22,7 +22,6 @@ export class FavoriteTracksComponent implements OnInit {
 
   ngOnInit(): void {
     this.favorites = this.route.snapshot.data.favorites;
-    console.log(this.favorites);
   }
 
   onPaginationUpdate(event) {

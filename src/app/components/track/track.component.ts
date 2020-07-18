@@ -23,11 +23,7 @@ export class TrackComponent implements OnInit {
     this.s3Endpoint = environment.s3_endpoint;
   }
 
-  ngOnInit(): void {
-    this.trackService.isTrackFavorited(this.track).subscribe((res) => {
-      this.track.favorited = res.favorited;
-    });
-  }
+  ngOnInit(): void {}
 
   onPlayButtonClick(track: Track) {
     this.playerService.PlayTrack(track);
