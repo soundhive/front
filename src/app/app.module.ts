@@ -7,8 +7,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxAudioPlayerModule } from 'ngx-audio-player';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { AppRoutingModule } from './app-routing.module';
-import { AlertModule } from './components/_alert';
-
 import { AppComponent } from './app.component';
 import { AlbumPreviewComponent } from './components/album-preview/album-preview.component';
 import { AlbumComponent } from './components/album/album.component';
@@ -20,9 +18,9 @@ import { HomeComponent } from './components/home/home.component';
 import { MyAlbumsComponent } from './components/my-albums/my-albums.component';
 import { MyTracksComponent } from './components/my-tracks/my-tracks.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { NewPlaylistComponent } from './components/new-playlist/new-playlist.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { PlayerComponent } from './components/player/player.component';
+import { PlaylistFormComponent } from './components/playlist-form/playlist-form.component';
 import { PlaylistComponent } from './components/playlist/playlist.component';
 import { PlaylistsComponent } from './components/playlists/playlists.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
@@ -32,7 +30,7 @@ import { SubscriptionsComponent } from './components/subscriptions/subscriptions
 import { TrackComponent } from './components/track/track.component';
 import { UserEditComponent } from './components/user-profile/user-edit/user-edit.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
-
+import { AlertModule } from './components/_alert';
 import { DateAgoPipe } from './pipes/date-ago.pipe';
 import { SecondsToMinutesPipe } from './pipes/seconds-to-minutes.pipe';
 import { AuthInterceptor } from './shared/authconfig.interceptor';
@@ -63,7 +61,7 @@ import { AuthInterceptor } from './shared/authconfig.interceptor';
     SubscriptionsComponent,
     PlaylistComponent,
     PlaylistsComponent,
-    NewPlaylistComponent,
+    PlaylistFormComponent,
   ],
   imports: [
     BrowserModule,

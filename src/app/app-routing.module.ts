@@ -7,8 +7,8 @@ import { HistoryComponent } from './components/history/history.component';
 import { HomeComponent } from './components/home/home.component';
 import { MyAlbumsComponent } from './components/my-albums/my-albums.component';
 import { MyTracksComponent } from './components/my-tracks/my-tracks.component';
-import { NewPlaylistComponent } from './components/new-playlist/new-playlist.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { PlaylistFormComponent } from './components/playlist-form/playlist-form.component';
 import { PlaylistComponent } from './components/playlist/playlist.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
@@ -96,7 +96,7 @@ const routes: Routes = [
   },
   {
     path: 'playlists/new',
-    component: NewPlaylistComponent,
+    component: PlaylistFormComponent,
     canActivate: [AuthGuard],
   },
   {

@@ -1,16 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { Playlist } from '../models/playlist';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { environment } from '../../environments/environment';
 import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PlaylistsService {
-  endpoint: string;
   playlists = [];
 
   playlistsSubject = new Subject<any[]>();
@@ -29,7 +26,12 @@ export class PlaylistsService {
     return this.apiService.getPlaylist(id);
   }
 
-  create(playlist) {
-    this.playlists.push(playlist);
+  createPlaylist(playlist) {
+    return this.apiService.createPlaylist(playlist);
+    // this.playlists.push(playlist);
+  }
+
+  deletePlaylist(playlist: Playlist) {
+    return this.apiService.deletePlaylist(playlist.id);
   }
 }
