@@ -18,7 +18,14 @@ input {
   height: 50px;
 }
 
-.nav-notification-button {
+.nav-profile {
+  margin-right: 1em;
+}
+
+.nav-settings-button {
+  *:focus {
+    outline: none;
+  }
   button {
     background-color: $black;
     font-size: 18px;

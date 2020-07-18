@@ -1,0 +1,96 @@
+<div class="auth-wrapper container">
+    <form class="form-signin" [formGroup]="userForm" (ngSubmit)="updateUser()">
+        <h3 class="h3 mb-3 font-weight-normal text-center">
+            Update your profile
+        </h3>
+
+        <div class="form-group">
+            <label>Name</label>
+            <input
+                type="text"
+                class="form-control"
+                formControlName="name"
+                placeholder="Enter name"
+                required
+            />
+            <div
+                *ngIf="
+                    userForm.controls['name'].invalid &&
+                    (userForm.controls['name'].dirty ||
+                        userForm.controls['name'].touched)
+                "
+                class="alert alert-danger"
+            >
+                <div *ngIf="userForm.controls['name'].errors.required">
+                    Name is required.
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Email</label>
+            <input
+                type="email"
+                class="form-control"
+                formControlName="email"
+                placeholder="Enter email"
+                email
+                required
+            />
+        </div>
+        <div
+            *ngIf="
+                userForm.controls['email'].invalid &&
+                userForm.controls['email'].touched
+            "
+            class="alert alert-danger"
+        >
+            <div *ngIf="userForm.controls['email'].errors.required">
+                Email is required.
+            </div>
+            <div
+                *ngIf="
+                    !userForm.controls['email'].errors.required &&
+                    userForm.controls['email'].touched
+                "
+            >
+                Invalid email.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Password</label>
+            <input
+                type="password"
+                class="form-control"
+                formControlName="password"
+                placeholder="Password"
+            />
+        </div>
+
+        <div class="form-group">
+            <label>Profile picture</label>
+            <input
+                type="file"
+                class="form-control-file"
+                id="profile_picture"
+                required
+            />
+        </div>
+
+        <ul *ngIf="this.errors" class="alert alert-danger" role="alert">
+            <li *ngFor="let error of this.errors">
+                {{ error }}
+            </li>
+        </ul>
+
+        <button
+            [disabled]="userForm.invalid"
+            type="submit"
+            class="btn btn-block btn-primary"
+        >
+            Update
+        </button>
+    </form>
+    <span *ngIf="updated">Profile updated!</span>
+</div>

@@ -6,13 +6,17 @@ import { Listening } from '../models/listening';
 import { Pagination } from '../models/pagination/pagination';
 import { Track } from '../models/track';
 import { User } from '../models/user';
+import { AuthService } from '../shared/auth.service';
 import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  constructor(private apiService: ApiService) {}
+  constructor(
+    private apiService: ApiService,
+    private authService: AuthService,
+  ) {}
 
   getUser(username: string | null): Observable<User> {
     if (!username) {
@@ -51,5 +55,9 @@ export class UserService {
     limit?: number,
   ): Observable<Pagination<Favorite>> {
     return this.apiService.getFavoriteTracksForUser(username, page, limit);
+  }
+
+  updateUser(user: FormData) {
+    return this.apiService.putUser(user, this.authService.username);
   }
 }

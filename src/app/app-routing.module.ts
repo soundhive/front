@@ -7,6 +7,7 @@ import { HomeComponent } from './components/home/home.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { UserEditComponent } from './components/user-profile/user-edit/user-edit.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { ChartingTracksResolve } from './resolves/charting-tracks.resolve';
 import { UserAlbumsResolve } from './resolves/user-albums.resolve';
@@ -31,6 +32,14 @@ const routes: Routes = [
       user: UserResolve,
       tracks: UserTracksResolve,
       albums: UserAlbumsResolve,
+    },
+  },
+  {
+    path: 'settings',
+    component: UserEditComponent,
+    canActivate: [AuthGuard],
+    resolve: {
+      user: UserResolve,
     },
   },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
