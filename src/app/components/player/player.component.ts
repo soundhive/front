@@ -31,10 +31,6 @@ export class PlayerComponent implements OnInit {
       this.trackService.getTrack(previousTrack).subscribe((track) => {
         if (track) {
           this.track = track;
-
-          this.trackService.isTrackFavorited(this.track).subscribe((res) => {
-            this.track.favorited = res.favorited;
-          });
         }
       });
     }
@@ -87,13 +83,10 @@ export class PlayerComponent implements OnInit {
   }
 
   favoriteTrack() {
-    console.log('favorite', this.track);
     this.trackService.favoriteTrack(this.track).subscribe((res) => {});
     this.track.favorited = true;
   }
   unfavoriteTrack() {
-    console.log('unfavorite', this.track);
-
     this.trackService.unFavoriteTrack(this.track).subscribe();
     this.track.favorited = false;
   }

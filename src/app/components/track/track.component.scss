@@ -13,8 +13,13 @@
   }
 
   .track-title {
+    margin-left: -0.5em;
     &:hover {
       cursor: pointer;
+    }
+    i {
+      font-size: 20px;
+      margin-right: 1em;
     }
   }
 

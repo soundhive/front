@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Album } from '../models/album';
+import { Favorite } from '../models/favorite';
+import { Listening } from '../models/listening';
+import { Pagination } from '../models/pagination/pagination';
 import { Track } from '../models/track';
 import { User } from '../models/user';
 import { ApiService } from './api.service';
@@ -18,7 +21,7 @@ export class UserService {
     return this.apiService.getUser(username);
   }
 
-  getUserTracks(username: string): Observable<{ items: Track[] }> {
+  getUserTracks(username: string): Observable<Pagination<Track>> {
     return this.apiService.getUserTracks(username);
   }
 
@@ -32,5 +35,21 @@ export class UserService {
 
   unfollowUser(user: User): Observable<void> {
     return this.apiService.deleteFollowUser(user);
+  }
+
+  getTracksHistory(
+    username: string,
+    page?: number,
+    limit?: number,
+  ): Observable<Pagination<Listening>> {
+    return this.apiService.getListeningsForUser(username, page, limit);
+  }
+
+  getFavoriteTracks(
+    username: string,
+    page?: number,
+    limit?: number,
+  ): Observable<Pagination<Favorite>> {
+    return this.apiService.getFavoriteTracksForUser(username, page, limit);
   }
 }

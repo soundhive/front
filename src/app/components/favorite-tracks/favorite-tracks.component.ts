@@ -1,35 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Listening } from 'src/app/models/listening';
+import { Favorite } from 'src/app/models/favorite';
 import { Pagination } from 'src/app/models/pagination/pagination';
 import { UserService } from 'src/app/services/user.service';
 import { AuthService } from 'src/app/shared/auth.service';
 
 @Component({
-  selector: 'app-history',
-  templateUrl: './history.component.html',
-  styleUrls: ['./history.component.scss'],
+  selector: 'app-favorite-tracks',
+  templateUrl: './favorite-tracks.component.html',
+  styleUrls: ['./favorite-tracks.component.scss'],
 })
-export class HistoryComponent implements OnInit {
-  listenings: Pagination<Listening>;
+export class FavoriteTracksComponent implements OnInit {
+  favorites: Pagination<Favorite>;
   currentPage = 1;
 
   constructor(
     private route: ActivatedRoute,
-    private userService: UserService,
+    public userService: UserService,
     public authService: AuthService,
   ) {}
 
   ngOnInit(): void {
-    this.listenings = this.route.snapshot.data.listenings;
+    this.favorites = this.route.snapshot.data.favorites;
   }
 
   onPaginationUpdate(event) {
     this.currentPage = event.page;
     this.userService
-      .getTracksHistory(this.authService.username, event.page)
+      .getFavoriteTracks(this.authService.username, event.page)
       .subscribe((res) => {
-        this.listenings = res;
+        this.favorites = res;
       });
   }
 }

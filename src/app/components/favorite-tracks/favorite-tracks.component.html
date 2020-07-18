@@ -1,23 +1,23 @@
-<h1>Your listening history ({{ listenings.meta.totalItems }})</h1>
+<h1>Your favorite tracks ({{ favorites.meta.totalItems }})</h1>
 
 <table class="table">
     <thead>
         <tr>
-            <th scope="col">Date</th>
+            <th scope="col">Favorited date</th>
             <th scope="col">Track</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let listening of listenings.items">
+        <tr *ngFor="let favorite of favorites.items">
             <td
                 scope="row"
                 class="listened-date align-middle"
-                *ngIf="listening.track"
+                *ngIf="favorite.track"
             >
-                {{ listening.listenedAt | dateAgo }}
+                {{ favorite.favoritedAt | dateAgo }}
             </td>
-            <td *ngIf="listening.track">
-                <app-track [track]="listening.track"></app-track>
+            <td *ngIf="favorite.track">
+                <app-track [track]="favorite.track"></app-track>
             </td>
         </tr>
     </tbody>
@@ -28,8 +28,8 @@
         <pagination
             [(ngModel)]="currentPage"
             (pageChanged)="onPaginationUpdate($event)"
-            [totalItems]="listenings.meta.totalItems"
-            [itemsPerPage]="listenings.meta.itemsPerPage"
+            [totalItems]="favorites.meta.totalItems"
+            [itemsPerPage]="favorites.meta.itemsPerPage"
         ></pagination>
     </div>
 </div>

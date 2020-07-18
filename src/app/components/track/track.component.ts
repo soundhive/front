@@ -1,8 +1,8 @@
-import { Component, OnInit, Input, Pipe } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Track } from 'src/app/models/track';
-import { environment } from 'src/environments/environment';
 import { PlayerService } from 'src/app/services/player.service';
 import { TrackService } from 'src/app/services/track.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-track',
@@ -23,11 +23,7 @@ export class TrackComponent implements OnInit {
     this.s3Endpoint = environment.s3_endpoint;
   }
 
-  ngOnInit(): void {
-    this.trackService.isTrackFavorited(this.track).subscribe((res) => {
-      this.track.favorited = res.favorited;
-    });
-  }
+  ngOnInit(): void {}
 
   onPlayButtonClick(track: Track) {
     this.playerService.PlayTrack(track);
@@ -35,5 +31,14 @@ export class TrackComponent implements OnInit {
 
   onTitleClick(track: Track) {
     this.playerService.LoadTrack(track);
+  }
+
+  favoriteTrack() {
+    this.trackService.favoriteTrack(this.track).subscribe((res) => {});
+    this.track.favorited = true;
+  }
+  unfavoriteTrack() {
+    this.trackService.unFavoriteTrack(this.track).subscribe();
+    this.track.favorited = false;
   }
 }
