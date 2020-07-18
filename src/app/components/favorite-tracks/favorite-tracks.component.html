@@ -1,0 +1,35 @@
+<h1>Your favorite tracks ({{ favorites.meta.totalItems }})</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Favorited date</th>
+            <th scope="col">Track</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let favorite of favorites.items">
+            <td
+                scope="row"
+                class="listened-date align-middle"
+                *ngIf="favorite.track"
+            >
+                {{ favorite.favoritedAt | dateAgo }}
+            </td>
+            <td *ngIf="favorite.track">
+                <app-track [track]="favorite.track"></app-track>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="row">
+    <div class="col-md-4 mx-auto pagination">
+        <pagination
+            [(ngModel)]="currentPage"
+            (pageChanged)="onPaginationUpdate($event)"
+            [totalItems]="favorites.meta.totalItems"
+            [itemsPerPage]="favorites.meta.itemsPerPage"
+        ></pagination>
+    </div>
+</div>
