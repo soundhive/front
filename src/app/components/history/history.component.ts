@@ -1,9 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Listening } from 'src/app/models/listening';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HistoryService } from 'src/app/services/history.service';
+import { Listening } from 'src/app/models/listening';
+import { Pagination } from 'src/app/models/pagination/pagination';
+import { UserService } from 'src/app/services/user.service';
 import { AuthService } from 'src/app/shared/auth.service';
-import { ListeningPagination } from 'src/app/models/pagination/listening-pagination';
 
 @Component({
   selector: 'app-history',
@@ -11,12 +11,12 @@ import { ListeningPagination } from 'src/app/models/pagination/listening-paginat
   styleUrls: ['./history.component.scss'],
 })
 export class HistoryComponent implements OnInit {
-  listenings: ListeningPagination;
+  listenings: Pagination<Listening>;
   currentPage = 1;
 
   constructor(
     private route: ActivatedRoute,
-    public historyService: HistoryService,
+    private userService: UserService,
     public authService: AuthService,
   ) {}
 
@@ -26,8 +26,8 @@ export class HistoryComponent implements OnInit {
 
   onPaginationUpdate(event) {
     this.currentPage = event.page;
-    this.historyService
-      .getForUser(this.authService.username, event.page)
+    this.userService
+      .getTracksHistory(this.authService.username, event.page)
       .subscribe((res) => {
         this.listenings = res;
       });
