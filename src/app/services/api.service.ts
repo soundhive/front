@@ -1,6 +1,10 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpParams,
+} from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import { catchError } from 'rxjs/internal/operators/catchError';
 import { environment } from '../../environments/environment';
 import { Album } from '../models/album';
@@ -27,6 +31,18 @@ export class ApiService {
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };
+  }
+
+  private handleErrorForm(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+      // A client-side or network error occurred. Handle it accordingly.
+      console.error('An error occurred:', error.error.message);
+    } else {
+      // The backend returned an unsuccessful response code.
+      console.error(error.error);
+    }
+    // return an observable with a user-facing error message
+    return throwError(error.error);
   }
 
   getSelfProfile(): Observable<User> {
@@ -152,7 +168,7 @@ export class ApiService {
     username: string,
     page: number = 1,
     limit: number = 5,
-  ): Observable<Pagination<Favorite>> {
+  ): Observable<any> {
     const url = `${this.endpoint}/users/${username}/favorites`;
 
     let params = new HttpParams();
@@ -170,5 +186,12 @@ export class ApiService {
           ),
         ),
       );
+  }
+
+  putUser(user: FormData, username: string): Observable<any> {
+    const api = `${this.endpoint}/users/${username}`;
+    return this.http
+      .put(api, user, { observe: 'response' })
+      .pipe(catchError(this.handleErrorForm));
   }
 }

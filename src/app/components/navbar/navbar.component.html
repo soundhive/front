@@ -5,8 +5,10 @@
             <input type="text" placeholder="Search..." />
         </label>
     </form>
-    <div class="nav-notification-button">
-        <button><i class="fa fa-bell-o" aria-hidden="true"></i></button>
+    <div class="nav-settings-button">
+        <button (click)="goToSettings()">
+            <i class="fa fa-cog" aria-hidden="true"></i>
+        </button>
     </div>
     <a routerLink="/user/{{ currentUser.username }}">
         <div class="nav-profile">

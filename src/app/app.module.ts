@@ -25,6 +25,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { DateAgoPipe } from './pipes/date-ago.pipe';
 import { SecondsToMinutesPipe } from './pipes/seconds-to-minutes.pipe';
 import { AuthInterceptor } from './shared/authconfig.interceptor';
+import { UserEditComponent } from './components/user-profile/user-edit/user-edit.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { AuthInterceptor } from './shared/authconfig.interceptor';
     DateAgoPipe,
     ChartsComponent,
     FavoriteTracksComponent,
+    UserEditComponent,
   ],
   imports: [
     BrowserModule,
