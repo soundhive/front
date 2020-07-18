@@ -1,5 +1,6 @@
 <div class="track-container container rounded">
     <div class="row pl-3 pr-3">
+        <!-- Album cover     -->
         <img
             src="{{ s3Endpoint }}/{{ s3Bucket }}/{{
                 track.album.coverFilename
@@ -9,13 +10,28 @@
         />
         <div
             class="track-title font-weight-bold align-self-center text-left col-sm-5"
-            (click)="onTitleClick(track)"
         >
-            {{ track.title }}
+            <!-- Like button -->
+            <i
+                *ngIf="!track.favorited"
+                class="fa fa-heart-o"
+                aria-hidden="true"
+                (click)="favoriteTrack()"
+            ></i>
+            <i
+                *ngIf="track.favorited"
+                class="fa fa-heart"
+                aria-hidden="true"
+                (click)="unfavoriteTrack()"
+            ></i>
+            <!-- Track title -->
+            <span (click)="onTitleClick(track)">{{ track.title }}</span>
         </div>
+        <!-- Track duration -->
         <div class="track-duration align-self-center col-sm-2">
             {{ track.duration | secondsToMinutes }}
         </div>
+        <!-- Track listenings -->
         <div class="track-listen-count align-self-center col-sm-2">
             <div *ngIf="track.listeningCount !== undefined">
                 <i class="fa fa-bar-chart" aria-hidden="true"></i>
@@ -25,6 +41,7 @@
         <!-- <div class="track-dots-options align-self-center  col-sm-1">
             <span class="mdi mdi-dots-horizontal col-sm-1"></span>
         </div> -->
+        <!-- PLay button -->
         <div
             class="font-weight-bold align-self-center text-left col-sm-1 track-play-button"
             (click)="onPlayButtonClick(track)"

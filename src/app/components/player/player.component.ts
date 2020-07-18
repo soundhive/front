@@ -87,13 +87,10 @@ export class PlayerComponent implements OnInit {
   }
 
   favoriteTrack() {
-    console.log('favorite', this.track);
     this.trackService.favoriteTrack(this.track).subscribe((res) => {});
     this.track.favorited = true;
   }
   unfavoriteTrack() {
-    console.log('unfavorite', this.track);
-
     this.trackService.unFavoriteTrack(this.track).subscribe();
     this.track.favorited = false;
   }
