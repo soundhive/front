@@ -11,7 +11,7 @@ import { PlaylistsService } from '../../services/playlists.service';
 })
 export class PlaylistComponent implements OnInit {
   id: string;
-  playlist: Playlist;
+  playlist: Playlist = new Playlist();
   options = {
     autoClose: true,
     keepAfterRouteChange: false,
