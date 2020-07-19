@@ -82,10 +82,9 @@ export class PlaylistFormComponent implements OnInit {
     const formData = new FormData();
     formData.append('title', this.playlistsForm.value.title);
     formData.append('description', this.playlistsForm.value.description);
-    formData.append('cover_file', submittedCoverFile);
-    formData.append('tracks', '[]');
 
     if (this.isNewPlaylistForm) {
+      formData.append('cover_file', submittedCoverFile);
       this.playlistsService.createPlaylist(formData).subscribe(
         (res) => {
           if (res) {
@@ -102,6 +101,9 @@ export class PlaylistFormComponent implements OnInit {
         },
       );
     } else {
+      if (submittedCoverFile) {
+        formData.append('cover_file', submittedCoverFile);
+      }
       this.playlistsService
         .updatePlaylist(formData, this.playlist.id)
         .subscribe(
