@@ -50,10 +50,7 @@ export class PlaylistFormComponent implements OnInit {
             this.playlist.description,
             [Validators.required, Validators.maxLength(500)],
           ],
-          coverImageFile: [
-            null,
-            [Validators.required, requiredFileType(['png', 'jpg', 'jpeg'])],
-          ],
+          coverImageFile: [null, requiredFileType(['png', 'jpg', 'jpeg'])],
         });
       });
     } else {

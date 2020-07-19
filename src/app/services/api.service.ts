@@ -378,7 +378,7 @@ export class ApiService {
   }
 
   putPlaylist(playlist: FormData, playlistId): Observable<any> {
-    const url = `${this.endpoint}/playlists${playlistId}`;
+    const url = `${this.endpoint}/playlists/${playlistId}`;
     return this.http
       .put(url, playlist, { observe: 'response' })
       .pipe(catchError(this.handleErrorForm));
