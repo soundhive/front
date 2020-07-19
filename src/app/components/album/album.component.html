@@ -1,0 +1,11 @@
+<h1>{{ album.title }}</h1>
+
+<h3>By {{ album.user.name }}</h3>
+
+<img
+    src="{{ s3Endpoint }}/{{ s3Bucket }}/{{ album.coverFilename }}"
+    class="card-img-top album-cover"
+    alt="album cover card"
+/>
+
+2020 3 songs 12 min

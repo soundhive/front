@@ -1,3 +1,6 @@
+import { Track } from 'ngx-audio-player';
+import { User } from './user';
+
 export class Album {
   id: string;
   title: string;
@@ -5,6 +8,6 @@ export class Album {
   coverFilename: string;
   createdAt: Date;
   updatedAt: Date;
-  // tracks: Track[];
-  // user: User;
+  tracks: Track[];
+  user: User;
 }

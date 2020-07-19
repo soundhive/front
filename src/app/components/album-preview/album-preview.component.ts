@@ -3,7 +3,7 @@ import { Album } from 'src/app/models/album';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-album',
+  selector: 'app-album-preview',
   templateUrl: './album-preview.component.html',
   styleUrls: ['./album-preview.component.scss'],
 })

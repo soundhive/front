@@ -85,7 +85,9 @@
                                 class="col-sm-12 col-md-4"
                                 *ngFor="let album of albums.items"
                             >
-                                <app-album [album]="album"></app-album>
+                                <app-album-preview
+                                    [album]="album"
+                                ></app-album-preview>
                             </div>
                         </div>
                         <ng-template #elseBlock>
