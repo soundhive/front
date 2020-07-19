@@ -34,7 +34,10 @@ export class PlaylistFormComponent implements OnInit {
   }
 
   initPlaylistsForm() {
-    if (this.route.snapshot.url[2].path === 'edit') {
+    if (
+      this.route.snapshot.url[2].path &&
+      this.route.snapshot.url[2].path === 'edit'
+    ) {
       this.isNewPlaylistForm = false;
 
       const id = this.route.snapshot.paramMap.get('id');
