@@ -1,4 +1,5 @@
-<h1 class="mb-4">New Playlist</h1>
+<h1 class="mb-4" *ngIf="isNewPlaylistForm">New Playlist</h1>
+<h1 class="mb-4" *ngIf="!isNewPlaylistForm">Edit Playlist</h1>
 
 <div class="container-fluid">
     <form [formGroup]="playlistsForm" (ngSubmit)="onSubmitPlaylistsForm()">
