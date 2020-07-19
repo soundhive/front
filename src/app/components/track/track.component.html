@@ -31,11 +31,17 @@
         <div class="track-duration align-self-center col-sm-2">
             {{ track.duration | secondsToMinutes }}
         </div>
-        <!-- Track listenings -->
+        <!-- Track stats -->
         <div class="track-listen-count align-self-center col-sm-2">
+            <!-- Listenings -->
             <div *ngIf="track.listeningCount !== undefined">
                 <i class="fa fa-bar-chart" aria-hidden="true"></i>
                 {{ track.listeningCount }}
+            </div>
+            <!-- Likes -->
+            <div *ngIf="track.favoriteCount !== undefined">
+                <i class="fa fa-heart" aria-hidden="true"></i>
+                {{ track.favoriteCount }}
             </div>
         </div>
         <!-- <div class="track-dots-options align-self-center  col-sm-1">
