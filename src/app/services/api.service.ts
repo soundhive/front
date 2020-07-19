@@ -377,6 +377,13 @@ export class ApiService {
       .pipe(catchError(this.handleErrorForm));
   }
 
+  putPlaylist(playlist: FormData, playlistId): Observable<any> {
+    const url = `${this.endpoint}/playlists${playlistId}`;
+    return this.http
+      .put(url, playlist, { observe: 'response' })
+      .pipe(catchError(this.handleErrorForm));
+  }
+
   deletePlaylist(id: string) {
     const url = `${this.endpoint}/playlists/${id}`;
     return this.http.delete(url);

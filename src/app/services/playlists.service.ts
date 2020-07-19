@@ -25,6 +25,10 @@ export class PlaylistsService {
     return this.apiService.createPlaylist(playlist);
   }
 
+  updatePlaylist(playlist: FormData, playlistId) {
+    return this.apiService.putPlaylist(playlist, playlistId);
+  }
+
   deletePlaylist(playlist: Playlist) {
     return this.apiService.deletePlaylist(playlist.id);
   }
