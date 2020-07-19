@@ -72,9 +72,18 @@
             <button
                 type="submit"
                 class="btn btn-primary mt-4"
+                *ngIf="isNewPlaylistForm"
                 [disabled]="!isFormValid()"
             >
                 Create playlist
+            </button>
+            <button
+                type="submit"
+                class="btn btn-primary mt-4"
+                *ngIf="!isNewPlaylistForm"
+                [disabled]="!isFormValid()"
+            >
+                Update playlist
             </button>
         </fieldset>
     </form>
