@@ -1,5 +1,4 @@
 import { EventEmitter, Injectable, Output } from '@angular/core';
-import { Subject } from 'rxjs';
 import { Playlist } from '../models/playlist';
 import { Router } from '@angular/router';
 import { ApiService } from './api.service';
