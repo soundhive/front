@@ -1,13 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Album } from 'src/app/models/album';
 import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-album',
-  templateUrl: './album.component.html',
-  styleUrls: ['./album.component.scss'],
+  templateUrl: './album-preview.component.html',
+  styleUrls: ['./album-preview.component.scss'],
 })
-export class AlbumComponent implements OnInit {
+export class AlbumPreviewComponent implements OnInit {
   @Input() album: Album;
   s3Bucket: string;
   s3Endpoint: string;
