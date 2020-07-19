@@ -11,7 +11,7 @@ import { AuthService } from '../../shared/auth.service';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-  currentUser: User;
+  currentUser = new User();
   s3Bucket: string;
   s3Endpoint: string;
 
