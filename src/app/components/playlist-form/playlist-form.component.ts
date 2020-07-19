@@ -44,18 +44,17 @@ export class PlaylistFormComponent implements OnInit {
 
       this.playlistsService.getPlaylist(id).subscribe((res: Playlist) => {
         this.playlist = res;
-      });
-
-      this.playlistsForm = this.formBuilder.group({
-        title: [this.playlist.title, Validators.required],
-        description: [
-          this.playlist.description,
-          [Validators.required, Validators.maxLength(500)],
-        ],
-        coverImageFile: [
-          null,
-          [Validators.required, requiredFileType(['png', 'jpg', 'jpeg'])],
-        ],
+        this.playlistsForm = this.formBuilder.group({
+          title: [this.playlist.title, Validators.required],
+          description: [
+            this.playlist.description,
+            [Validators.required, Validators.maxLength(500)],
+          ],
+          coverImageFile: [
+            null,
+            [Validators.required, requiredFileType(['png', 'jpg', 'jpeg'])],
+          ],
+        });
       });
     } else {
       this.playlistsForm = this.formBuilder.group({
