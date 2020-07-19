@@ -6,4 +6,7 @@ export class User {
   password: string;
   profilePicture: string;
   following?: boolean;
+  createdAt: Date;
+  followerCount?: number;
+  followingCount?: number;
 }
