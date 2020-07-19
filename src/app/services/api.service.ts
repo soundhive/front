@@ -374,7 +374,7 @@ export class ApiService {
     const url = `${this.endpoint}/playlists`;
     return this.http
       .post<Playlist>(url, playlist)
-      .pipe(catchError(this.handleError<Playlist>('createPlaylist')));
+      .pipe(catchError(this.handleErrorForm));
   }
 
   deletePlaylist(id: string) {
