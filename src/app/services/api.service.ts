@@ -218,4 +218,11 @@ export class ApiService {
       .put(api, user, { observe: 'response' })
       .pipe(catchError(this.handleErrorForm));
   }
+
+  getAlbum(id: string): Observable<Album> {
+    const url = `${this.endpoint}/albums/${id}`;
+    return this.http
+      .get<Album>(url)
+      .pipe(catchError(this.handleError<Album>(`getAlbum id=${id}`)));
+  }
 }
