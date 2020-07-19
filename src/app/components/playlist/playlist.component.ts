@@ -55,14 +55,16 @@ export class PlaylistComponent implements OnInit, OnDestroy {
   ngOnInit(): void {}
 
   onDeletePlaylist() {
-    this.playlistsService.deletePlaylist(this.playlist).subscribe(() => {
-      this.playlistsService.removePlaylistFromSidebar(this.playlist);
-    });
-    this.router.navigate(['user', this.currentUser.username]);
-    this.alertService.success(
-      'Playlist has been successfully deleted',
-      this.options,
-    );
+    if (confirm('Are you sure to delete this playlist?')) {
+      this.playlistsService.deletePlaylist(this.playlist).subscribe(() => {
+        this.playlistsService.removePlaylistFromSidebar(this.playlist);
+      });
+      this.router.navigate(['user', this.currentUser.username]);
+      this.alertService.success(
+        'Playlist has been successfully deleted',
+        this.options,
+      );
+    }
   }
 
   ngOnDestroy() {

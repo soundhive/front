@@ -105,7 +105,7 @@ export class PlaylistFormComponent implements OnInit {
         .subscribe(
           (res) => {
             if (res) {
-              this.router.navigate(['/playlists/', res.id]);
+              this.router.navigate(['/playlists/', res.body.id]);
               this.alertService.success(
                 'This playlist has been successfully updated!',
                 this.options,
