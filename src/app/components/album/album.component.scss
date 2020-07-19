@@ -1,23 +1,17 @@
-@import '../../../variables';
-
-.album-card {
-  box-shadow: 0 3px 2px rgba(0, 0, 0, 0.034);
+img {
+  max-width: 200px;
+}
+.pagination {
+  padding-bottom: 6rem !important;
+}
+.album-cover {
+  margin-left: 1rem;
   margin-bottom: 1rem;
+}
 
-  .album-cover {
-    width: 100%;
-    //height: 100%;
-    object-fit: cover;
-  }
-
-  .album-card-body {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    margin: 0;
-    background-color: $gray-light;
-
-    p {
-      margin-bottom: 0;
-    }
-  }
+.album-info {
+  margin-top: 1rem;
+}
+.artist {
+  margin-bottom: 1rem;
 }

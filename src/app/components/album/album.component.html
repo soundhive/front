@@ -1,12 +1,52 @@
-<a href="#">
-    <div class="card album-card" style="display: inline-block;">
+<div class="row">
+    <div class="col">
         <img
             src="{{ s3Endpoint }}/{{ s3Bucket }}/{{ album.coverFilename }}"
             class="card-img-top album-cover"
             alt="album cover card"
         />
-        <div class="card-body album-card-body">
-            <p class="text-center">{{ album.title }}</p>
-        </div>
     </div>
-</a>
+    <div class="col-9 album-info">
+        <h1>{{ album.title }}</h1>
+
+        <div class="artist">
+            By
+            <a routerLink="/user/{{ album.user.username }}">{{
+                album.user.name
+            }}</a>
+        </div>
+        <div>Released on {{ album.createdAt | date }}</div>
+        <div>{{ tracks.meta.totalItems }} songs</div>
+        <div>Duration: {{ album.duration | secondsToMinutes }}</div>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Track</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let track of tracks.items; let i = index">
+            <td scope="row" class="ranking align-middle">
+                {{ i + 1 }}
+            </td>
+            <td>
+                <app-track [track]="track"></app-track>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="row">
+    <div class="col-md-4 mx-auto pagination">
+        <pagination
+            [(ngModel)]="currentPage"
+            (pageChanged)="onPaginationUpdate($event)"
+            [totalItems]="tracks.meta.totalItems"
+            [itemsPerPage]="tracks.meta.itemsPerPage"
+        ></pagination>
+    </div>
+</div>

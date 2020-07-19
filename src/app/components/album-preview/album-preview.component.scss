@@ -1,0 +1,23 @@
+@import '../../../variables';
+
+.album-card {
+  box-shadow: 0 3px 2px rgba(0, 0, 0, 0.034);
+  margin-bottom: 1rem;
+
+  .album-cover {
+    width: 100%;
+    //height: 100%;
+    object-fit: cover;
+  }
+
+  .album-card-body {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin: 0;
+    background-color: $gray-light;
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+}

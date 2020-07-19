@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AlbumComponent } from './components/album/album.component';
 import { ChartsComponent } from './components/charts/charts.component';
 import { FavoriteTracksComponent } from './components/favorite-tracks/favorite-tracks.component';
 import { HistoryComponent } from './components/history/history.component';
@@ -9,6 +10,8 @@ import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { UserEditComponent } from './components/user-profile/user-edit/user-edit.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { AlbumTracksResolve } from './resolves/album-tracks.resolve';
+import { AlbumResolve } from './resolves/album.resolve';
 import { ChartingTracksResolve } from './resolves/charting-tracks.resolve';
 import { UserAlbumsResolve } from './resolves/user-albums.resolve';
 import { UserFavoriteTracksResolve } from './resolves/user-favorite-tracks.resolve';
@@ -45,6 +48,15 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: SigninComponent },
   { path: 'register', component: SignupComponent },
+  {
+    path: 'album/:id',
+    component: AlbumComponent,
+    canActivate: [AuthGuard],
+    resolve: {
+      album: AlbumResolve,
+      tracks: AlbumTracksResolve,
+    },
+  },
   {
     path: 'history',
     component: HistoryComponent,
