@@ -59,10 +59,21 @@ export class ApiService {
       .pipe(catchError(this.handleError<User>(`getUser username=${username}`)));
   }
 
-  getUserTracks(username: string): Observable<Pagination<Track>> {
+  getUserTracks(
+    username: string,
+    page: number = 1,
+    limit: number = 5,
+  ): Observable<Pagination<Track>> {
     const url = `${this.endpoint}/users/${username}/tracks`;
+
+    let params = new HttpParams();
+    params = params.append('page', page.toString());
+    params = params.append('limit', limit.toString());
+
     return this.http
-      .get<Pagination<Track>>(url)
+      .get<Pagination<Track>>(url, {
+        params,
+      })
       .pipe(
         catchError(
           this.handleError<Pagination<Track>>(
@@ -72,13 +83,26 @@ export class ApiService {
       );
   }
 
-  getUserAlbums(username: string): Observable<Album[]> {
+  getUserAlbums(
+    username: string,
+    page: number = 1,
+    limit: number = 5,
+  ): Observable<Pagination<Album>> {
     const url = `${this.endpoint}/users/${username}/albums`;
+
+    let params = new HttpParams();
+    params = params.append('page', page.toString());
+    params = params.append('limit', limit.toString());
+
     return this.http
-      .get<Album[]>(url)
+      .get<Pagination<Album>>(url, {
+        params,
+      })
       .pipe(
         catchError(
-          this.handleError<Album[]>(`getUserAlbums username=${username}`),
+          this.handleError<Pagination<Album>>(
+            `getUserAlbums username=${username}`,
+          ),
         ),
       );
   }

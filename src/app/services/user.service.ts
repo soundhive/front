@@ -25,12 +25,20 @@ export class UserService {
     return this.apiService.getUser(username);
   }
 
-  getUserTracks(username: string): Observable<Pagination<Track>> {
-    return this.apiService.getUserTracks(username);
+  getUserTracks(
+    username: string,
+    page?: number,
+    limit?: number,
+  ): Observable<Pagination<Track>> {
+    return this.apiService.getUserTracks(username, page, limit);
   }
 
-  getUserAlbums(username: string): Observable<Album[]> {
-    return this.apiService.getUserAlbums(username);
+  getUserAlbums(
+    username: string,
+    page?: number,
+    limit?: number,
+  ): Observable<Pagination<Album>> {
+    return this.apiService.getUserAlbums(username, page, limit);
   }
 
   followUser(user: User): Observable<void> {
