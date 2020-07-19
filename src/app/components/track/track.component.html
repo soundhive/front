@@ -1,13 +1,15 @@
 <div class="track-container container rounded">
     <div class="row pl-3 pr-3">
         <!-- Album cover     -->
-        <img
-            src="{{ s3Endpoint }}/{{ s3Bucket }}/{{
-                track.album.coverFilename
-            }}"
-            class="track-cover rounded col-sm-2"
-            alt="track cover"
-        />
+        <a routerLink="/album/{{ track.album.id }}" class="col-sm-2">
+            <img
+                src="{{ s3Endpoint }}/{{ s3Bucket }}/{{
+                    track.album.coverFilename
+                }}"
+                class="track-cover rounded"
+                alt="track cover"
+            />
+        </a>
         <div
             class="track-title font-weight-bold align-self-center text-left col-sm-5"
         >
