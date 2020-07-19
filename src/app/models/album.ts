@@ -10,4 +10,5 @@ export class Album {
   updatedAt: Date;
   tracks: Track[];
   user: User;
+  duration: number;
 }

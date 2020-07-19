@@ -19,7 +19,6 @@ export class AlbumResolve implements Resolve<Album> {
         this.router.navigate(['/404'], {
           skipLocationChange: true,
         });
-      } else {
       }
     });
 

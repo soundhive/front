@@ -10,6 +10,7 @@ import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { UserEditComponent } from './components/user-profile/user-edit/user-edit.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { AlbumTracksResolve } from './resolves/album-tracks.resolve';
 import { AlbumResolve } from './resolves/album.resolve';
 import { ChartingTracksResolve } from './resolves/charting-tracks.resolve';
 import { UserAlbumsResolve } from './resolves/user-albums.resolve';
@@ -53,6 +54,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     resolve: {
       album: AlbumResolve,
+      tracks: AlbumTracksResolve,
     },
   },
   {

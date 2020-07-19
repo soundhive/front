@@ -8,4 +8,35 @@
     alt="album cover card"
 />
 
-2020 3 songs 12 min
+{{ album.createdAt | date }} {{ tracks.meta.totalItems }} songs
+{{ album.duration | secondsToMinutes }}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Track</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let track of tracks.items; let i = index">
+            <td scope="row" class="ranking align-middle">
+                {{ i + 1 }}
+            </td>
+            <td>
+                <app-track [track]="track"></app-track>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="row">
+    <div class="col-md-4 mx-auto pagination">
+        <pagination
+            [(ngModel)]="currentPage"
+            (pageChanged)="onPaginationUpdate($event)"
+            [totalItems]="tracks.meta.totalItems"
+            [itemsPerPage]="tracks.meta.itemsPerPage"
+        ></pagination>
+    </div>
+</div>

@@ -225,4 +225,26 @@ export class ApiService {
       .get<Album>(url)
       .pipe(catchError(this.handleError<Album>(`getAlbum id=${id}`)));
   }
+
+  getAlbumTracks(
+    id: string,
+    page: number = 1,
+    limit: number = 5,
+  ): Observable<Pagination<Track>> {
+    const url = `${this.endpoint}/albums/${id}/tracks`;
+
+    let params = new HttpParams();
+    params = params.append('page', page.toString());
+    params = params.append('limit', limit.toString());
+
+    return this.http
+      .get<Pagination<Track>>(url, {
+        params,
+      })
+      .pipe(
+        catchError(
+          this.handleError<Pagination<Track>>(`getAlbumTracks id=${id}`),
+        ),
+      );
+  }
 }
