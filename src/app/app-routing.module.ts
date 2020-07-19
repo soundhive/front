@@ -100,6 +100,11 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
+    path: 'playlists/:id/edit',
+    component: PlaylistFormComponent,
+    canActivate: [AuthGuard],
+  },
+  {
     path: 'playlists/:id',
     component: PlaylistComponent,
     canActivate: [AuthGuard],

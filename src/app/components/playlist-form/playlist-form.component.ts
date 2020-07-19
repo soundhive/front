@@ -60,9 +60,9 @@ export class PlaylistFormComponent implements OnInit {
       (res) => {
         if (res) {
           this.playlistsService.addPlaylistToSidebar(res);
-          this.router.navigate(['home']);
+          this.router.navigate(['/playlists/', res.id]);
           this.alertService.success(
-            'New playlist successfully created !!',
+            'New playlist successfully created!',
             this.options,
           );
         }

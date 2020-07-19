@@ -21,7 +21,6 @@ export class PlaylistComponent implements OnInit, OnDestroy {
     keepAfterRouteChange: false,
   };
   currentUser: User;
-  playlistLink: '/playlists';
   playlistSubscription: Subscription;
   userSubscription: Subscription;
 
