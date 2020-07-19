@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Playlist } from '../models/playlist';
 import { Router } from '@angular/router';
@@ -9,14 +9,10 @@ import { ApiService } from './api.service';
 })
 export class PlaylistsService {
   playlists = [];
-
-  playlistsSubject = new Subject<any[]>();
+  @Output() addPlaylistEvent = new EventEmitter<Playlist>();
+  @Output() removePlaylistEvent = new EventEmitter<Playlist>();
 
   constructor(public router: Router, private apiService: ApiService) {}
-
-  emitPlaylists() {
-    this.playlistsSubject.next(this.playlists);
-  }
 
   getPlaylists() {
     return this.apiService.getPlaylists();
@@ -28,10 +24,17 @@ export class PlaylistsService {
 
   createPlaylist(playlist) {
     return this.apiService.createPlaylist(playlist);
-    // this.playlists.push(playlist);
   }
 
   deletePlaylist(playlist: Playlist) {
     return this.apiService.deletePlaylist(playlist.id);
+  }
+
+  addPlaylistToSidebar(playlist: Playlist) {
+    this.addPlaylistEvent.emit(playlist);
+  }
+
+  removePlaylistFromSidebar(playlist: Playlist) {
+    this.removePlaylistEvent.emit(playlist);
   }
 }

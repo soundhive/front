@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PlaylistsService } from '../../services/playlists.service';
 import { AlertService } from '../../services/alert.service';
 import { Router } from '@angular/router';
-// import { requiredFileType } from '../../shared/required-file-type';
+import { requiredFileType } from '../../shared/required-file-type';
 
 @Component({
   selector: 'app-new-playlist',
@@ -32,13 +32,10 @@ export class PlaylistFormComponent implements OnInit {
   initPlaylistsForm() {
     this.playlistsForm = this.formBuilder.group({
       title: ['', Validators.required],
-      description: ['', Validators.maxLength(500)],
+      description: ['', [Validators.required, Validators.maxLength(500)]],
       coverImageFile: [
         null,
-        // [
-        Validators.required,
-        // requiredFileType(['png', 'jpg', 'jpeg'])
-        // ],
+        [Validators.required, requiredFileType(['png', 'jpg', 'jpeg'])],
       ],
     });
   }
@@ -56,12 +53,13 @@ export class PlaylistFormComponent implements OnInit {
     const formData = new FormData();
     formData.append('title', this.playlistsForm.value.title);
     formData.append('description', this.playlistsForm.value.description);
-    formData.append('coverImageFile', submittedCoverFile);
-    console.log(formData);
+    formData.append('cover_file', submittedCoverFile);
+    formData.append('tracks', '[]');
 
     this.playlistsService.createPlaylist(formData).subscribe(
       (res) => {
         if (res) {
+          this.playlistsService.addPlaylistToSidebar(res);
           this.router.navigate(['home']);
           this.alertService.success(
             'New playlist successfully created !!',
@@ -69,8 +67,8 @@ export class PlaylistFormComponent implements OnInit {
           );
         }
       },
-      (error) => {
-        console.log(error);
+      (err) => {
+        this.alertService.error(err.message, this.options);
       },
     );
   }

@@ -48,7 +48,10 @@
                     "
                     class="text-danger"
                 >
-                    <small>Description can not exceed 500 characters</small>
+                    <small
+                        >Description is required and can not exceed 500
+                        characters</small
+                    >
                 </div>
             </div>
             <div class="form-group">
@@ -62,7 +65,7 @@
                 <small
                     *ngIf="playlistsForm.controls['coverImageFile'].invalid"
                     class="text-danger"
-                    >Invalid file type (allowed: jpg and png)
+                    >File types allowed: jpg and png
                 </small>
             </div>
             <button

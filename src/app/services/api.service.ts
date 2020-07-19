@@ -371,7 +371,7 @@ export class ApiService {
   }
 
   createPlaylist(playlist: Playlist): Observable<Playlist> {
-    const url = `${this.endpoint}/playlists/new`;
+    const url = `${this.endpoint}/playlists`;
     return this.http
       .post<Playlist>(url, playlist)
       .pipe(catchError(this.handleError<Playlist>('createPlaylist')));

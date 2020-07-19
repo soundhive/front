@@ -26,7 +26,6 @@ export class PlaylistComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id');
 
     this.playlistsService.getPlaylist(this.id).subscribe((res: Playlist) => {
-      console.log(res);
       this.playlist = res;
     });
 
@@ -39,7 +38,9 @@ export class PlaylistComponent implements OnInit {
   ngOnInit(): void {}
 
   onDeletePlaylist() {
-    this.playlistsService.deletePlaylist(this.playlist);
+    this.playlistsService.deletePlaylist(this.playlist).subscribe(() => {
+      this.playlistsService.removePlaylistFromSidebar(this.playlist);
+    });
     this.router.navigate(['profile']);
     this.alertService.success(
       'Playlist has been successfully deleted',
