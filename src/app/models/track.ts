@@ -1,5 +1,5 @@
-import { User } from './user';
 import { Album } from './album';
+import { User } from './user';
 
 export class Track {
   id: string;
@@ -15,4 +15,5 @@ export class Track {
   favorited: boolean;
   listeningCount: number;
   downloadable: boolean;
+  favoriteCount: number;
 }
