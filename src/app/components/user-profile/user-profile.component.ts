@@ -4,6 +4,7 @@ import { Album } from 'src/app/models/album';
 import { Pagination } from 'src/app/models/pagination/pagination';
 import { Track } from 'src/app/models/track';
 import { UserService } from 'src/app/services/user.service';
+import { environment } from 'src/environments/environment';
 import { User } from '../../models/user';
 import { AuthService } from '../../shared/auth.service';
 
@@ -19,6 +20,8 @@ export class UserProfileComponent implements OnInit {
   self = false;
   currentTracksPage = 1;
   currentAlbumsPage = 1;
+  s3Bucket: string;
+  s3Endpoint: string;
 
   constructor(
     public userService: UserService,
@@ -31,6 +34,9 @@ export class UserProfileComponent implements OnInit {
     this.router.routeReuseStrategy.shouldReuseRoute = () => {
       return false;
     };
+
+    this.s3Bucket = environment.s3_bucket;
+    this.s3Endpoint = environment.s3_endpoint;
   }
 
   ngOnInit() {

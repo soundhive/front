@@ -3,10 +3,24 @@
         <h1 class="mb-4 no-caps">
             {{ this.user.name }} (@{{ this.user.username }})
         </h1>
-        <p><strong>Joined:</strong> {{ this.user.createdAt | date }}</p>
-        <p><strong>Followers:</strong> {{ this.user.followerCount }}</p>
-        <p><strong>Followings:</strong> {{ this.user.followingCount }}</p>
-
+        <div class="row">
+            <div class="profile-pic">
+                <img
+                    src="{{ s3Endpoint }}/{{ s3Bucket }}/{{
+                        user.profilePicture
+                    }}"
+                    alt="profile picture"
+                    class="nav-profile-picture-icon"
+                />
+            </div>
+            <div class="user-info">
+                <p><strong>Joined:</strong> {{ this.user.createdAt | date }}</p>
+                <p><strong>Followers:</strong> {{ this.user.followerCount }}</p>
+                <p>
+                    <strong>Followings:</strong> {{ this.user.followingCount }}
+                </p>
+            </div>
+        </div>
         <button
             *ngIf="!this.self && !this.user.following"
             type="button"
