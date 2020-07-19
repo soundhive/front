@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { PlaylistsService } from '../../services/playlists.service';
-import { AlertService } from '../../services/alert.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { requiredFileType } from '../../shared/required-file-type';
 import { Playlist } from '../../models/playlist';
+import { AlertService } from '../../services/alert.service';
+import { PlaylistsService } from '../../services/playlists.service';
+import { requiredFileType } from '../../shared/required-file-type';
 
 @Component({
   selector: 'app-new-playlist',
@@ -35,7 +35,7 @@ export class PlaylistFormComponent implements OnInit {
 
   initPlaylistsForm() {
     if (
-      this.route.snapshot.url[2].path &&
+      this.route.snapshot.url.length >= 3 &&
       this.route.snapshot.url[2].path === 'edit'
     ) {
       this.isNewPlaylistForm = false;
