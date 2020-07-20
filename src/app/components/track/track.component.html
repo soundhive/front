@@ -25,7 +25,9 @@
                 (click)="unfavoriteTrack()"
             ></i>
             <!-- Track title -->
-            <span (click)="onTitleClick(track)">{{ track.title }}</span>
+            <div class="title" (click)="onTitleClick(track)">
+                {{ track.title }}
+            </div>
         </div>
         <!-- Track duration -->
         <div class="track-duration align-self-center col-sm-2">
