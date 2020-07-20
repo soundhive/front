@@ -7,6 +7,10 @@
   display: flex;
   padding-left: 1rem;
 }
+
+.artist-album {
+  padding-left: 1rem;
+}
 .track {
   .artist {
     margin-top: 10px;
@@ -22,6 +26,9 @@ h1 {
 
 .col-title {
   margin-bottom: 2rem;
+  padding-left: 1rem;
+  font-size: 120%;
+  font-weight: bold;
 }
 
 .track {

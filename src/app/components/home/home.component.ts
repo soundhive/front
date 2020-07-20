@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Track } from 'ngx-audio-player';
 import { Album } from 'src/app/models/album';
 import { Pagination } from 'src/app/models/pagination/pagination';
+import { Track } from 'src/app/models/track';
 import { User } from 'src/app/models/user';
 import { environment } from 'src/environments/environment';
 
