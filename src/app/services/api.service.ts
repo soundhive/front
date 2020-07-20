@@ -282,4 +282,52 @@ export class ApiService {
         ),
       );
   }
+
+  getUserFollowings(
+    username: string,
+    page: number = 1,
+    limit: number = 5,
+  ): Observable<Pagination<User>> {
+    const url = `${this.endpoint}/users/${username}/followings`;
+
+    let params = new HttpParams();
+    params = params.append('page', page.toString());
+    params = params.append('limit', limit.toString());
+
+    return this.http
+      .get<Pagination<User>>(url, {
+        params,
+      })
+      .pipe(
+        catchError(
+          this.handleError<Pagination<User>>(
+            `getUserFollowings username=${username}`,
+          ),
+        ),
+      );
+  }
+
+  getFollowedUsersTracks(
+    username: string,
+    page: number = 1,
+    limit: number = 5,
+  ): Observable<Pagination<Track>> {
+    const url = `${this.endpoint}/users/${username}/followings/tracks`;
+
+    let params = new HttpParams();
+    params = params.append('page', page.toString());
+    params = params.append('limit', limit.toString());
+
+    return this.http
+      .get<Pagination<Track>>(url, {
+        params,
+      })
+      .pipe(
+        catchError(
+          this.handleError<Pagination<Track>>(
+            `getFollowedUsersTracks username=${username}`,
+          ),
+        ),
+      );
+  }
 }

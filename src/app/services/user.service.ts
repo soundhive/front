@@ -72,4 +72,20 @@ export class UserService {
   updateUser(user: FormData) {
     return this.apiService.putUser(user, this.authService.username);
   }
+
+  getFollowings(
+    username: string,
+    page?: number,
+    limit?: number,
+  ): Observable<Pagination<User>> {
+    return this.apiService.getUserFollowings(username, page, limit);
+  }
+
+  getFollowedUsersTracks(
+    username: string,
+    page?: number,
+    limit?: number,
+  ): Observable<Pagination<Track>> {
+    return this.apiService.getFollowedUsersTracks(username, page, limit);
+  }
 }

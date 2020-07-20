@@ -29,6 +29,7 @@ import { AuthInterceptor } from './shared/authconfig.interceptor';
 import { AlbumComponent } from './components/album/album.component';
 import { MyAlbumsComponent } from './components/my-albums/my-albums.component';
 import { MyTracksComponent } from './components/my-tracks/my-tracks.component';
+import { SubscriptionsComponent } from './components/subscriptions/subscriptions.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { MyTracksComponent } from './components/my-tracks/my-tracks.component';
     AlbumComponent,
     MyAlbumsComponent,
     MyTracksComponent,
+    SubscriptionsComponent,
   ],
   imports: [
     BrowserModule,

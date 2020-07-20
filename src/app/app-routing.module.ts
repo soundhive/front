@@ -10,6 +10,7 @@ import { MyTracksComponent } from './components/my-tracks/my-tracks.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { SubscriptionsComponent } from './components/subscriptions/subscriptions.component';
 import { UserEditComponent } from './components/user-profile/user-edit/user-edit.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { AlbumTracksResolve } from './resolves/album-tracks.resolve';
@@ -22,6 +23,8 @@ import { MyAlbumsResolve } from './resolves/my-albums.resolve';
 import { MyTracksResolve } from './resolves/my-tracks.resolve';
 import { UserAlbumsResolve } from './resolves/user-albums.resolve';
 import { UserFavoriteTracksResolve } from './resolves/user-favorite-tracks.resolve';
+import { FollowedUsersTracksResolve } from './resolves/user-followed-tracks.resolve';
+import { UserFollowingsResolve } from './resolves/user-followings.resolve';
 import { UserHistoryResolve } from './resolves/user-history.resolve';
 import { UserTracksResolve } from './resolves/user-tracks.resolve';
 import { UserResolve } from './resolves/user.resolve';
@@ -66,6 +69,15 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     resolve: {
       tracks: MyTracksResolve,
+    },
+  },
+  {
+    path: 'subscriptions',
+    component: SubscriptionsComponent,
+    canActivate: [AuthGuard],
+    resolve: {
+      followedUsers: UserFollowingsResolve,
+      tracks: FollowedUsersTracksResolve,
     },
   },
   {
