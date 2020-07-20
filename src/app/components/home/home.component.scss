@@ -1,0 +1,33 @@
+.profile-pic {
+  img {
+    max-width: 100px;
+  }
+}
+.artist {
+  display: flex;
+  padding-left: 1rem;
+}
+.track {
+  .artist {
+    margin-top: 10px;
+  }
+}
+.user-info {
+  padding-left: 1rem;
+}
+
+h1 {
+  margin-bottom: 2rem;
+}
+
+.col-title {
+  margin-bottom: 2rem;
+}
+
+.track {
+  margin-top: 1rem;
+}
+
+.container {
+  margin-bottom: 5rem;
+}

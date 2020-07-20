@@ -25,6 +25,10 @@ export class UserService {
     return this.apiService.getUser(username);
   }
 
+  getUsers(): Observable<User[]> {
+    return this.apiService.getUsers();
+  }
+
   getUserTracks(
     username: string,
     page?: number,

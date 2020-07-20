@@ -13,6 +13,9 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { AlbumTracksResolve } from './resolves/album-tracks.resolve';
 import { AlbumResolve } from './resolves/album.resolve';
 import { ChartingTracksResolve } from './resolves/charting-tracks.resolve';
+import { HomeAlbumsResolve } from './resolves/home-albums.resolve';
+import { HomeTracksResolve } from './resolves/home-tracks.resolve';
+import { HomeUsersResolve } from './resolves/home-users.resolve';
 import { UserAlbumsResolve } from './resolves/user-albums.resolve';
 import { UserFavoriteTracksResolve } from './resolves/user-favorite-tracks.resolve';
 import { UserHistoryResolve } from './resolves/user-history.resolve';
@@ -45,7 +48,16 @@ const routes: Routes = [
       user: UserResolve,
     },
   },
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  {
+    path: 'home',
+    component: HomeComponent,
+    canActivate: [AuthGuard],
+    resolve: {
+      users: HomeUsersResolve,
+      tracks: HomeTracksResolve,
+      albums: HomeAlbumsResolve,
+    },
+  },
   { path: 'login', component: SigninComponent },
   { path: 'register', component: SignupComponent },
   {

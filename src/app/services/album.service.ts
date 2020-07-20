@@ -15,6 +15,10 @@ export class AlbumService {
     return this.apiService.getAlbum(id);
   }
 
+  getAlbums(page?: number, limit?: number): Observable<Pagination<Album>> {
+    return this.apiService.getAlbums(page, limit);
+  }
+
   getAlbumTracks(
     id: string,
     page?: number,

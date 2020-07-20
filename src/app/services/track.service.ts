@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Pagination } from '../models/pagination/pagination';
 import { Track } from '../models/track';
 import { ApiService } from './api.service';
 
@@ -15,6 +16,9 @@ export class TrackService {
 
   getTrack(id: string): Observable<Track> {
     return this.apiService.getTrack(id);
+  }
+  getTracks(page?: number, limit?: number): Observable<Pagination<Track>> {
+    return this.apiService.getTracks(page, limit);
   }
   isTrackFavorited(track: Track): Observable<{ favorited: boolean }> {
     return this.apiService.getIsTrackFavorited(track);
