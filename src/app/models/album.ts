@@ -11,4 +11,5 @@ export class Album {
   tracks: Track[];
   user: User;
   duration: number;
+  listeningCount: number;
 }

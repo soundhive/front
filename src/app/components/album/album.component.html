@@ -18,6 +18,7 @@
         <div>Released on {{ album.createdAt | date }}</div>
         <div>{{ tracks.meta.totalItems }} songs</div>
         <div>Duration: {{ album.duration | secondsToMinutes }}</div>
+        <div>Number of listenings: {{ album.listeningCount }}</div>
     </div>
 </div>
 
