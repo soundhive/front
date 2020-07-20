@@ -4,9 +4,9 @@ import { Album } from 'src/app/models/album';
 import { Pagination } from 'src/app/models/pagination/pagination';
 import { Track } from 'src/app/models/track';
 import { AlbumService } from 'src/app/services/album.service';
+import { S3Service } from 'src/app/services/s3.service';
 import { UserService } from 'src/app/services/user.service';
 import { AuthService } from 'src/app/shared/auth.service';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-album',
@@ -17,8 +17,6 @@ export class AlbumComponent implements OnInit {
   album: Album = new Album();
   tracks: Pagination<Track>;
   self = false;
-  s3Bucket: string;
-  s3Endpoint: string;
   currentPage = 1;
 
   constructor(
@@ -26,10 +24,8 @@ export class AlbumComponent implements OnInit {
     public authService: AuthService,
     public albumService: AlbumService,
     private route: ActivatedRoute,
-  ) {
-    this.s3Bucket = environment.s3_bucket;
-    this.s3Endpoint = environment.s3_endpoint;
-  }
+    public s3Service: S3Service,
+  ) {}
   ngOnInit(): void {
     this.album = this.route.snapshot.data.album;
     this.tracks = this.route.snapshot.data.tracks;

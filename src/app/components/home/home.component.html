@@ -6,9 +6,7 @@
             <div class="artist">
                 <div class="profile-pic">
                     <img
-                        src="{{ s3Endpoint }}/{{ s3Bucket }}/{{
-                            user.profilePicture
-                        }}"
+                        src="{{ this.s3Service.getURL(user.profilePicture) }}"
                         alt="profile picture"
                         class="nav-profile-picture-icon rounded-circle"
                     />

@@ -3,9 +3,7 @@
         <!-- Album cover     -->
         <a routerLink="/album/{{ track.album.id }}" class="col-sm-2">
             <img
-                src="{{ s3Endpoint }}/{{ s3Bucket }}/{{
-                    track.album.coverFilename
-                }}"
+                src="{{ this.s3Service.getURL(track.album.coverFilename) }}"
                 class="track-cover rounded"
                 alt="track cover"
             />
