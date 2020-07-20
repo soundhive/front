@@ -1,59 +1,57 @@
 <h1>Latest content from your followings</h1>
-<div class="container">
-    <div class="row">
-        <div class="col-sm">
-            <div class="col-title">Followed users</div>
-            <div *ngFor="let user of followedUsers.items">
-                <div class="artist">
-                    <div class="profile-pic">
-                        <img
-                            src="{{ s3Endpoint }}/{{ s3Bucket }}/{{
-                                user.profilePicture
-                            }}"
-                            alt="profile picture"
-                            class="nav-profile-picture-icon rounded-circle"
-                        />
-                    </div>
-                    <div class="user-info align-self-center">
-                        {{ user.name }}
-                        (<a routerLink="/user/{{ user.username }}"
-                            >@{{ user.username }}</a
-                        >)<br />
-                        {{ user.createdAt | date }}
-                    </div>
+<div class="row">
+    <div class="col-sm">
+        <div class="col-title">Followed users</div>
+        <div *ngFor="let user of followedUsers.items">
+            <div class="artist">
+                <div class="profile-pic">
+                    <img
+                        src="{{ s3Endpoint }}/{{ s3Bucket }}/{{
+                            user.profilePicture
+                        }}"
+                        alt="profile picture"
+                        class="nav-profile-picture-icon rounded-circle"
+                    />
                 </div>
-                <hr />
-            </div>
-        </div>
-        <div class="col-sm">
-            <div class="col-title">Latest albums</div>
-
-            <!-- <div class="col-sm-12" *ngFor="let album of albums.items">
-                <app-album-preview [album]="album"></app-album-preview>
-                <div class="artist">
-                    By
-                    {{ album.user.name }}
-                    (<a routerLink="/user/{{ album.user.username }}"
-                        >@{{ album.user.username }}</a
+                <div class="user-info align-self-center">
+                    {{ user.name }}
+                    (<a routerLink="/user/{{ user.username }}"
+                        >@{{ user.username }}</a
                     >)<br />
-                    {{ album.createdAt | date }}
+                    {{ user.createdAt | date }}
                 </div>
-                <hr />
-            </div> -->
-        </div>
-        <div class="col-sm-6">
-            <div class="col-title">Latest tracks</div>
-            <div class="track" *ngFor="let track of tracks.items">
-                <app-track class="track" [track]="track"></app-track>
-                <div class="artist">
-                    By
-                    {{ track.user.name }}
-                    (<a routerLink="/user/{{ track.user.username }}"
-                        >@{{ track.user.username }}</a
-                    >), {{ track.createdAt | date }}
-                </div>
-                <hr />
             </div>
+            <hr />
+        </div>
+    </div>
+    <div class="col-sm">
+        <div class="col-title">Latest albums</div>
+
+        <div class="col-sm-12" *ngFor="let album of albums.items">
+            <app-album-preview [album]="album"></app-album-preview>
+            <div class="artist-album">
+                By
+                {{ album.user.name }}
+                (<a routerLink="/user/{{ album.user.username }}"
+                    >@{{ album.user.username }}</a
+                >)<br />
+                {{ album.createdAt | date }}
+            </div>
+            <hr />
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="col-title">Latest tracks</div>
+        <div class="track" *ngFor="let track of tracks.items">
+            <app-track class="track" [track]="track"></app-track>
+            <div class="artist">
+                By
+                {{ track.user.name }}
+                (<a routerLink="/user/{{ track.user.username }}"
+                    >@{{ track.user.username }}</a
+                >), {{ track.createdAt | date }}
+            </div>
+            <hr />
         </div>
     </div>
 </div>

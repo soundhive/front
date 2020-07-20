@@ -330,4 +330,28 @@ export class ApiService {
         ),
       );
   }
+
+  getFollowedUsersAlbums(
+    username: string,
+    page: number = 1,
+    limit: number = 5,
+  ): Observable<Pagination<Album>> {
+    const url = `${this.endpoint}/users/${username}/followings/albums`;
+
+    let params = new HttpParams();
+    params = params.append('page', page.toString());
+    params = params.append('limit', limit.toString());
+
+    return this.http
+      .get<Pagination<Album>>(url, {
+        params,
+      })
+      .pipe(
+        catchError(
+          this.handleError<Pagination<Album>>(
+            `getFollowedUsersAlbums username=${username}`,
+          ),
+        ),
+      );
+  }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Album } from 'src/app/models/album';
 import { Pagination } from 'src/app/models/pagination/pagination';
 import { Track } from 'src/app/models/track';
 import { User } from 'src/app/models/user';
@@ -13,6 +14,7 @@ import { environment } from 'src/environments/environment';
 export class SubscriptionsComponent implements OnInit {
   followedUsers: Pagination<User>;
   tracks: Pagination<Track>;
+  albums: Pagination<Album>;
   s3Bucket: string;
   s3Endpoint: string;
 
@@ -24,5 +26,6 @@ export class SubscriptionsComponent implements OnInit {
   ngOnInit(): void {
     this.followedUsers = this.route.snapshot.data.followedUsers;
     this.tracks = this.route.snapshot.data.tracks;
+    this.albums = this.route.snapshot.data.albums;
   }
 }

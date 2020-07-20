@@ -88,4 +88,12 @@ export class UserService {
   ): Observable<Pagination<Track>> {
     return this.apiService.getFollowedUsersTracks(username, page, limit);
   }
+
+  getFollowedUsersAlbums(
+    username: string,
+    page?: number,
+    limit?: number,
+  ): Observable<Pagination<Album>> {
+    return this.apiService.getFollowedUsersAlbums(username, page, limit);
+  }
 }

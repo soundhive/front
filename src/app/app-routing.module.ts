@@ -23,6 +23,7 @@ import { MyAlbumsResolve } from './resolves/my-albums.resolve';
 import { MyTracksResolve } from './resolves/my-tracks.resolve';
 import { UserAlbumsResolve } from './resolves/user-albums.resolve';
 import { UserFavoriteTracksResolve } from './resolves/user-favorite-tracks.resolve';
+import { FollowedUsersAlbumsResolve } from './resolves/user-followed-albums.resolve';
 import { FollowedUsersTracksResolve } from './resolves/user-followed-tracks.resolve';
 import { UserFollowingsResolve } from './resolves/user-followings.resolve';
 import { UserHistoryResolve } from './resolves/user-history.resolve';
@@ -78,6 +79,7 @@ const routes: Routes = [
     resolve: {
       followedUsers: UserFollowingsResolve,
       tracks: FollowedUsersTracksResolve,
+      albums: FollowedUsersAlbumsResolve,
     },
   },
   {
