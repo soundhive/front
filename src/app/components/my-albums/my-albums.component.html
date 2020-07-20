@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col">
+        <div class="w-100">
+            <section>
+                <h3 class="section-title mb-4">My albums</h3>
+
+                <div class="container-fluid album-list-container">
+                    <div
+                        class="row"
+                        *ngIf="albums.items.length > 0; else elseBlock"
+                    >
+                        <div
+                            class="col-sm-12 col-md-4"
+                            *ngFor="let album of albums.items"
+                        >
+                            <app-album-preview
+                                [album]="album"
+                            ></app-album-preview>
+                        </div>
+                    </div>
+                    <ng-template #elseBlock>
+                        No album to display.
+                    </ng-template>
+
+                    <div class="col-md-4 mx-auto pagination">
+                        <pagination
+                            [(ngModel)]="currentPage"
+                            (pageChanged)="onPaginationUpdate($event)"
+                            [totalItems]="albums.meta.totalItems"
+                            [itemsPerPage]="albums.meta.itemsPerPage"
+                        ></pagination>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
