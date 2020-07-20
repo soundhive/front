@@ -53,7 +53,7 @@ export class PlayerComponent implements OnInit, OnDestroy {
     // User clicks on play button
     this.playTrackSub = this.playerService.playTrackEvent.subscribe(
       (track: Track) => {
-        if (this.track.id === track.id) {
+        if (this.track?.id === track.id) {
           player.play();
         } else {
           localStorage.setItem('current_track', track.id);
