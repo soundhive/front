@@ -16,6 +16,9 @@
 
 .profile-pic {
   margin-right: 1rem;
+  img {
+    max-width: 200px;
+  }
 }
 
 .user-info {

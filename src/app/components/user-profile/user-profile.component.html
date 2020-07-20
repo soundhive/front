@@ -19,25 +19,25 @@
                 <p>
                     <strong>Followings:</strong> {{ this.user.followingCount }}
                 </p>
+                <button
+                    *ngIf="!this.self && !this.user.following"
+                    type="button"
+                    class="btn btn-outline-primary"
+                    (click)="follow()"
+                >
+                    Follow
+                </button>
+
+                <button
+                    *ngIf="!this.self && this.user.following"
+                    type="button"
+                    class="btn btn-primary"
+                    (click)="unfollow()"
+                >
+                    Unfollow
+                </button>
             </div>
         </div>
-        <button
-            *ngIf="!this.self && !this.user.following"
-            type="button"
-            class="btn btn-outline-primary"
-            (click)="follow()"
-        >
-            Follow
-        </button>
-
-        <button
-            *ngIf="!this.self && this.user.following"
-            type="button"
-            class="btn btn-primary"
-            (click)="unfollow()"
-        >
-            Unfollow
-        </button>
     </section>
 
     <div class="row">
