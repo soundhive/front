@@ -10,7 +10,7 @@ export class SidebarComponent implements OnInit {
   subscriptionsLink = '/subscriptions';
   chartsLink = '/charts';
   discoverLink = '/discover';
-  mySongsLink = '/my-songs';
+  myTracksLink = '/my-tracks';
   myAlbumsLink = '/my-albums';
   myActivityLink = '/my-activity';
 

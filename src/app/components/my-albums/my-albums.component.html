@@ -2,7 +2,9 @@
     <div class="col">
         <div class="w-100">
             <section>
-                <h3 class="section-title mb-4">My albums</h3>
+                <h3 class="section-title mb-4">
+                    My albums ({{ albums.items.length }})
+                </h3>
 
                 <div class="container-fluid album-list-container">
                     <div
@@ -10,12 +12,13 @@
                         *ngIf="albums.items.length > 0; else elseBlock"
                     >
                         <div
-                            class="col-sm-12 col-md-4"
+                            class="col-sm-12 col-md-3 album"
                             *ngFor="let album of albums.items"
                         >
                             <app-album-preview
                                 [album]="album"
                             ></app-album-preview>
+                            {{ album.createdAt | date }}
                         </div>
                     </div>
                     <ng-template #elseBlock>

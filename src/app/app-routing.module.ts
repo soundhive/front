@@ -6,6 +6,7 @@ import { FavoriteTracksComponent } from './components/favorite-tracks/favorite-t
 import { HistoryComponent } from './components/history/history.component';
 import { HomeComponent } from './components/home/home.component';
 import { MyAlbumsComponent } from './components/my-albums/my-albums.component';
+import { MyTracksComponent } from './components/my-tracks/my-tracks.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
@@ -18,6 +19,7 @@ import { HomeAlbumsResolve } from './resolves/home-albums.resolve';
 import { HomeTracksResolve } from './resolves/home-tracks.resolve';
 import { HomeUsersResolve } from './resolves/home-users.resolve';
 import { MyAlbumsResolve } from './resolves/my-albums.resolve';
+import { MyTracksResolve } from './resolves/my-tracks.resolve';
 import { UserAlbumsResolve } from './resolves/user-albums.resolve';
 import { UserFavoriteTracksResolve } from './resolves/user-favorite-tracks.resolve';
 import { UserHistoryResolve } from './resolves/user-history.resolve';
@@ -56,6 +58,14 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     resolve: {
       albums: MyAlbumsResolve,
+    },
+  },
+  {
+    path: 'my-tracks',
+    component: MyTracksComponent,
+    canActivate: [AuthGuard],
+    resolve: {
+      tracks: MyTracksResolve,
     },
   },
   {

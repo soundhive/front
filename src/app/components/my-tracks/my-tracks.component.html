@@ -1,0 +1,29 @@
+<h1>My tracks ({{ tracks.meta.totalItems }})</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Favorited date</th>
+            <th scope="col">Track</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let track of tracks.items">
+            <td scope="row" class="listened-date align-middle" *ngIf="track">
+                {{ track.createdAt | dateAgo }}
+            </td>
+            <app-track [track]="track"></app-track>
+        </tr>
+    </tbody>
+</table>
+
+<div class="row">
+    <div class="col-md-4 mx-auto pagination">
+        <pagination
+            [(ngModel)]="currentPage"
+            (pageChanged)="onPaginationUpdate($event)"
+            [totalItems]="tracks.meta.totalItems"
+            [itemsPerPage]="tracks.meta.itemsPerPage"
+        ></pagination>
+    </div>
+</div>

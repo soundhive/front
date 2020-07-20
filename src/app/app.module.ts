@@ -28,6 +28,7 @@ import { SecondsToMinutesPipe } from './pipes/seconds-to-minutes.pipe';
 import { AuthInterceptor } from './shared/authconfig.interceptor';
 import { AlbumComponent } from './components/album/album.component';
 import { MyAlbumsComponent } from './components/my-albums/my-albums.component';
+import { MyTracksComponent } from './components/my-tracks/my-tracks.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { MyAlbumsComponent } from './components/my-albums/my-albums.component';
     UserEditComponent,
     AlbumComponent,
     MyAlbumsComponent,
+    MyTracksComponent,
   ],
   imports: [
     BrowserModule,
