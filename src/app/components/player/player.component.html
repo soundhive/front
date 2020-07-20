@@ -1,44 +1,45 @@
 <div class="navbar footer fixed-bottom">
     <div [hidden]="!track">
-        <div
-            *ngIf="track"
-            class="float-left now-playing col-xs-4 col-sm-4 col-md-4"
-        >
+        <div *ngIf="track" class="float-left now-playing col-5">
             <!-- <i class="fa fa-music" aria-hidden="true"></i> -->
             <img
                 src="{{ this.s3Service.getURL(track.album.coverFilename) }}"
                 class="track-cover rounded col-sm-2"
                 alt="track cover"
             />
-            <span class="title">
+            <div class="title align-self-center">
                 {{ track.user.name }} - {{ track.title }}
-            </span>
+            </div>
 
             <!-- Like button -->
             <i
                 *ngIf="!track.favorited"
-                class="fa fa-heart-o"
+                class="fa fa-heart-o align-self-center"
                 aria-hidden="true"
                 (click)="favoriteTrack()"
             ></i>
             <i
                 *ngIf="track.favorited"
-                class="fa fa-heart"
+                class="fa fa-heart align-self-center"
                 aria-hidden="true"
                 (click)="unfavoriteTrack()"
             ></i>
 
             <!-- Download button -->
-            <a *ngIf="track.downloadable" href="{{ track.filename }}">
+            <a
+                *ngIf="track.downloadable"
+                href="{{ track.filename }}"
+                class="align-self-center"
+            >
                 <i class="fa fa-download" aria-hidden="true"></i>
             </a>
             <i
                 *ngIf="!track.downloadable"
-                class="fa fa-download fa-disabled"
+                class="fa fa-download fa-disabled align-self-center"
                 aria-disabled="true"
             ></i>
         </div>
-        <div class="float-right player col-xs-8 col-sm-8 col-md-8">
+        <div class="float-right player col-auto">
             <mat-basic-audio-player
                 [audioUrl]="
                     track ? this.s3Service.getURL(track.filename) : null
