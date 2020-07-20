@@ -14,9 +14,7 @@
         <div class="nav-profile">
             <img
                 *ngIf="currentUser"
-                src="{{ s3Endpoint }}/{{ s3Bucket }}/{{
-                    currentUser.profilePicture
-                }}"
+                src="{{ this.s3Service.getURL(currentUser.profilePicture) }}"
                 alt="profile picture"
                 class="nav-profile-picture-icon"
             />

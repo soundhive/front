@@ -4,7 +4,7 @@ import { Album } from 'src/app/models/album';
 import { Pagination } from 'src/app/models/pagination/pagination';
 import { Track } from 'src/app/models/track';
 import { User } from 'src/app/models/user';
-import { environment } from 'src/environments/environment';
+import { S3Service } from 'src/app/services/s3.service';
 
 @Component({
   selector: 'app-home',
@@ -15,13 +15,8 @@ export class HomeComponent implements OnInit {
   users: User[];
   tracks: Pagination<Track>;
   albums: Pagination<Album>;
-  s3Bucket: string;
-  s3Endpoint: string;
 
-  constructor(private route: ActivatedRoute) {
-    this.s3Bucket = environment.s3_bucket;
-    this.s3Endpoint = environment.s3_endpoint;
-  }
+  constructor(private route: ActivatedRoute, public s3Service: S3Service) {}
 
   ngOnInit(): void {
     this.users = this.route.snapshot.data.users;

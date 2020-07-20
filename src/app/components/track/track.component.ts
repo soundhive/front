@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Track } from 'src/app/models/track';
 import { PlayerService } from 'src/app/services/player.service';
+import { S3Service } from 'src/app/services/s3.service';
 import { TrackService } from 'src/app/services/track.service';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-track',
@@ -12,16 +12,11 @@ import { environment } from 'src/environments/environment';
 export class TrackComponent implements OnInit {
   @Input() track: Track;
 
-  s3Bucket: string;
-  s3Endpoint: string;
-
   constructor(
     public playerService: PlayerService,
     public trackService: TrackService,
-  ) {
-    this.s3Bucket = environment.s3_bucket;
-    this.s3Endpoint = environment.s3_endpoint;
-  }
+    public s3Service: S3Service,
+  ) {}
 
   ngOnInit(): void {}
 

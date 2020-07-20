@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Album } from 'src/app/models/album';
-import { environment } from 'src/environments/environment';
+import { S3Service } from 'src/app/services/s3.service';
 
 @Component({
   selector: 'app-album-preview',
@@ -9,13 +9,8 @@ import { environment } from 'src/environments/environment';
 })
 export class AlbumPreviewComponent implements OnInit {
   @Input() album: Album;
-  s3Bucket: string;
-  s3Endpoint: string;
 
-  constructor() {
-    this.s3Bucket = environment.s3_bucket;
-    this.s3Endpoint = environment.s3_endpoint;
-  }
+  constructor(public s3Service: S3Service) {}
 
   ngOnInit(): void {}
 }

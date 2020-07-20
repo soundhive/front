@@ -3,8 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Album } from 'src/app/models/album';
 import { Pagination } from 'src/app/models/pagination/pagination';
 import { Track } from 'src/app/models/track';
+import { S3Service } from 'src/app/services/s3.service';
 import { UserService } from 'src/app/services/user.service';
-import { environment } from 'src/environments/environment';
 import { User } from '../../models/user';
 import { AuthService } from '../../shared/auth.service';
 
@@ -20,23 +20,19 @@ export class UserProfileComponent implements OnInit {
   self = false;
   currentTracksPage = 1;
   currentAlbumsPage = 1;
-  s3Bucket: string;
-  s3Endpoint: string;
 
   constructor(
     public userService: UserService,
     public authService: AuthService,
     private route: ActivatedRoute,
     private router: Router,
+    public s3Service: S3Service,
   ) {
     // call ngOnInit again when router routes to this component
     // otherwise the resolve data will not be affected to component properties.
     this.router.routeReuseStrategy.shouldReuseRoute = () => {
       return false;
     };
-
-    this.s3Bucket = environment.s3_bucket;
-    this.s3Endpoint = environment.s3_endpoint;
   }
 
   ngOnInit() {

@@ -2,8 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Track } from 'src/app/models/track';
 import { PlayerService } from 'src/app/services/player.service';
+import { S3Service } from 'src/app/services/s3.service';
 import { TrackService } from 'src/app/services/track.service';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-player',
@@ -11,9 +11,6 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./player.component.scss'],
 })
 export class PlayerComponent implements OnInit, OnDestroy {
-  s3Bucket: string;
-  s3Endpoint: string;
-
   track: Track = null;
 
   playTrackSub: Subscription;
@@ -22,10 +19,8 @@ export class PlayerComponent implements OnInit, OnDestroy {
   constructor(
     public playerService: PlayerService,
     public trackService: TrackService,
-  ) {
-    this.s3Bucket = environment.s3_bucket;
-    this.s3Endpoint = environment.s3_endpoint;
-  }
+    public s3Service: S3Service,
+  ) {}
 
   ngOnInit(): void {
     const previousTrack = localStorage.getItem('current_track');

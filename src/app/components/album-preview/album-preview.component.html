@@ -1,7 +1,7 @@
 <a routerLink="/album/{{ album.id }}">
     <div class="card album-card" style="display: inline-block;">
         <img
-            src="{{ s3Endpoint }}/{{ s3Bucket }}/{{ album.coverFilename }}"
+            src="{{ this.s3Service.getURL(album.coverFilename) }}"
             class="card-img-top album-cover"
             alt="album cover card"
         />

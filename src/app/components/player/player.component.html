@@ -6,9 +6,7 @@
         >
             <!-- <i class="fa fa-music" aria-hidden="true"></i> -->
             <img
-                src="{{ s3Endpoint }}/{{ s3Bucket }}/{{
-                    track.album.coverFilename
-                }}"
+                src="{{ this.s3Service.getURL(track.album.coverFilename) }}"
                 class="track-cover rounded col-sm-2"
                 alt="track cover"
             />
@@ -31,10 +29,7 @@
             ></i>
 
             <!-- Download button -->
-            <a
-                *ngIf="track.downloadable"
-                href="{{ s3Endpoint }}/{{ s3Bucket }}/{{ track.filename }}"
-            >
+            <a *ngIf="track.downloadable" href="{{ track.filename }}">
                 <i class="fa fa-download" aria-hidden="true"></i>
             </a>
             <i
@@ -46,9 +41,7 @@
         <div class="float-right player col-xs-8 col-sm-8 col-md-8">
             <mat-basic-audio-player
                 [audioUrl]="
-                    track
-                        ? s3Endpoint + '/' + s3Bucket + '/' + track.filename
-                        : null
+                    track ? this.s3Service.getURL(track.filename) : null
                 "
                 [autoPlay]="false"
                 muted="muted"
