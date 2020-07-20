@@ -1,5 +1,5 @@
 <h1>Latest content from your followings</h1>
-<div class="row">
+<div class="row" *ngIf="followedUsers.meta.itemCount > 0; else elseBlock">
     <div class="col-sm">
         <div class="col-title">Followed users</div>
         <div *ngFor="let user of followedUsers.items">
@@ -55,3 +55,6 @@
         </div>
     </div>
 </div>
+<ng-template #elseBlock>
+    You don't follow anyone!
+</ng-template>
