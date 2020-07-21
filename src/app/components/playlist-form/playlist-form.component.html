@@ -1,0 +1,90 @@
+<h1 class="mb-4" *ngIf="isNewPlaylistForm">New Playlist</h1>
+<h1 class="mb-4" *ngIf="!isNewPlaylistForm">Edit Playlist</h1>
+
+<div class="container-fluid">
+    <form [formGroup]="playlistsForm" (ngSubmit)="onSubmitPlaylistsForm()">
+        <fieldset>
+            <div class="form-group">
+                <label for="playlistTitleInput">Title</label>
+                <input
+                    type="text"
+                    [className]="
+                        playlistsForm.controls['title'].invalid &&
+                        playlistsForm.controls['title'].touched
+                            ? 'form-control is-invalid'
+                            : 'form-control'
+                    "
+                    id="playlistTitleInput"
+                    placeholder="Give it a title!"
+                    formControlName="title"
+                />
+                <div
+                    *ngIf="
+                        playlistsForm.controls['title'].invalid &&
+                        playlistsForm.controls['title'].touched
+                    "
+                    class="text-danger"
+                >
+                    <small>{{ requiredFieldAlert }}</small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="playlistDescriptionInput">Description</label>
+                <textarea
+                    [className]="
+                        playlistsForm.controls['description'].invalid &&
+                        playlistsForm.controls['description'].touched
+                            ? 'form-control is-invalid'
+                            : 'form-control'
+                    "
+                    id="playlistDescriptionInput"
+                    rows="3"
+                    placeholder="Give it a description! (optional)"
+                    formControlName="description"
+                ></textarea>
+                <div
+                    *ngIf="
+                        playlistsForm.controls['description'].invalid &&
+                        playlistsForm.controls['description'].touched
+                    "
+                    class="text-danger"
+                >
+                    <small
+                        >Description is required and can not exceed 500
+                        characters</small
+                    >
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="playlistCoverFileInput">Cover image file</label>
+                <input
+                    type="file"
+                    class="form-control-file"
+                    id="playlistCoverFileInput"
+                    formControlName="coverImageFile"
+                />
+                <small
+                    *ngIf="playlistsForm.controls['coverImageFile'].invalid"
+                    class="text-danger"
+                    >File types allowed: jpg and png
+                </small>
+            </div>
+            <button
+                type="submit"
+                class="btn btn-primary mt-4"
+                *ngIf="isNewPlaylistForm"
+                [disabled]="!isFormValid()"
+            >
+                Create playlist
+            </button>
+            <button
+                type="submit"
+                class="btn btn-primary mt-4"
+                *ngIf="!isNewPlaylistForm"
+                [disabled]="!isFormValid()"
+            >
+                Update playlist
+            </button>
+        </fieldset>
+    </form>
+</div>

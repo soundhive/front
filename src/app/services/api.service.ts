@@ -11,6 +11,7 @@ import { Album } from '../models/album';
 import { Favorite } from '../models/favorite';
 import { Listening } from '../models/listening';
 import { Pagination } from '../models/pagination/pagination';
+import { Playlist } from '../models/playlist';
 import { Track } from '../models/track';
 import { User } from '../models/user';
 
@@ -353,5 +354,38 @@ export class ApiService {
           ),
         ),
       );
+  }
+
+  getPlaylists(): Observable<Playlist[]> {
+    const url = `${this.endpoint}/playlists`;
+    return this.http
+      .get<Playlist[]>(url)
+      .pipe(catchError(this.handleError<Playlist[]>('getPlaylists')));
+  }
+
+  getPlaylist(id: string): Observable<Playlist> {
+    const url = `${this.endpoint}/playlists/${id}`;
+    return this.http
+      .get<Playlist>(url)
+      .pipe(catchError(this.handleError<Playlist>(`getPlaylist id=${id}`)));
+  }
+
+  createPlaylist(playlist: Playlist): Observable<Playlist> {
+    const url = `${this.endpoint}/playlists`;
+    return this.http
+      .post<Playlist>(url, playlist)
+      .pipe(catchError(this.handleErrorForm));
+  }
+
+  putPlaylist(playlist: FormData, playlistId): Observable<any> {
+    const url = `${this.endpoint}/playlists/${playlistId}`;
+    return this.http
+      .put(url, playlist, { observe: 'response' })
+      .pipe(catchError(this.handleErrorForm));
+  }
+
+  deletePlaylist(id: string) {
+    const url = `${this.endpoint}/playlists/${id}`;
+    return this.http.delete(url);
   }
 }

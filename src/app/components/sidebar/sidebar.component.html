@@ -64,17 +64,11 @@
     <div class="playlists-section">
         <div style="display: flex;">
             <p class="lead playlists-section-title">PLAYLISTS</p>
-            <a href="#">
+            <a [routerLink]="newPlaylistsLink">
                 <i class="fa fa-plus-circle" aria-hidden="true"></i>
             </a>
         </div>
 
-        <ul>
-            <li><a href="#">Summer playlist</a></li>
-            <li><a href="#">Workout</a></li>
-            <li><a href="#">All times favorites</a></li>
-            <li><a href="#">Road trip</a></li>
-            <li><a href="#">Post Rock</a></li>
-        </ul>
+        <app-playlists></app-playlists>
     </div>
 </div>

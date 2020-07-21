@@ -1,0 +1,20 @@
+<div class="container-fluid">
+    <section>
+        <h1 class="mb-4">{{ this.playlist.title }}</h1>
+        <p>About this playlist:</p>
+        <p>{{ playlist.description }}</p>
+    </section>
+
+    <div *ngIf="currentUser.username === playlist.user.username">
+        <button class="btn btn-danger" (click)="onDeletePlaylist()">
+            Delete
+        </button>
+
+        <a
+            class="btn btn-primary"
+            [routerLink]="['/playlists', playlist.id, 'edit']"
+        >
+            Edit
+        </a>
+    </div>
+</div>
