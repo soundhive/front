@@ -25,7 +25,15 @@
                 (click)="unfavoriteTrack()"
             ></i>
             <!-- Track title -->
-            <div class="title" (click)="onTitleClick(track)">
+
+            <div
+                class="title"
+                (click)="onTitleClick(track)"
+                placement="top"
+                ngbTooltip="Genre: {{ track.genre }}. Description: {{
+                    track.description
+                }} "
+            >
                 {{ track.title }}
             </div>
         </div>
