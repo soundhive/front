@@ -33,4 +33,8 @@ export class NavbarComponent implements OnInit {
   goToSettings() {
     this.router.navigate(['/settings']);
   }
+
+  goToDownloadPage() {
+    this.router.navigate(['/download']);
+  }
 }

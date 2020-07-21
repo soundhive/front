@@ -34,6 +34,7 @@ import { AlertModule } from './components/_alert';
 import { DateAgoPipe } from './pipes/date-ago.pipe';
 import { SecondsToMinutesPipe } from './pipes/seconds-to-minutes.pipe';
 import { AuthInterceptor } from './shared/authconfig.interceptor';
+import { DownloadComponent } from './components/download/download.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { AuthInterceptor } from './shared/authconfig.interceptor';
     PlaylistComponent,
     PlaylistsComponent,
     PlaylistFormComponent,
+    DownloadComponent,
   ],
   imports: [
     BrowserModule,

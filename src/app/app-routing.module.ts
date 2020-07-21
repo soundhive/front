@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AlbumComponent } from './components/album/album.component';
 import { ChartsComponent } from './components/charts/charts.component';
+import { DownloadComponent } from './components/download/download.component';
 import { FavoriteTracksComponent } from './components/favorite-tracks/favorite-tracks.component';
 import { HistoryComponent } from './components/history/history.component';
 import { HomeComponent } from './components/home/home.component';
@@ -111,6 +112,7 @@ const routes: Routes = [
   },
   { path: 'login', component: SigninComponent },
   { path: 'register', component: SignupComponent },
+  { path: 'download', component: DownloadComponent },
   {
     path: 'album/:id',
     component: AlbumComponent,

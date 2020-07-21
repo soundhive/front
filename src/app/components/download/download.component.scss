@@ -1,0 +1,18 @@
+h1 {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+p,
+li {
+  font-size: 120%;
+}
+
+img {
+  max-width: 70%;
+  margin-bottom: 3rem;
+}
+.filter-black {
+  filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(324deg) brightness(0%)
+    contrast(104%);
+}
