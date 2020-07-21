@@ -1,6 +1,12 @@
-# SoundhiveFront
+# Soundhive
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
+The frontend of Soundhive. Designed to be run along the [API](https://github.com/soundhive/api).
+
+## Screenshots
+
+![home](./screenshots/home.png)
+![profile](./screenshots/profile.png)
+![history](./screenshots/history.png)
 
 ## Development server
 
