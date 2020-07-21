@@ -14,6 +14,10 @@
   color: whitesmoke;
   margin-top: 1em;
   display: flex;
+  img {
+    max-height: 100px;
+    object-fit: contain;
+  }
   i {
     color: white;
     font-size: 22px;
