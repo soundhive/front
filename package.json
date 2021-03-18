@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "start:prod": "node server.js",
-    "build": "ng build --configuration=${ENV}",
+    "build": "ng build -c $ENV",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
